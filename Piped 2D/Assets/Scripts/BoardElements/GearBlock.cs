@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class GearBlock : MonoBehaviour
 {
+    Block block = new Block();
+    SpriteRenderer spriteRenderer;
 
-    Color highlightColor = new Color(0.8f, 0.6f, 1);
-    public float angularVelocity;
     bool isRotating = false;
     Rigidbody2D rb;
 
@@ -19,10 +19,11 @@ public class GearBlock : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        angularVelocity = GameManager.Instance.rampAngularVelocity;
         detectAndConnectNeighbourBits(false);
         GameManager.Instance.allGears.Add(gameObject);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 1);
     }
 
     // Rotate the gear together with the ramps from the connection
@@ -167,7 +168,7 @@ public class GearBlock : MonoBehaviour
         return null;
     }
 
-
+    // Detect clicking on the Gear
     private void OnMouseOver()
     {
         // Stop from modifying the gears already placed
@@ -176,29 +177,29 @@ public class GearBlock : MonoBehaviour
             return;
         }
 
-        changeSpriteColor(highlightColor);
-
         // Mouse right-click to remove the object
         if (Input.GetMouseButtonDown(1))
         {
-            GameManager.Instance.availableGearCellCenters.Add(gameObject.transform.position);
             removeConnection();
-            GameManager.Instance.increaseCounter(GameManager.Instance.getObjTypeByTag(gameObject.tag));
             GameManager.Instance.allGears.Remove(gameObject);
-            Debug.Log("<color=grey>Deleting the gear");
-            Destroy(gameObject);
+            
+            block.destroyBlock(gameObject);
         }
 
     }
 
+    // Change colors on mouse hover
+    private void OnMouseEnter()
+    {
+        changeSpriteColor(block.highlightColor);
+    }
     private void OnMouseExit()
     {
         changeSpriteColor(Color.white);
     }
-
     private void changeSpriteColor(Color color)
     {
-        gameObject.GetComponent<SpriteRenderer>().material.color = color;
+         spriteRenderer.material.color = color;
     }
 
     void removeConnection()

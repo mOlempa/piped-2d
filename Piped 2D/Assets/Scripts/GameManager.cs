@@ -691,11 +691,11 @@ public class GameManager : MonoBehaviour
             // Set bit (to ON) if setup.Value is true, else reset this bit (set to OFF)
             if (setup.Value)
             {
-                bitObjects[setup.Key].GetComponent<Block>().setBit();
+                bitObjects[setup.Key].GetComponent<Bit>().setBit();
             }
             else
             {
-                bitObjects[setup.Key].GetComponent<Block>().resetBit();
+                bitObjects[setup.Key].GetComponent<Bit>().resetBit();
             }
         }
     }

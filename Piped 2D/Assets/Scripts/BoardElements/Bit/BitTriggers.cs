@@ -15,14 +15,14 @@ public class BitTriggers : MonoBehaviour
     SpriteRenderer bitSpriteRenderer;
 
     [SerializeField]
-    Block blockScript;
+    Bit blockScript;
 
     int thisBitCell;
 
 
     private void Start()
     {
-        if(!getParentBitObject().TryGetComponent<Block>(out blockScript)){
+        if(!getParentBitObject().TryGetComponent<Bit>(out blockScript)){
             print("<color=red>Couldn't assign Block script to bit triggers");
         }
         thisBitCell = LevelManager.Instance.posToCellDictionary[getParentBitObject().transform.position];

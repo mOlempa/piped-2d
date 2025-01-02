@@ -101,9 +101,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8895197838560047486}
   - component: {fileID: 1856809733601528089}
-  - component: {fileID: -1448584719583523029}
   - component: {fileID: 9223093203003329115}
   - component: {fileID: 1175495871395692630}
+  - component: {fileID: 2964311326600991719}
   m_Layer: 0
   m_Name: Stopper
   m_TagString: Stopper
@@ -181,19 +181,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1448584719583523029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323851901982645609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291dd6b906375aa4cb5e2bea0f343524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOn: 0
 --- !u!61 &9223093203003329115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -312,3 +299,15 @@ PolygonCollider2D:
       - {x: 0.5217157, y: 0.48903638}
       - {x: 0.5281117, y: 0.5328404}
   m_UseDelaunayMesh: 0
+--- !u!114 &2964311326600991719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323851901982645609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85a0ce01f310194ab78bb911d524d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

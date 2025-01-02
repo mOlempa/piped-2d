@@ -274,9 +274,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8895197838560047486}
   - component: {fileID: 1856809733601528089}
-  - component: {fileID: -1448584719583523029}
   - component: {fileID: 735194267742494255}
   - component: {fileID: 9223093203003329115}
+  - component: {fileID: 7474853822580595501}
   m_Layer: 0
   m_Name: Pass
   m_TagString: Pass
@@ -355,20 +355,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1448584719583523029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323851901982645609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291dd6b906375aa4cb5e2bea0f343524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOn: 0
-  bitRamp: {fileID: 0}
 --- !u!60 &735194267742494255
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -496,6 +482,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0529535, y: 1.09502}
   m_EdgeRadius: 0
+--- !u!114 &7474853822580595501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323851901982645609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145b7b50e35cd83499025b98893e5cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8719924361813248054
 GameObject:
   m_ObjectHideFlags: 0

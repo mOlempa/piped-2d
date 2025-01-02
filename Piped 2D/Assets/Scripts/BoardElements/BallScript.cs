@@ -162,6 +162,31 @@ public class BallScript : MonoBehaviour
         }
     }
 
+    public void handleBlockEnter(int cell)
+    {
+        if (!blocksBallIsIn.Contains(cell))
+        {
+            blocksBallIsIn.Add(cell);
+        }
+        ignoreFall = true;
+    }
+
+    public void handleBlockExit(int cell)
+    {
+        if (blocksBallIsIn.Contains(cell))
+        {
+            blocksBallIsIn.Remove(cell);
+            if (blocksBallIsIn.Count == 0)
+            {
+                if (!isAtOutput)
+                {
+                    //print("<color=orange>Ball can take damage again");
+                    ignoreFall = false;
+                }
+            }
+        }
+    }
+
 
 
 }
