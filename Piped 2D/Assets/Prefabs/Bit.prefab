@@ -184,9 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d9b4e79ceb48e40a5606827d755c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lampOnSprite: {fileID: 8260829224564213498, guid: b209722532ef8024bbc1db1f987bb471, type: 3}
-  lampOffSprite: {fileID: -3110155515567139945, guid: 1e2b2a69f8fc7e54fb70e378b2b698e0, type: 3}
-  bitSpriteRenderer: {fileID: 1856809733601528089}
+  lampOnSprite: {fileID: -6120088304711017604, guid: 0ae837dda30016449867bb50c2b737a1, type: 3}
+  lampOffSprite: {fileID: 6028672174743437365, guid: 57007da500f813b4a840e73514e81022, type: 3}
+  bitSpriteRenderer: {fileID: 8086199628638508602}
   blockScript: {fileID: -1448584719583523029}
 --- !u!1 &2461849527397821242
 GameObject:
@@ -364,7 +364,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1177069776859018708, guid: 242cc266ed703ce49bb2f091c11d8422, type: 3}
+  m_Sprite: {fileID: 4536117623248679753, guid: bceeee712f96def49b37c890187ab334, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -387,8 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291dd6b906375aa4cb5e2bea0f343524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
   bitRamp: {fileID: 7162636125897382201}
+  isOn: 0
 --- !u!61 &9223093203003329115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -427,7 +427,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.29}
+    oldSize: {x: 1.06, y: 1.12}
     newSize: {x: 1.07, y: 1.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -571,7 +571,7 @@ Transform:
   m_GameObject: {fileID: 7162636125897382201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0009999893, y: -0.26000002, z: 0}
+  m_LocalPosition: {x: -0.0009999893, y: -0.26000002, z: 0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -620,7 +620,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8630645257856265054, guid: 5a89ba0417d4b6548a01bcf71cc4ae7f, type: 3}
+  m_Sprite: {fileID: 8617674383261174200, guid: 2b14a15537dba57419b6436dabfd0381, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -916,7 +916,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3110155515567139945, guid: 1e2b2a69f8fc7e54fb70e378b2b698e0, type: 3}
+  m_Sprite: {fileID: 6028672174743437365, guid: 57007da500f813b4a840e73514e81022, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d9b4e79ceb48e40a5606827d755c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lampOnSprite: {fileID: 8260829224564213498, guid: b209722532ef8024bbc1db1f987bb471, type: 3}
-  lampOffSprite: {fileID: -3110155515567139945, guid: 1e2b2a69f8fc7e54fb70e378b2b698e0, type: 3}
-  bitSpriteRenderer: {fileID: 1856809733601528089}
+  lampOnSprite: {fileID: -6120088304711017604, guid: 0ae837dda30016449867bb50c2b737a1, type: 3}
+  lampOffSprite: {fileID: 6028672174743437365, guid: 57007da500f813b4a840e73514e81022, type: 3}
+  bitSpriteRenderer: {fileID: 8086199628638508602}
   blockScript: {fileID: -1448584719583523029}

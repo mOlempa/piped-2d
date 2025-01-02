@@ -456,7 +456,7 @@ public class LevelManager : MonoBehaviour
                 };
             case Level.Level29:
                 return new Dictionary<BlockType, int[]>() {
-                    { BlockType.Bit, new int[] { 29 } }
+                    { BlockType.Bit, new int[] { 1 } }
                 };
             case Level.Level30:
                 return new Dictionary<BlockType, int[]>() {
@@ -1074,7 +1074,7 @@ public class LevelManager : MonoBehaviour
                 {
                     // 0 in cell position means the Stopper will be placed by the player, so no cell is defined here
                     var stopperContent = new Dictionary<int, Ball>() { { 0, Ball.Red } };
-                    var ballOutput = new List<Ball>() { Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red,
+                    var ballOutput = new List<Ball>() { Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red,
                     Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue };
 
                     return new List<SolutionCase> {

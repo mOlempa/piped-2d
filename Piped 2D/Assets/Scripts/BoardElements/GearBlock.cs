@@ -180,10 +180,12 @@ public class GearBlock : MonoBehaviour
         // Mouse right-click to remove the object
         if (Input.GetMouseButtonDown(1))
         {
+            GameManager.Instance.availableGearCellCenters.Add(gameObject.transform.position);
             removeConnection();
+            GameManager.Instance.increaseCounter(GameManager.Instance.getObjTypeByTag(gameObject.tag));
             GameManager.Instance.allGears.Remove(gameObject);
-            
-            block.destroyBlock(gameObject);
+            Debug.Log("<color=grey>Deleting the gear");
+            Destroy(gameObject);
         }
 
     }
