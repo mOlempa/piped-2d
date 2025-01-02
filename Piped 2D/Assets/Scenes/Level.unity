@@ -380,14 +380,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 16054460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24f86143577c5b14cb15b7abe048100d, type: 3}
+  m_Script: {fileID: 11500000, guid: ae3140b4ba72b814eb87f2f3843ae4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instructionPanelScript: {fileID: 1012211}
+  settingsPanel: {fileID: 1174717102}
   tutorialPanel: {fileID: 1941592464}
   hintPanel: {fileID: 708465567}
   instructionButton: {fileID: 940302681}
-  menuButton: {fileID: 158002742}
+  menuButton: {fileID: 1991861362}
   tutorialButton: {fileID: 186710113}
   levelText: {fileID: 2127775554}
   switchStartingSideButton: {fileID: 412173493}
@@ -396,7 +397,6 @@ MonoBehaviour:
   togglePauseButton: {fileID: 282553350}
   deleteTestBallsButton: {fileID: 1433841296}
   nextLevelButton: {fileID: 791675762}
-  settingsPanel: {fileID: 1174717102}
   gamePause: 0
   passButtonObject: {fileID: 1268074809}
   crossoverButtonObject: {fileID: 1413121364}
@@ -7292,94 +7292,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857268252}
   m_CullTransparentMesh: 1
---- !u!1 &858993913
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 858993914}
-  - component: {fileID: 858993917}
-  - component: {fileID: 858993916}
-  - component: {fileID: 858993915}
-  m_Layer: 5
-  m_Name: Result Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &858993914
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858993913}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1258292577}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.000004, y: 169}
-  m_SizeDelta: {x: 100, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &858993915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858993913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d4beb7b04c05e489a6fa05448818de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &858993916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858993913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 6333763682954140257, guid: 0d5d88df29f66234c9cc61cc90d8027c, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &858993917
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858993913}
-  m_CullTransparentMesh: 1
 --- !u!1 &888036608
 GameObject:
   m_ObjectHideFlags: 0
@@ -7393,7 +7305,7 @@ GameObject:
   - component: {fileID: 888036610}
   - component: {fileID: 888036612}
   m_Layer: 0
-  m_Name: BoardPrototype
+  m_Name: Board
   m_TagString: Board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7428,7 +7340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToSpawnShadow: {fileID: 186129190}
   objToSpawn: {fileID: 4323851901982645609, guid: d35e6dba44f875c438473b2d0ba7b4a5, type: 3}
-  redSquare: {fileID: 4323851901982645609, guid: d35e6dba44f875c438473b2d0ba7b4a5, type: 3}
   pass: {fileID: 4323851901982645609, guid: 00317dfff833d164d828b90f93e0d3a4, type: 3}
   crossover: {fileID: 4323851901982645609, guid: 4027393d5d68cd84a89eab0db9f21e05, type: 3}
   bit: {fileID: 4323851901982645609, guid: 15f8b9b41cb1daf44af165ac556c338f, type: 3}
@@ -10626,7 +10537,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1957221557}
-  - {fileID: 858993914}
   - {fileID: 1930963135}
   - {fileID: 999118867}
   m_Father: {fileID: 16054465}
@@ -14306,7 +14216,7 @@ GameObject:
   - component: {fileID: 1579068158}
   - component: {fileID: 1579068157}
   m_Layer: 5
-  m_Name: SpeedUp Button
+  m_Name: Speed Button
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Hint : MonoBehaviour
+public class HintPanel : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI hint;

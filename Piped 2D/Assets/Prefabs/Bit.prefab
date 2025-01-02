@@ -88,7 +88,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130550228738652684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c68f4f9e3a41f647b220147ee6f5f25, type: 3}
+  m_Script: {fileID: 11500000, guid: ced974d2fa00cb748ada7b35519d339a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blockingCollider: {fileID: 6637005231347179719}
@@ -181,16 +181,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2392432993826596672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad42c9644d99a94bbd99f0a476bb042, type: 3}
+  m_Script: {fileID: 11500000, guid: 44d9b4e79ceb48e40a5606827d755c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lampOnSprite: {fileID: 8260829224564213498, guid: b209722532ef8024bbc1db1f987bb471, type: 3}
   lampOffSprite: {fileID: -3110155515567139945, guid: 1e2b2a69f8fc7e54fb70e378b2b698e0, type: 3}
-  bitSpriteRenderer: {fileID: 8086199628638508602}
-  blockScript: {fileID: 0}
-  ballBarrier: {fileID: 6637005231347179719}
-  rampBlockingColliderLeft: {fileID: 0}
-  rampBlockingColliderRight: {fileID: 0}
+  bitSpriteRenderer: {fileID: 1856809733601528089}
+  blockScript: {fileID: -1448584719583523029}
 --- !u!1 &2461849527397821242
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +276,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2461849527397821242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a4035afad83af2469018d970642185d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4049f87bbde68894282eb1402b5ad962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4323851901982645609
@@ -764,11 +761,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f045b3a79528e974d98d1218894438e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAlong: 0
-  rotationReferenceRamp: {fileID: 0}
-  disableRampBlockers: 0
-  rampParent: {fileID: 0}
   bitTop: {fileID: 7366930472978431907}
+  isRotating: 0
+  stopRotation: 0
+  direction: 1
+  isOn: 1
 --- !u!50 &1744136739447689444
 Rigidbody2D:
   serializedVersion: 4
@@ -1086,7 +1083,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8365516309156121136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c68f4f9e3a41f647b220147ee6f5f25, type: 3}
+  m_Script: {fileID: 11500000, guid: ced974d2fa00cb748ada7b35519d339a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blockingCollider: {fileID: 6637005231347179719}
@@ -1179,13 +1176,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8655587644593326420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad42c9644d99a94bbd99f0a476bb042, type: 3}
+  m_Script: {fileID: 11500000, guid: 44d9b4e79ceb48e40a5606827d755c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lampOnSprite: {fileID: 8260829224564213498, guid: b209722532ef8024bbc1db1f987bb471, type: 3}
   lampOffSprite: {fileID: -3110155515567139945, guid: 1e2b2a69f8fc7e54fb70e378b2b698e0, type: 3}
-  bitSpriteRenderer: {fileID: 8086199628638508602}
-  blockScript: {fileID: 0}
-  ballBarrier: {fileID: 6637005231347179719}
-  rampBlockingColliderLeft: {fileID: 0}
-  rampBlockingColliderRight: {fileID: 0}
+  bitSpriteRenderer: {fileID: 1856809733601528089}
+  blockScript: {fileID: -1448584719583523029}

@@ -8,8 +8,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static LevelManager;
-using static UnityEngine.Rendering.DebugUI;
 using Button = UnityEngine.UI.Button;
 using Color = UnityEngine.Color;
 
@@ -17,6 +15,9 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField]
     InstructionPanel instructionPanelScript;
+
+    [SerializeField]
+    GameObject settingsPanel;
 
     [SerializeField]
     GameObject tutorialPanel;
@@ -56,8 +57,7 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     Button nextLevelButton;
 
-    [SerializeField]
-    GameObject settingsPanel;
+   
 
     //bool gameSpeedUp = false;
     public bool gamePause = false;
@@ -134,11 +134,11 @@ public class GameUI : MonoBehaviour
 
     IEnumerator setTutorialButton()
     {
-        while (tutorialPanel.GetComponent<Tutorial>().thisLevelHasTutorial == null)
+        while (tutorialPanel.GetComponent<TutorialPanel>().thisLevelHasTutorial == null)
         {
             yield return null;
         }
-        if ((bool)tutorialPanel.GetComponent<Tutorial>().thisLevelHasTutorial)
+        if ((bool)tutorialPanel.GetComponent<TutorialPanel>().thisLevelHasTutorial)
         {
             tutorialButton.gameObject.SetActive(true);
         }
@@ -450,7 +450,7 @@ public class GameUI : MonoBehaviour
 
     public void openTutorial()
     {
-        tutorialPanel.GetComponent<Tutorial>().openTutorial();
+        tutorialPanel.GetComponent<TutorialPanel>().openTutorial();
         //tutorialPanel.SetActive(true);
     }
 

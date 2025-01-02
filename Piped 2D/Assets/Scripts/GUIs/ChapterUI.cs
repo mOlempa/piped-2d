@@ -33,7 +33,7 @@ public class ChapterUI : MonoBehaviour
 
 
     [SerializeField] 
-    Image image = null;
+    Image boardThumbnailImage = null;
 
     List<Button> allButtons = new List<Button>();
 
@@ -162,7 +162,7 @@ public class ChapterUI : MonoBehaviour
     {
         setLevelInManager();
         levelText.text = "LEVEL " + currentLevel;
-        image.sprite = Resources.Load<Sprite>("Images/Board Thumbnails/thumbnail " + currentLevel);
+        boardThumbnailImage.sprite = Resources.Load<Sprite>("Images/Board Thumbnails/thumbnail " + currentLevel);
 
         /*if (LevelManager.Instance.currentLevelStates[currentLevel])
         {

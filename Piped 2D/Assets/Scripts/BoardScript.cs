@@ -7,6 +7,44 @@ using UnityEngine;
 
 public class BoardScript : MonoBehaviour
 {
+    [SerializeField]
+    GameObject objToSpawnShadow;
+
+    [SerializeField]
+    GameObject objToSpawn;
+
+    [SerializeField]
+    GameObject pass;
+    
+    [SerializeField] 
+    GameObject crossover;
+
+    [SerializeField]
+    GameObject bit;
+
+    [SerializeField]
+    Sprite bitSprite;
+
+    [SerializeField]
+    GameObject stopper;
+
+    [SerializeField] 
+    GameObject gear;
+
+    [SerializeField]
+    GameObject blueBall;
+
+    [SerializeField]
+    GameObject redBall;
+
+    [SerializeField]
+    GameObject ballSpawn;
+
+
+    public bool spawnBlueBallsCoroutineStarted;
+    public bool spawnRedBallsCoroutineStarted;
+
+
     int[] irregularCells = LevelManager.Instance.irregularCells;
     int[] gearCells = LevelManager.Instance.gearsCells;
 
@@ -18,27 +56,8 @@ public class BoardScript : MonoBehaviour
     Vector2[] gearCellCenters = new Vector2[LevelManager.Instance.gearsCells.Length];
     //List<Vector2> availableCellCenters = new List<Vector2>();
 
-    public GameObject objToSpawnShadow;
     private SpriteRenderer shadowRenderer;
 
-    public GameObject objToSpawn;
-
-    // For testing and such, to be deleted later
-    public GameObject redSquare;
-
-    public GameObject pass;
-    public GameObject crossover;
-    public GameObject bit;
-    public Sprite bitSprite;
-    public GameObject stopper;
-    public GameObject gear;
-
-    public GameObject blueBall;
-    public GameObject redBall;
-
-    public GameObject ballSpawn;
-    public bool spawnBlueBallsCoroutineStarted;
-    public bool spawnRedBallsCoroutineStarted;
 
 
     void Start()
@@ -465,7 +484,8 @@ public class BoardScript : MonoBehaviour
         }
         else
         {
-            return redSquare;
+            Debug.LogError("getObjectByBlockType: Returning empty GameObject");
+            return new GameObject();
         }
     }
 

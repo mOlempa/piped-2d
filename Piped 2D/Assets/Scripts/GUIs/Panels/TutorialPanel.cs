@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tutorial : MonoBehaviour
+public class TutorialPanel : MonoBehaviour
 {
     [SerializeField]
     Image spotlightOverlay;

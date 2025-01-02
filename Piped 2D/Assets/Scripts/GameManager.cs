@@ -3,16 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Xml;
-using System.Xml.Serialization;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.U2D.IK;
-using UnityEngine.UI;
-using static LevelManager;
 
 public enum GameSpeed
 {
@@ -21,17 +13,6 @@ public enum GameSpeed
     Slow
 }
 
-/*public struct BitObject
-{
-    public BitObject(int _cell, GameObject _bit, GameObject _ramp)
-    {
-        cell = _cell; bit = _bit; ramp = _ramp;
-    }
-
-    public int cell;
-    public GameObject bit;
-    public GameObject ramp;
-}*/
 
 public class GameManager : MonoBehaviour
 {

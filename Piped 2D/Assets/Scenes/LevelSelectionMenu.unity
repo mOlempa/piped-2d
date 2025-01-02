@@ -1348,7 +1348,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 405193460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede323fbbceb50f4e937b7497e67fb42, type: 3}
+  m_Script: {fileID: 11500000, guid: c061b587fdc8c9d429dfe99fd04c5cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chapterText: {fileID: 1882025725}
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   nextLevelButton: {fileID: 1652539448}
   previousLevelButton: {fileID: 1782530094}
   settingsPanel: {fileID: 1289028634}
-  image: {fileID: 1514749876}
+  boardThumbnailImage: {fileID: 1514749876}
   currentLevel: 1
 --- !u!1 &435657088
 GameObject:
