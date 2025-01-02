@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2ffb23f5d66fbe848b5c7aa9d6ded6ef
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - crossover: {fileID: 4323851901982645609, guid: 4027393d5d68cd84a89eab0db9f21e05, type: 3}
+  - counterText1: {instanceID: 0}
+  - counterText2: {instanceID: 0}
+  - levelManagerObj: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

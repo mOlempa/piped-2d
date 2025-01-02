@@ -1,0 +1,1389 @@
+fileFormatVersion: 2
+guid: df779499be7fd2941934f701a2e9c53e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7827321151919786369
+    second: thumbnail 24_0
+  - first:
+      213: 7185540385498035423
+    second: thumbnail 24_1
+  - first:
+      213: 4030691936591910380
+    second: thumbnail 24_2
+  - first:
+      213: 6731333708692989746
+    second: thumbnail 24_3
+  - first:
+      213: -3610976186623295840
+    second: thumbnail 24_4
+  - first:
+      213: -7581509945073957292
+    second: thumbnail 24_5
+  - first:
+      213: 1790150462110178404
+    second: thumbnail 24_6
+  - first:
+      213: 8345849424224845414
+    second: thumbnail 24_7
+  - first:
+      213: 4465377688340922142
+    second: thumbnail 24_8
+  - first:
+      213: 1791730116795738350
+    second: thumbnail 24_9
+  - first:
+      213: 1202929583740402000
+    second: thumbnail 24_10
+  - first:
+      213: 1555733379664678483
+    second: thumbnail 24_11
+  - first:
+      213: -6836039414153361710
+    second: thumbnail 24_12
+  - first:
+      213: -3991928067429096935
+    second: thumbnail 24_13
+  - first:
+      213: 4791486159724156949
+    second: thumbnail 24_14
+  - first:
+      213: -3258759407407225373
+    second: thumbnail 24_15
+  - first:
+      213: -266762965615154575
+    second: thumbnail 24_16
+  - first:
+      213: 8772217573503426807
+    second: thumbnail 24_17
+  - first:
+      213: 5309884952418823573
+    second: thumbnail 24_18
+  - first:
+      213: 6700406664606845962
+    second: thumbnail 24_19
+  - first:
+      213: -7648956917650283480
+    second: thumbnail 24_20
+  - first:
+      213: -9147882570756726506
+    second: thumbnail 24_21
+  - first:
+      213: 2191375315246807685
+    second: thumbnail 24_22
+  - first:
+      213: 1440403998977799156
+    second: thumbnail 24_23
+  - first:
+      213: -5177332435657625401
+    second: thumbnail 24_24
+  - first:
+      213: 5300498955396997235
+    second: thumbnail 24_25
+  - first:
+      213: -1205521626176243352
+    second: thumbnail 24_26
+  - first:
+      213: 8526883949829050297
+    second: thumbnail 24_27
+  - first:
+      213: 812291639907767207
+    second: thumbnail 24_28
+  - first:
+      213: 3653344395256713998
+    second: thumbnail 24_29
+  - first:
+      213: 4453961898414026954
+    second: thumbnail 24_30
+  - first:
+      213: -3425266130358187718
+    second: thumbnail 24_31
+  - first:
+      213: 495691316128561223
+    second: thumbnail 24_32
+  - first:
+      213: 3536623382665194724
+    second: thumbnail 24_33
+  - first:
+      213: -6733108352159261515
+    second: thumbnail 24_34
+  - first:
+      213: -8956583566212016486
+    second: thumbnail 24_35
+  - first:
+      213: -1389613034898768525
+    second: thumbnail 24_36
+  - first:
+      213: 5494095446184353499
+    second: thumbnail 24_37
+  - first:
+      213: -1930508532077367970
+    second: thumbnail 24_38
+  - first:
+      213: 8916765671918754197
+    second: thumbnail 24_39
+  - first:
+      213: 1732160836768780202
+    second: thumbnail 24_40
+  - first:
+      213: -7053963391091785733
+    second: thumbnail 24_41
+  - first:
+      213: -3663643196643596566
+    second: thumbnail 24_42
+  - first:
+      213: 6817426676384418929
+    second: thumbnail 24_43
+  - first:
+      213: 7993222703784882632
+    second: thumbnail 24_44
+  - first:
+      213: -4592013803086036895
+    second: thumbnail 24_45
+  - first:
+      213: 6772269554431090837
+    second: thumbnail 24_46
+  - first:
+      213: 7859525066292799461
+    second: thumbnail 24_47
+  - first:
+      213: -6938081508164041992
+    second: thumbnail 24_48
+  - first:
+      213: -1769506499653552382
+    second: thumbnail 24_49
+  - first:
+      213: 309611397638292900
+    second: thumbnail 24_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thumbnail 24_0
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 359
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1898413ed1b30ac60800000000000000
+      internalID: 7827321151919786369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 400
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd475d4f8ea28b360800000000000000
+      internalID: 7185540385498035423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 359
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce59797f5f4efe730800000000000000
+      internalID: 4030691936591910380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_3
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 359
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237224b08508a6d50800000000000000
+      internalID: 6731333708692989746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_4
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 399
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae7cef3a4c33edc0800000000000000
+      internalID: -3610976186623295840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_5
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 359
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45686ce9fd019c690800000000000000
+      internalID: -7581509945073957292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 279
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c14945c54e7d810800000000000000
+      internalID: 1790150462110178404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_7
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 319
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ef1d745d962d370800000000000000
+      internalID: 8345849424224845414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_8
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 279
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ff385595538fd30800000000000000
+      internalID: 4465377688340922142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_9
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 319
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8aaf85c018dd810800000000000000
+      internalID: 1791730116795738350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 279
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059b7a0451aa1b010800000000000000
+      internalID: 1202929583740402000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_11
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 319
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e81242443179510800000000000000
+      internalID: 1555733379664678483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_12
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 279
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6c1d82f528121a0800000000000000
+      internalID: -6836039414153361710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_13
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 319
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9122af3a292d998c0800000000000000
+      internalID: -3991928067429096935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_14
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 279
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5181f80a647ce7240800000000000000
+      internalID: 4791486159724156949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_15
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 319
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5a709a59f86c2d0800000000000000
+      internalID: -3258759407407225373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_16
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 279
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a67430f744c4cf0800000000000000
+      internalID: -266762965615154575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 199
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f06c19e76d2db970800000000000000
+      internalID: 8772217573503426807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_18
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 239
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59dad133b3080b940800000000000000
+      internalID: 5309884952418823573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_19
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 199
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c0d867c50acfc50800000000000000
+      internalID: 6700406664606845962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_20
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 239
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8242035953279d590800000000000000
+      internalID: -7648956917650283480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 199
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611ee0bf4413c0180800000000000000
+      internalID: -9147882570756726506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_22
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 239
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58a78d22d34596e10800000000000000
+      internalID: 2191375315246807685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_23
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 199
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f3bf143ec75df310800000000000000
+      internalID: 1440403998977799156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_24
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 239
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0f488949b6628b0800000000000000
+      internalID: -5177332435657625401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_25
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 199
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37064c877b72f8940800000000000000
+      internalID: 5300498955396997235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_26
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 239
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 869b6b6d770254fe0800000000000000
+      internalID: -1205521626176243352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_27
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 199
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf4a8666c3955670800000000000000
+      internalID: 8526883949829050297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 119
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3d8ba51f6d54b00800000000000000
+      internalID: 812291639907767207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_29
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 159
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03d0790f5943b230800000000000000
+      internalID: 3653344395256713998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_30
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 119
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0b71e9fb6afcd30800000000000000
+      internalID: 4453961898414026954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_31
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 159
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a39c2de2a920770d0800000000000000
+      internalID: -3425266130358187718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_32
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 119
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748b61030ac01e600800000000000000
+      internalID: 495691316128561223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_33
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 159
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec691c8a3c941130800000000000000
+      internalID: 3536623382665194724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_34
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 119
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bcd45390a13f82a0800000000000000
+      internalID: -6733108352159261515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_35
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 159
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a96d4d653b2d3b380800000000000000
+      internalID: -8956583566212016486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_36
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 119
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d3b97ae4a17bce0800000000000000
+      internalID: -1389613034898768525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_37
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 159
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bded8e703b2fe3c40800000000000000
+      internalID: 5494095446184353499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_38
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 119
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5deaa5e7b47535e0800000000000000
+      internalID: -1930508532077367970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5995d14b227bebb70800000000000000
+      internalID: 8916765671918754197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_40
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 79
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf42798a1fd90810800000000000000
+      internalID: 1732160836768780202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_41
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 39
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff3d575ba94b1e90800000000000000
+      internalID: -7053963391091785733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_42
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 79
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae628486cef182dc0800000000000000
+      internalID: -3663643196643596566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_43
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 39
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c4a20217d5c9e50800000000000000
+      internalID: 6817426676384418929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_44
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 79
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c17fadf2b1adee60800000000000000
+      internalID: 7993222703784882632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_45
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 39
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160cd5f86c3e540c0800000000000000
+      internalID: -4592013803086036895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_46
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 79
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590ee0b574febfd50800000000000000
+      internalID: 6772269554431090837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_47
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 39
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e729aff764a21d60800000000000000
+      internalID: 7859525066292799461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_48
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 79
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f20d2bb0abf6bf90800000000000000
+      internalID: -6938081508164041992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_49
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 39
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207b76cb6337177e0800000000000000
+      internalID: -1769506499653552382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thumbnail 24_50
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a584aefce5fb4400800000000000000
+      internalID: 309611397638292900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      thumbnail 24_0: 7827321151919786369
+      thumbnail 24_1: 7185540385498035423
+      thumbnail 24_10: 1202929583740402000
+      thumbnail 24_11: 1555733379664678483
+      thumbnail 24_12: -6836039414153361710
+      thumbnail 24_13: -3991928067429096935
+      thumbnail 24_14: 4791486159724156949
+      thumbnail 24_15: -3258759407407225373
+      thumbnail 24_16: -266762965615154575
+      thumbnail 24_17: 8772217573503426807
+      thumbnail 24_18: 5309884952418823573
+      thumbnail 24_19: 6700406664606845962
+      thumbnail 24_2: 4030691936591910380
+      thumbnail 24_20: -7648956917650283480
+      thumbnail 24_21: -9147882570756726506
+      thumbnail 24_22: 2191375315246807685
+      thumbnail 24_23: 1440403998977799156
+      thumbnail 24_24: -5177332435657625401
+      thumbnail 24_25: 5300498955396997235
+      thumbnail 24_26: -1205521626176243352
+      thumbnail 24_27: 8526883949829050297
+      thumbnail 24_28: 812291639907767207
+      thumbnail 24_29: 3653344395256713998
+      thumbnail 24_3: 6731333708692989746
+      thumbnail 24_30: 4453961898414026954
+      thumbnail 24_31: -3425266130358187718
+      thumbnail 24_32: 495691316128561223
+      thumbnail 24_33: 3536623382665194724
+      thumbnail 24_34: -6733108352159261515
+      thumbnail 24_35: -8956583566212016486
+      thumbnail 24_36: -1389613034898768525
+      thumbnail 24_37: 5494095446184353499
+      thumbnail 24_38: -1930508532077367970
+      thumbnail 24_39: 8916765671918754197
+      thumbnail 24_4: -3610976186623295840
+      thumbnail 24_40: 1732160836768780202
+      thumbnail 24_41: -7053963391091785733
+      thumbnail 24_42: -3663643196643596566
+      thumbnail 24_43: 6817426676384418929
+      thumbnail 24_44: 7993222703784882632
+      thumbnail 24_45: -4592013803086036895
+      thumbnail 24_46: 6772269554431090837
+      thumbnail 24_47: 7859525066292799461
+      thumbnail 24_48: -6938081508164041992
+      thumbnail 24_49: -1769506499653552382
+      thumbnail 24_5: -7581509945073957292
+      thumbnail 24_50: 309611397638292900
+      thumbnail 24_6: 1790150462110178404
+      thumbnail 24_7: 8345849424224845414
+      thumbnail 24_8: 4465377688340922142
+      thumbnail 24_9: 1791730116795738350
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

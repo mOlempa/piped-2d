@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1585974996369092398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7742111639774796105}
+  - component: {fileID: 6246444644860548075}
+  m_Layer: 0
+  m_Name: GameplayUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7742111639774796105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585974996369092398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1383.2042, y: 526.8454, z: 8.551277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6246444644860548075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585974996369092398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fa18c37ce77864c97a67c0ff13bc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passButtonObject: {fileID: 6415584947465076371, guid: bb2ed5d4fdbe64544a6b4dc4d13d9c39, type: 3}
+  crossoverButtonObject: {fileID: 9167571090187751879, guid: 8c967240b7036a34d8cbee2048687b68, type: 3}
+  bitButtonObject: {fileID: 2521605077584028579, guid: f456d05f2093cfe4ab14d6300cbb272e, type: 3}
+  stopperButtonObject: {fileID: 1491805990284970954, guid: 89256ffb5fc623f4eabfa5ab4701bac0, type: 3}
+  passButton: {fileID: 0}
+  passCounterText: {fileID: 0}
+  crossoverButton: {fileID: 0}
+  crossoverCounterText: {fileID: 0}
+  bitButton: {fileID: 0}
+  bitCounterText: {fileID: 0}
+  stopperButton: {fileID: 0}
+  stopperCounterText: {fileID: 0}
+  addGearsButtonObject: {fileID: 0}
