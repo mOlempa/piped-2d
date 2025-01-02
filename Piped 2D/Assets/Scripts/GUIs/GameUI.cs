@@ -275,8 +275,8 @@ public class GameUI : MonoBehaviour
         }
         else
         {
-            (string title, string instruction) tuple = LevelManager.Instance.getLevelInstruction();
-            instructionPanelScript.setAndShowInstruction(tuple.title, tuple.instruction);
+            //(string title, string instruction) tuple = LevelManager.Instance.getLevelInstruction();
+            instructionPanelScript.showInstruction();
         }
 
     }
