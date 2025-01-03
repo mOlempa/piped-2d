@@ -97,7 +97,8 @@ public class InstructionPanel : MonoBehaviour
                 return ("Task 15", $"If the system starts with the <b>Bit A</b> switched {off}, stop the {blue} marble." +
                     $"\n\nOtherwise stop the {white} one.");
             case Level.Level16:
-                return ("Task 16", $"Let only 3 {blue} marbles get to the output.\n\nStop the 4th one in the <b>Stopper</b>.");
+                return ("Task 16", $"Let only 3 {blue} marbles get to the output.\n\nStop the 4th one in the <b>Stopper</b>.\n\nOutput:\n" +
+                    $"{blue}\n{blue}\n{blue}");
             case Level.Level17:
                 return ("Task 17", $"Make a pattern of <b>6</b> marbles:\n\n{blue}\n{blue}\n{blue}\n{white}\n{white}\n{white}");
             case Level.Level18:
@@ -111,12 +112,14 @@ public class InstructionPanel : MonoBehaviour
                 return ("Task 21", $"Use register A to count the amount of {blue} marbles that roll through.");
             case Level.Level22:
                 return ("Task 22", $"Register A starts with a number 15.\n\nSubtract from it the amount of {blue} marbles that roll through\n\n" +
-                    $"Example: Register A = 15,\n1 marble rolls,\nRegister A = 14.");
+                    $"Example:\nRegister A = 15,\nthen 1 marble rolls,\nand then Register A = 14.");
             case Level.Level23:
-                return ("Task 23", $"Let exactly 4 {blue} marbles get to the output.\n\nStop the 5th one in the <b>Stopper</b>.");
+                return ("Task 23", $"Let exactly 4 {blue} marbles get to the output.\n\nStop the 5th one in the <b>Stopper</b>.\n\nOutput:\n" +
+                    $"{blue}\n{blue}\n{blue}\n{blue}");
             case Level.Level24:
                 return ("Task 24", $"Let exactly 9 {blue} marbles get to the output.\n\nStop the 10th one in a " +
-                    "<b>Stopper</b> (which you need to place).");
+                    "<b>Stopper</b> (which you need to place).\n\nOutput:\n" +
+                    $"{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}");
             case Level.Level25:
                 return ("Task 25", $"Make a pattern of <b>9</b> marbles:\n\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{white}\n{white}\n{white}");
             case Level.Level26:
@@ -125,17 +128,19 @@ public class InstructionPanel : MonoBehaviour
                 return ("Task 27", "Switch the direction of each of the 9 Bits already placed on the board no matter " +
                     "what direction they start in.");
             case Level.Level28:
-                return ("Task 28", $"Release only {blue} marbles.");
+                return ("Task 28", $"Release only {blue} marbles.\n\nOutput:\n" +
+                    $"{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}");
             case Level.Level29:
-                return ("Task 29", $"Release a {blue} marble, then {white} marble, and then <b>all of the rest</b> of the {blue} marbles.");
+                return ("Task 29", $"Release a {blue} marble, then {white} marble, and then <b>all of the rest</b> of the {blue} marbles.\n\n" +
+                    $"Output:\n{blue}\n{white}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}\n{blue}");
             case Level.Level30:
-                return ("Task 30", $"Count {blue} marbles in register A.\n\nIf there is more than 7, make Bit V switch {on} <b>(it has to stay on)</b>, " +
-                    "to signal an <b>overflow</b>.");
+                return ("Task 30", $"Count {blue} marbles in register A.\n\nIf there is more than 7, make <b>Bit V</b> switch {on} <b>(it has to stay on)</b>, " +
+                    "to signal an <b>overflow</b>.\n\n(All marbles are supposed to roll)");
             case Level.Level31:
-                return ("Task 31", $"If Bit A is {off}, count all {blue} marbles in register A.\n\nOtherwise, count them in register B.");
+                return ("Task 31", $"If Bit S is {off}, count all {blue} marbles in register A.\n\nOtherwise, count them in register B.");
             case Level.Level32:
-                return ("Task 32", $"For any direction of the Bit A, make it switched {off} is a {blue} marble is released.\n\n If a {white} " +
-                    $"marble is released, make it {on}.");
+                return ("Task 32", $"For <b>any</b> starting direction of the Bit A, make it switched {off} is a {blue} marble is released.\n\n" +
+                    $"If a {white} marble is released, make it switch {on}.");
             case Level.Level33:
                 return ("Task 33", $"Create a system where Bit B is in the same state ({on} or {off}) as the Bit A.\n\nDo this " +
                     "without changing the state of Bit A.\n\nAfter that stop the marble.");

@@ -1,13 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class HintPanel : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI hint;
+
+    [SerializeField]
+    TextMeshProUGUI solutionButtonText;
+
+    [SerializeField]
+    GameObject solution;
+
+    [SerializeField]
+    Image solutionImage;
+
+    private void Start()
+    {
+        solution.SetActive(false);
+        hint.gameObject.SetActive(true);
+        solutionButtonText.text = "Show Solution";
+    }
 
     private void OnEnable()
     {
@@ -18,6 +35,41 @@ public class HintPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void showSolution()
+    {
+        hint.gameObject.SetActive(false);
+        solution.SetActive(true);
+        try
+        {
+            Sprite sprite = Resources.Load<Sprite>("Images/Solutions/solution_" + (int)GameManager.Instance.currentLevel);
+            solutionImage.sprite = sprite;
+        }
+        catch(Exception ex)
+        {
+            Debug.LogException(ex);
+        }
+        solutionButtonText.text = "Hide Solution";
+    }
+    public void hideSolution()
+    {
+        solution.SetActive(false);
+        hint.gameObject.SetActive(true);
+        solutionButtonText.text = "Show Solution";
+    }
+
+    public void toggleSolution()
+    {
+        if(solution.activeSelf)
+        {
+            hideSolution();
+        }
+        else
+        {
+            showSolution();
+        }
+    }
+
 
     private string getHint()
     {
@@ -40,6 +92,11 @@ public class HintPanel : MonoBehaviour
                 return $"In case of OR, it is enough that one Bit is {on}. Do not roll white marbles in this case.";
             case Level.Level23:
                 return "Use the <b>Bit Register</b> to count 4 marbles.\n\nSet it up in a way that 5th marble ends up in the <b>Stopper</b>";
+            case Level.Level28:
+                return "Place a Bit next to the one placed already and connect them with a Gear.";
+            case Level.Level31:
+                return "Place two new Bits next to <b>Bit A</b> and connect them with a <b>Gear</b>.\n\n" +
+                    "Observe how it resets to the starting state with each marble.";
             default:
                 return "No hint here.";
         }

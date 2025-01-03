@@ -46,6 +46,7 @@ public class Crossover : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            GameManager.Instance.blockSpawningTestBalls = false;
             block.destroyBlock(gameObject);
         }
 

@@ -43,6 +43,11 @@ public class BoardScript : MonoBehaviour
 
     public bool spawnBlueBallsCoroutineStarted;
     public bool spawnRedBallsCoroutineStarted;
+    public bool stopBallSpawnCoroutine = false;
+    public void stopBallSpawning()
+    {
+        stopBallSpawnCoroutine = true;
+    }
 
 
     int[] irregularCells = LevelManager.Instance.irregularCells;
@@ -57,6 +62,7 @@ public class BoardScript : MonoBehaviour
     //List<Vector2> availableCellCenters = new List<Vector2>();
 
     private SpriteRenderer shadowRenderer;
+
 
 
 
@@ -304,6 +310,11 @@ public class BoardScript : MonoBehaviour
         GameObject ball = (type == Ball.Blue) ? blueBall : redBall;
         for (int i = 0; i < amount; i++)
         {
+            if (stopBallSpawnCoroutine)
+            {
+                stopBallSpawnCoroutine = false;
+                yield break;
+            }
             GameObject newBall = Instantiate(ball, new Vector3(spawnPos.x, spawnPos.y, ball.transform.position.z), Quaternion.identity);
             GameManager.Instance.ballObjects.Add(newBall);
             yield return new WaitForSeconds(0.5f);
@@ -319,7 +330,7 @@ public class BoardScript : MonoBehaviour
         }
     }
 
-
+    
 
 
     void Update()

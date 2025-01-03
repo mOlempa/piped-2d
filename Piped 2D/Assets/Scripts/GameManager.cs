@@ -429,6 +429,7 @@ public class GameManager : MonoBehaviour
             }
 
 
+
             // WAITING FOR THIS CASE SIMULATION TO END
 
             // Wait for this case to finish running (e.g. for the ball to finish rolling)
@@ -580,7 +581,7 @@ public class GameManager : MonoBehaviour
 
             if (script.spawnBlueBallsCoroutineStarted || script.spawnRedBallsCoroutineStarted)
             {
-                return;
+                script.stopBallSpawning();
             }
 
             foreach (GameObject ball in ballObjects)

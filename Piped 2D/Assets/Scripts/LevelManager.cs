@@ -429,7 +429,7 @@ public class LevelManager : MonoBehaviour
                 };
             case Level.Level23:
                 return new Dictionary<BlockType, int[]>() {
-                    { BlockType.Pass, new int[] { 3, 4, 7, 13, 14, -18, 24, -29, 35, -40, 46 } },
+                    { BlockType.Pass, new int[] { 3, 4, -7, 13, 14, -18, 24, -29, 35, -40, 46 } },
                     { BlockType.Bit, new int[] { 1, 8, 19 } },
                     { BlockType.Stopper, new int[] { 25 } }
                 };
@@ -1027,7 +1027,7 @@ public class LevelManager : MonoBehaviour
                     var ballOutput = new List<Ball>();
 
                     // Create new solution cases in a loop and add them to the list
-                    for (int regValue = 15; regValue >= 0 ; regValue--)
+                    for (int regValue = 14; regValue >= 0 ; regValue--)
                     {
                         // Add a ball to the output solution case with each iteration
                         ballOutput.Add(Ball.Blue);
