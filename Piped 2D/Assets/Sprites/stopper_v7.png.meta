@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 15af17fe74ef5194f904dc8a93e6f7d9
+guid: 22f68a3c0db0f4343872ca20ac0e076f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -401520240748868986
-    second: circle_white_0
+      213: 4808310352457291887
+    second: stopper_v7_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: circle_white_0
+      name: stopper_v7_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 369
-        height: 368
+        x: 0
+        y: 1
+        width: 106
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68ac808e7738d6af0800000000000000
-      internalID: -401520240748868986
+      spriteID: f68dc004acc8ab240800000000000000
+      internalID: 4808310352457291887
       vertices: []
       indices: 
       edges: []
@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      stopper_v7_0: 4808310352457291887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
