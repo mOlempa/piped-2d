@@ -9,12 +9,16 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField]
     GameObject settingsPanel;
 
+    [SerializeField]
+    GameObject creditsPanel;
+
     private void Start()
     {
         Screen.SetResolution(1920, 1080, true);
 
-        // Activate the panel for adding listeners to the buttons
+        // Activate the panels for adding listeners to the buttons
         settingsPanel.SetActive(true);
+        creditsPanel.SetActive(true);
 
         foreach (GameObject buttonObject in GameObject.FindGameObjectsWithTag("Button"))
         {
@@ -23,8 +27,9 @@ public class MainMenuUI : MonoBehaviour
             button.onClick.AddListener(() => AudioManager.Instance.playSfx("RegularButton"));
         }
 
-        // Deactivate the panel after all the button listeners were added
+        // Deactivate the panels after all the button listeners were added
         settingsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
 
         AudioManager.Instance.playMenuMusic();
     }
