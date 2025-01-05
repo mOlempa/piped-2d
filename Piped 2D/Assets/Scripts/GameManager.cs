@@ -74,6 +74,17 @@ public class GameManager : MonoBehaviour
     public bool wasLastLevel = false;
     public bool finishedGame = false;
 
+    public Dictionary<Ball, int> ballAmountToRespawn = new Dictionary<Ball, int>() { { Ball.Blue, 0 }, { Ball.Red, 0 } };
+    public List<GameObject> ballsToRespawn = new List<GameObject>();
+
+    public bool marblesAreSpawning;
+    public void setMarblesAreSpawning(bool value)
+    {
+        print("Setting marblesAreSpawning to " +  value);
+        marblesAreSpawning = value;
+    }
+
+
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -109,7 +120,7 @@ public class GameManager : MonoBehaviour
     // Load a loading screen and then load the current level
     public void LoadLevel()
     {
-
+        marblesAreSpawning = true;
         SceneManager.LoadScene(2);
         //AudioManager.Instance.stopMusic();
     }
@@ -569,6 +580,7 @@ public class GameManager : MonoBehaviour
         gameUI.showNextLevelButton(true);
         levelCompleted = true;
         LevelManager.Instance.setLevelComplete(currentLevel);
+        AudioManager.Instance.playSfx("LevelComplete");
     }
 
 
@@ -603,6 +615,8 @@ public class GameManager : MonoBehaviour
             board.GetComponent<BoardScript>().spawnBalls();
         }*/
     }
+
+
 
     public void deleteTestBalls()
     {
@@ -647,8 +661,28 @@ public class GameManager : MonoBehaviour
         showLevelCompleteText = false;
         currentBallOutput.Clear();
         currentStopperContents.Clear();
-        resetBalls();
+        //resetBalls();
+        respawnRunBalls();
+
         restorePlayerBitSetup();
+    }
+
+    void respawnRunBalls()
+    {
+        print("respawn balls called!!!!!!!!!!!!!!!!!!!!!!s");
+        GameObject board = GameObject.FindGameObjectWithTag("Board");
+        if (board != null)
+        {
+            BoardScript script = board.GetComponent<BoardScript>();
+
+            foreach (GameObject ball in ballsToRespawn)
+            {
+                Destroy(ball);
+            }
+            ballsToRespawn.Clear();
+
+            script.respawnBalls();
+        }
     }
 
     // Player Bit setup (if it is allowed in the level) gets saved at each start of the simulation

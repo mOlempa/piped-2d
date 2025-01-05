@@ -12,7 +12,7 @@ public class BallScript : MonoBehaviour
     Vector2 dir = Vector2.zero;
     public int strength = 10;
     public Dictionary<int, bool> isInBlocks = new Dictionary<int, bool>();
-    public List<int> blocksBallIsIn = new List<int>();
+    public List<int> blocksThatBallIsIn = new List<int>();
     public bool ignoreFall = false;
     public bool isAtOutput = false;
 
@@ -22,9 +22,14 @@ public class BallScript : MonoBehaviour
     bool destroyOnHitGround = false;
     bool destroyCoroutineStarted = false;
 
+    bool willRespawn = false;
+
+    Ball ballType;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ballType = gameObject.CompareTag("BlueBall") ? Ball.Blue : Ball.Red;
     }
 
     private void Update()
@@ -39,9 +44,8 @@ public class BallScript : MonoBehaviour
         // destroy the ball once it hits the ground
         if (rb.velocity.magnitude > 6 && !ignoreFall && !isAtOutput)
         {
-            //print("<color=red>BALL WILL GET DESTROYED");
-            //rb.constraints = RigidbodyConstraints2D.FreezeAll;
             destroyOnHitGround = true;
+
             // Change the tag so that the triggers don't recognize this ball as a regular one
             gameObject.tag = "BrokenBall";
         }
@@ -164,23 +168,35 @@ public class BallScript : MonoBehaviour
 
     public void handleBlockEnter(int cell)
     {
-        if (!blocksBallIsIn.Contains(cell))
+        // Add the ball to the list for respawning after restarting the simulation
+        if (GameManager.Instance.marblesAreRunning)
         {
-            blocksBallIsIn.Add(cell);
+            // But do it only after the first block it enters, not with every single one
+            if (!willRespawn)
+            {
+                willRespawn = true;
+            }
+        }
+        // Save the block cell number the ball just entered
+        if (!blocksThatBallIsIn.Contains(cell))
+        {
+            blocksThatBallIsIn.Add(cell);
         }
         ignoreFall = true;
     }
 
     public void handleBlockExit(int cell)
     {
-        if (blocksBallIsIn.Contains(cell))
+        if (blocksThatBallIsIn.Contains(cell))
         {
-            blocksBallIsIn.Remove(cell);
-            if (blocksBallIsIn.Count == 0)
+            // Remove the block cell number the ball just exited from the list
+            blocksThatBallIsIn.Remove(cell);
+
+            // If the ball is no longer in a block nor it is at the bottom of the board, allow it to get destroyed on impact
+            if (blocksThatBallIsIn.Count == 0)
             {
                 if (!isAtOutput)
                 {
-                    //print("<color=orange>Ball can take damage again");
                     ignoreFall = false;
                 }
             }

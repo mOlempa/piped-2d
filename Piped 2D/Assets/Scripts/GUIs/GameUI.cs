@@ -130,6 +130,7 @@ public class GameUI : MonoBehaviour
 
         levelText.text = "Level "+ ((int)GameManager.Instance.currentLevel + 1);
         StartCoroutine(setTutorialButton());
+        StartCoroutine(blockGameToggle());
     }
 
     IEnumerator setTutorialButton()
@@ -394,11 +395,17 @@ public class GameUI : MonoBehaviour
 
     IEnumerator blockGameToggle()
     {
+        //print("<color=green>Coroutine started");
         gameToggleBlocked = true;
         toggleSystemButton.interactable = false;
-        yield return new WaitForSeconds(2);
+        while (GameManager.Instance.marblesAreSpawning)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1);
         gameToggleBlocked = false;
         toggleSystemButton.interactable = true;
+        //print("<color=red>Coroutine finished");
     }
 
     public void deleteTestBalls()

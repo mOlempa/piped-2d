@@ -4930,7 +4930,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.18
+  m_Radius: 0.17
 --- !u!114 &6816490654367693337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4945,7 +4945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   darkBlueMaterial: {fileID: 2100000, guid: 10c2e40ffecdd6047add3ac6a84a80fa, type: 2}
   strength: 10
-  blocksBallIsIn: 
+  blocksThatBallIsIn: 
   ignoreFall: 0
   isAtOutput: 0
   canPlayGlassSfx: 1

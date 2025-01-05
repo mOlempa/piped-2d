@@ -306,19 +306,26 @@ public class BoardScript : MonoBehaviour
             }
             yield break;
         }
+        print("<color=green>Starting spawning "+ type +" marbles");
+        GameManager.Instance.setMarblesAreSpawning(true);
+        print("<color=white>Blocking spawning the marbles!!!!!!");
 
         GameObject ball = (type == Ball.Blue) ? blueBall : redBall;
         for (int i = 0; i < amount; i++)
         {
             if (stopBallSpawnCoroutine)
             {
+                spawnBlueBallsCoroutineStarted = false;
+                spawnRedBallsCoroutineStarted = false;
                 stopBallSpawnCoroutine = false;
+                GameManager.Instance.setMarblesAreSpawning(false);
                 yield break;
             }
             GameObject newBall = Instantiate(ball, new Vector3(spawnPos.x, spawnPos.y, ball.transform.position.z), Quaternion.identity);
             GameManager.Instance.ballObjects.Add(newBall);
             yield return new WaitForSeconds(0.5f);
         }
+        print("<color=yellow>Finished spawning "+ type +" marbles");
 
         if (type == Ball.Red)
         {
@@ -328,9 +335,57 @@ public class BoardScript : MonoBehaviour
         {
             spawnBlueBallsCoroutineStarted = false;
         }
+        GameManager.Instance.setMarblesAreSpawning(false);
+        print("<color=white>Unblocking spawning the marbles!!!!!!");
     }
 
-    
+    public void respawnBalls()
+    {
+        // Spawn balls specified for the level in coroutines to create "animation"
+        foreach (Transform child in ballSpawn.transform)
+        {
+            if (child.CompareTag("BallSpawnLeft"))
+            {
+                StartCoroutine(respawnReleasedBallsCoroutine(child.transform.position, Ball.Blue));
+            }
+            if (child.CompareTag("BallSpawnRight"))
+            {
+                StartCoroutine(respawnReleasedBallsCoroutine(child.transform.position, Ball.Red));
+            }
+        }
+    }
+
+    IEnumerator respawnReleasedBallsCoroutine(Vector3 spawnPos, Ball type)
+    {
+        print("<color=green>Starting coroutine");
+        string tag = (type == Ball.Blue) ? "BlueBall" : "RedBall";
+        int amount = GameManager.Instance.ballAmountToRespawn[type];
+        GameObject ball = (type == Ball.Blue) ? blueBall : redBall;
+
+        if (GameManager.Instance.marblesAreSpawning)
+        {
+            yield break;
+        }
+        GameManager.Instance.marblesAreSpawning = true;
+        print("<color=white>Blocking spawning marbles");
+
+        for (int i = 0; i < amount; i++)
+        {
+            if (stopBallSpawnCoroutine)
+            {
+                stopBallSpawnCoroutine = false;
+                GameManager.Instance.marblesAreSpawning = false;
+                yield break;
+            }
+            GameObject newBall = Instantiate(ball, new Vector3(spawnPos.x, spawnPos.y, ball.transform.position.z), Quaternion.identity);
+            GameManager.Instance.ballAmountToRespawn[type] -= 1;
+            GameManager.Instance.ballObjects.Add(newBall);
+            yield return new WaitForSeconds(0.5f);
+        }
+        GameManager.Instance.marblesAreSpawning = false;
+        print("<color=white>Unblocking spawning marbles");
+
+    }
 
 
     void Update()
