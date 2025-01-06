@@ -4,29 +4,6 @@ using UnityEngine;
 
 public class Crossover : MonoBehaviour
 {
-    Block block;
-    SpriteRenderer[] spriteRenderers;
-
-    int cell = 0;
-
-    private void Start()
-    {
-        cell = LevelManager.Instance.posToCellDictionary[gameObject.transform.position];
-        spriteRenderers = gameObject.transform.GetComponentsInChildren<SpriteRenderer>(false);
-    }
-
-
-    // Detect the ball entering and leaving the block for ball's ignoreFall control
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        block.detectBallEnterBlock(other.gameObject, cell);
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        block.detectBallExitBlock(other.gameObject, cell);
-    }
-
-
     private void OnMouseOver()
     {
         // Block player interaction with the blocks once simulation has started
@@ -47,15 +24,10 @@ public class Crossover : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             GameManager.Instance.blockSpawningTestBalls = false;
-            block.destroyBlock(gameObject);
         }
 
     }
 
-    private void OnMouseEnter()
-    {
-        changeSpriteColor(block.highlightColor);
-    }
 
     private void OnMouseExit()
     {
@@ -64,24 +36,9 @@ public class Crossover : MonoBehaviour
             return;
         }
 
-
         // Block spawning test marbles in a crossover since its colliders depend on triggers placed on their entrances
         GameManager.Instance.blockSpawningTestBalls = false;
-
-        changeSpriteColor(Color.white);
-
-        
     }
 
 
-
-
-    private void changeSpriteColor(Color color)
-    {
-        foreach (SpriteRenderer renderer in spriteRenderers)
-        {
-            renderer.material.color = color;
-        }
-        
-    }
 }

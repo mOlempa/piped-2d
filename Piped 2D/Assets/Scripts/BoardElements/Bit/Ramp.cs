@@ -7,9 +7,6 @@ using UnityEngine.Rendering;
 
 public class Ramp : MonoBehaviour
 {
-    //public float angularVelocity;
-    Color highlightColor = new Color(0.8f, 0.6f, 1);
-
     Rigidbody2D rb;
 
     public GameObject bitTop;
@@ -21,13 +18,11 @@ public class Ramp : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        //angularVelocity = GameManager.Instance.rampAngularVelocity;
     }
 
     
     private void OnMouseOver()
     {
-        changeSpriteColor(highlightColor);
         if (Input.GetMouseButtonDown(0))
         {
             // Don't allow interaction with the ramp if player is "holding" a block to spawn
@@ -39,15 +34,7 @@ public class Ramp : MonoBehaviour
         }
 
     }
-    private void OnMouseExit()
-    {
-        changeSpriteColor(Color.white);
-    }
 
-    private void changeSpriteColor(Color color)
-    {
-        gameObject.GetComponent<SpriteRenderer>().material.color = color;
-    }
 
     public void onClick()
     {
@@ -93,9 +80,6 @@ public class Ramp : MonoBehaviour
     {
         stopRotation = true;
     }
-
-
-
 
 
     // Pass through other blocks

@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class GearBlock : MonoBehaviour
 {
-    Block block;
-    SpriteRenderer spriteRenderer;
-
     bool isRotating = false;
     Rigidbody2D rb;
 
@@ -19,7 +16,6 @@ public class GearBlock : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         detectAndConnectNeighbourBits(false);
         GameManager.Instance.allGears.Add(gameObject);
@@ -190,19 +186,6 @@ public class GearBlock : MonoBehaviour
 
     }
 
-    // Change colors on mouse hover
-    private void OnMouseEnter()
-    {
-        changeSpriteColor(block.highlightColor);
-    }
-    private void OnMouseExit()
-    {
-        changeSpriteColor(Color.white);
-    }
-    private void changeSpriteColor(Color color)
-    {
-         spriteRenderer.material.color = color;
-    }
 
     void removeConnection()
     {

@@ -698,6 +698,8 @@ GameObject:
   - component: {fileID: 9223093203003329115}
   - component: {fileID: 8486152879968859597}
   - component: {fileID: 4015526619015823096}
+  - component: {fileID: 2400555524595183275}
+  - component: {fileID: -6501355338216765813}
   m_Layer: 0
   m_Name: Crossover
   m_TagString: Crossover
@@ -905,6 +907,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c20c478dc16e7b439f0794456609d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2400555524595183275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323851901982645609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89de4ebe17f57f9498c37813206daf8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainObject: {fileID: 4323851901982645609}
+--- !u!114 &-6501355338216765813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323851901982645609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7553e684c2e1be74785d57915868fa02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.8, g: 0.6, b: 1, a: 1}
 --- !u!1 &7081806262419682962
 GameObject:
   m_ObjectHideFlags: 0
