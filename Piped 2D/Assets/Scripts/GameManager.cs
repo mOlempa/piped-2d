@@ -265,6 +265,8 @@ public class GameManager : MonoBehaviour
 
         ballObjects.Clear();
         testBallObjects.Clear();
+        ballAmountToRespawn[Ball.Blue] = 0;
+        ballAmountToRespawn[Ball.Red] = 0;
         currentBallOutput.Clear();
         currentStopperContents.Clear();
 
@@ -591,7 +593,7 @@ public class GameManager : MonoBehaviour
         {
             BoardScript script = board.GetComponent<BoardScript>();
 
-            if (script.spawnBlueBallsCoroutineStarted || script.spawnRedBallsCoroutineStarted)
+            if (script.spawningCoroutineStarted[Ball.Blue] || script.spawningCoroutineStarted[Ball.Red])
             {
                 script.stopBallSpawning();
             }
@@ -662,9 +664,12 @@ public class GameManager : MonoBehaviour
         currentBallOutput.Clear();
         currentStopperContents.Clear();
         //resetBalls();
-        respawnRunBalls();
 
-        restorePlayerBitSetup();
+        if (!reloadingLevel)
+        {
+            respawnRunBalls();
+            restorePlayerBitSetup();
+        }
     }
 
     void respawnRunBalls()
@@ -773,17 +778,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 20;
     }
 
-    /*public void switchStartingSide()
-    {
-        if(startingBallType == Ball.Blue)
-        {
-            startingBallType = Ball.Red;
-        }
-        else
-        {
-            startingBallType = Ball.Blue;
-        }
-    }*/
     public void changeStartingSide(Ball ball)
     {
         startingBallType = ball;

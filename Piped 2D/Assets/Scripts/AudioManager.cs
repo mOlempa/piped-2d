@@ -5,7 +5,7 @@ using System;
 using static UnityEngine.Rendering.DebugUI;
 using Unity.VisualScripting;
 
-public enum Material
+public enum HitMaterial
 {
     Glass,
     Metal
@@ -146,7 +146,7 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetString("SfxVolume", volume.ToString());
     }
 
-    public void playRandomMarbleHitSfx(float volumeMultiplier, Material material)
+    public void playRandomMarbleHitSfx(float volumeMultiplier, HitMaterial material)
     {
         if (marbleGlassHitSounds.Length < 1 || marbleMetalHitSounds.Length < 1)
         {
@@ -159,11 +159,11 @@ public class AudioManager : MonoBehaviour
         int rand;
         switch (material)
         {
-            case Material.Glass:
+            case HitMaterial.Glass:
                 rand = UnityEngine.Random.Range(0, marbleGlassHitSounds.Length);
                 audioSource.clip = marbleGlassHitSounds[rand];
                 break;
-            case Material.Metal:
+            case HitMaterial.Metal:
                 rand = UnityEngine.Random.Range(0, marbleMetalHitSounds.Length);
                 audioSource.clip = marbleMetalHitSounds[rand];
                 break;

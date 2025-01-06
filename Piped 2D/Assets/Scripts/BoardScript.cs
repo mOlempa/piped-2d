@@ -41,15 +41,14 @@ public class BoardScript : MonoBehaviour
     GameObject ballSpawn;
 
 
-    public bool spawnBlueBallsCoroutineStarted;
-    public bool spawnRedBallsCoroutineStarted;
-    public bool stopBallSpawnCoroutine = false;
+    public Dictionary<Ball, bool> spawningCoroutineStarted = new Dictionary<Ball, bool>() { { Ball.Red, false },{ Ball.Blue, false } };
+    bool stopBallSpawnCoroutine = false;
     public void stopBallSpawning()
     {
         stopBallSpawnCoroutine = true;
     }
 
-
+    // Copies of defined cell numbers
     int[] irregularCells = LevelManager.Instance.irregularCells;
     int[] gearCells = LevelManager.Instance.gearsCells;
 
@@ -59,9 +58,8 @@ public class BoardScript : MonoBehaviour
     
     Vector2[] regularCellCenters = new Vector2[xCellAmount * yCellAmount - LevelManager.Instance.irregularCells.Length];
     Vector2[] gearCellCenters = new Vector2[LevelManager.Instance.gearsCells.Length];
-    //List<Vector2> availableCellCenters = new List<Vector2>();
 
-    private SpriteRenderer shadowRenderer;
+    SpriteRenderer shadowRenderer;
 
 
 
@@ -74,12 +72,14 @@ public class BoardScript : MonoBehaviour
 
         //Get the board size
         Vector2 boardSize;
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        boardSize = new Vector2(spriteRenderer.bounds.size.x, spriteRenderer.bounds.size.y);
+        Vector3 spriteRendererSize = GetComponent<SpriteRenderer>().bounds.size;
+        boardSize = new Vector2(spriteRendererSize.x, spriteRendererSize.y);
 
-        // Get cell size and half of the cell size
+        // Calculate board cell size
         Vector2 cellSize;
         cellSize = new Vector2(boardSize.x / xCellAmount, boardSize.y / yCellAmount);
+
+        // Calculate half of the cell size for "click in" of the blocks when player places them
         halfCellSize = new Vector2(cellSize.x / 2, cellSize.y / 2);
 
         // Find top left coordinate of the board
@@ -91,10 +91,10 @@ public class BoardScript : MonoBehaviour
         bool gearPosToCellDictionaryFull = (LevelManager.Instance.gearPosToCellDictionary.Count == 0) ? false : true;
         bool gearCellToPosDictionaryFull = (LevelManager.Instance.gearCellToPosDictionary.Count == 0) ? false : true;
 
-        // A counter that will become a number of each regular cell
+        // A counter that will become an index of each regular cell
         int counter = 0;
 
-        // A counter that will become a number of each gear cell
+        // A counter that will become an index of each gear cell
         int gCounter = 0;
 
         // CALCULATING CELL CENTERS FOR FUTURE POSITIONS OF OBJECTS
@@ -108,6 +108,9 @@ public class BoardScript : MonoBehaviour
             // Calculate world coordinates of each cell center
             cellCenters[i] = new Vector2((boardTopLeftPos.x + xCellNumber * cellSize.x) + cellSize.x / 2, 
                 (boardTopLeftPos.y - yCellNumber * cellSize.y) - cellSize.y / 2);
+
+
+            // Setup of cell centers and conversion dictionaries:
 
             // If the cell is a regular cell where you can place blocks
             if (!irregularCells.Contains(i))
@@ -175,8 +178,6 @@ public class BoardScript : MonoBehaviour
                     Vector2 newObjectPos = new Vector2();
                     if (entry.Key == BlockType.Gear)
                     {
-                        // HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
                         // Add the position of cells where blocks are generated to locked cells positions
                         lockedCellCenters.Add(gearCellCenters[Math.Abs(cells[i]) - 1]);
 
@@ -199,25 +200,15 @@ public class BoardScript : MonoBehaviour
                     // HANDLING BLOCK DIRECTION (defined in LevelManager in starting boards)
                     int direction = (Math.Sign(cells[i]) < 0) ? -1 : 1;
 
-                    // If it is a Bit and direction is reversed, add force to the ramp instead of mirroring
+                    
                     if(entry.Key == BlockType.Bit)
                     {
                         // Add the newly generated Bit as a record to the currentBitStates dictionary in Game Manager
                         GameManager.Instance.currentBitStates.Add(LevelManager.Instance.posToCellDictionary[newObjectPos], 
                             (direction < 0) ? true : false);
 
-                        if (direction == -1)
-                        {
-                            print("Setting the ramp");
-                            Ramp script = newObj.transform.GetChild(0).GetChild(0).GetComponent<Ramp>();
-                            script.isOn = false;
-                            script.setRamp();
-                        }
-                        else
-                        {
-                            print("Resetting the ramp");
-                            newObj.transform.GetChild(0).GetChild(0).GetComponent<Ramp>().resetRamp();
-                        }
+                        // Handle setting state of the bit
+                        setupGeneratedBit(newObj, direction);
 
                         // Add this bit to the bit objects list in Game Manager
                         GameManager.Instance.bitObjects.Add(LevelManager.Instance.posToCellDictionary[newObjectPos], newObj);
@@ -233,8 +224,9 @@ public class BoardScript : MonoBehaviour
             }
         }
 
-        LevelManager.Instance.lockedCellCenters = lockedCellCenters;
 
+        // Save locked cell centers and setup available cell centers for the player
+        LevelManager.Instance.lockedCellCenters = lockedCellCenters;
         for (int i = 0; i < regularCellCenters.Length; i++)
         {
             if (!lockedCellCenters.Contains(regularCellCenters[i]))
@@ -242,7 +234,6 @@ public class BoardScript : MonoBehaviour
                 GameManager.Instance.availableRegularCellCenters.Add(regularCellCenters[i]);
             }
         }
-
         for (int i = 0; i < gearCellCenters.Length; i++)
         {
             if (!lockedCellCenters.Contains(gearCellCenters[i]))
@@ -254,6 +245,26 @@ public class BoardScript : MonoBehaviour
         spawnBalls();
     }
 
+    // Bit Setup method for generating the board
+    void setupGeneratedBit(GameObject bit, int direction)
+    {
+        // Get script of the Bit's ramp
+        Ramp script = bit.transform.GetChild(0).GetChild(0).GetComponent<Ramp>();
+
+        // If direction is reversed, set Bit's ramp to ON, otherwise to OFF. Bit will react to the ramp and set itself
+        if (direction == -1)
+        {
+            // Ramp has isOn = true by default, so in order to set the ramp, isOn needs to be changed
+            script.isOn = false;
+            script.setRamp();
+        }
+        else
+        {
+            script.resetRamp();
+        }
+    }
+
+
     // Spawning balls
     public void spawnBalls()
     {
@@ -262,7 +273,7 @@ public class BoardScript : MonoBehaviour
         {
             if (child.CompareTag("BallSpawnLeft"))
             {
-                if (spawnBlueBallsCoroutineStarted)
+                if (spawningCoroutineStarted[Ball.Blue])
                 {
                     return;
                 }
@@ -270,7 +281,7 @@ public class BoardScript : MonoBehaviour
             }
             if (child.CompareTag("BallSpawnRight"))
             {
-                if (spawnRedBallsCoroutineStarted)
+                if (spawningCoroutineStarted[Ball.Red])
                 {
                     return;
                 }
@@ -281,42 +292,27 @@ public class BoardScript : MonoBehaviour
 
     IEnumerator spawnBallsCoroutine(Vector3 spawnPos, Ball type)
     {
-        if(type == Ball.Red)
-        {
-            spawnRedBallsCoroutineStarted = true;
-        }
-        if (type == Ball.Blue)
-        {
-            spawnBlueBallsCoroutineStarted = true;
-        }
+        spawningCoroutineStarted[type] = true;
 
         int amount;
 
         // In case the ball amount was not specified for the level, treat it as 0 and do not spawn any
         if(!LevelManager.Instance.getLevelBallAmounts().TryGetValue(type, out amount))
         {
-            Debug.Log("<color=grey>No key for ball of type " + type + " found.");
-            if (type == Ball.Red)
-            {
-                spawnRedBallsCoroutineStarted = false;
-            }
-            if (type == Ball.Blue)
-            {
-                spawnBlueBallsCoroutineStarted = false;
-            }
+            //Debug.Log("<color=grey>No key for ball of type " + type + " found.");
+            spawningCoroutineStarted[type] = false;
             yield break;
         }
-        print("<color=green>Starting spawning "+ type +" marbles");
+        //print("<color=green>Starting spawning "+ type +" marbles");
         GameManager.Instance.setMarblesAreSpawning(true);
-        print("<color=white>Blocking spawning the marbles!!!!!!");
+        //print("<color=white>Blocking spawning the marbles!!!!!!");
 
         GameObject ball = (type == Ball.Blue) ? blueBall : redBall;
         for (int i = 0; i < amount; i++)
         {
             if (stopBallSpawnCoroutine)
             {
-                spawnBlueBallsCoroutineStarted = false;
-                spawnRedBallsCoroutineStarted = false;
+                spawningCoroutineStarted[type] = false;
                 stopBallSpawnCoroutine = false;
                 GameManager.Instance.setMarblesAreSpawning(false);
                 yield break;
@@ -325,18 +321,11 @@ public class BoardScript : MonoBehaviour
             GameManager.Instance.ballObjects.Add(newBall);
             yield return new WaitForSeconds(0.5f);
         }
-        print("<color=yellow>Finished spawning "+ type +" marbles");
+        //print("<color=yellow>Finished spawning "+ type +" marbles");
 
-        if (type == Ball.Red)
-        {
-            spawnRedBallsCoroutineStarted = false;
-        }
-        if (type == Ball.Blue)
-        {
-            spawnBlueBallsCoroutineStarted = false;
-        }
+        spawningCoroutineStarted[type] = false;
         GameManager.Instance.setMarblesAreSpawning(false);
-        print("<color=white>Unblocking spawning the marbles!!!!!!");
+        //print("<color=white>Unblocking spawning the marbles!!!!!!");
     }
 
     public void respawnBalls()
@@ -357,23 +346,27 @@ public class BoardScript : MonoBehaviour
 
     IEnumerator respawnReleasedBallsCoroutine(Vector3 spawnPos, Ball type)
     {
-        print("<color=green>Starting coroutine");
-        string tag = (type == Ball.Blue) ? "BlueBall" : "RedBall";
+        //print("<color=green>Starting coroutine");
         int amount = GameManager.Instance.ballAmountToRespawn[type];
         GameObject ball = (type == Ball.Blue) ? blueBall : redBall;
 
-        if (GameManager.Instance.marblesAreSpawning)
+        if (spawningCoroutineStarted[type])
         {
             yield break;
         }
         GameManager.Instance.marblesAreSpawning = true;
-        print("<color=white>Blocking spawning marbles");
+
+        spawningCoroutineStarted[type] = true;
+        print("<color=yellow>Spawning " + amount + " marbles of type " + type);
+        //print("<color=white>Blocking spawning marbles");
+
 
         for (int i = 0; i < amount; i++)
         {
             if (stopBallSpawnCoroutine)
             {
                 stopBallSpawnCoroutine = false;
+                spawningCoroutineStarted[type] = false;
                 GameManager.Instance.marblesAreSpawning = false;
                 yield break;
             }
@@ -382,8 +375,10 @@ public class BoardScript : MonoBehaviour
             GameManager.Instance.ballObjects.Add(newBall);
             yield return new WaitForSeconds(0.5f);
         }
+        
         GameManager.Instance.marblesAreSpawning = false;
-        print("<color=white>Unblocking spawning marbles");
+        spawningCoroutineStarted[type] = false;
+        //print("<color=white>Unblocking spawning marbles");
 
     }
 
@@ -396,38 +391,43 @@ public class BoardScript : MonoBehaviour
             if(GameManager.Instance.objToSpawnIsActive) {
                 deactivateObjToSpawnShadow();
             }
-
-
             return;
         }
 
+        
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f;
-        objToSpawnShadow.transform.position = mouseWorldPos;
 
-        // Set available cells for the player to place blocks depending on the type of block they want to place
-        List<Vector2> availableCellCenters = (objToSpawn == gear) ? 
-            GameManager.Instance.availableGearCellCenters : GameManager.Instance.availableRegularCellCenters;
-
-        for (int i = 0; i < availableCellCenters.Count; i++)
+        // If block shadow is active (player has chosen a type of block to place)
+        if (objToSpawnShadow.activeSelf)
         {
-            // If block is near an available cell, put it in the center of it
-            if (Vector2.Distance(mouseWorldPos, availableCellCenters[i]) < halfCellSize.x)
-            {
-                objToSpawnShadow.transform.position = availableCellCenters[i];
+            // Make block shadow follow the cursor
+            objToSpawnShadow.transform.position = mouseWorldPos;
 
-                // PLACING BLOCKS - place blocks if left mouse button clicked
-                if (Input.GetMouseButtonDown(0))
+            // Set available cells for the player to place blocks depending on the type of block they want to place
+            List<Vector2> availableCellCenters = (objToSpawn == gear) ? 
+                GameManager.Instance.availableGearCellCenters : GameManager.Instance.availableRegularCellCenters;
+
+            for (int i = 0; i < availableCellCenters.Count; i++)
+            {
+                // If block is near an available cell, put it in the center of it
+                if (Vector2.Distance(mouseWorldPos, availableCellCenters[i]) < halfCellSize.x)
                 {
-                    if(objToSpawn != null && objToSpawnShadow.activeSelf)
+                    objToSpawnShadow.transform.position = availableCellCenters[i];
+
+                    // PLACING BLOCKS - place blocks if left mouse button clicked
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        placeBlock();
+                        if(objToSpawn != null)
+                        {
+                            placeBlock();
+                        }
                     }
                 }
             }
         }
 
-        // Spawn balls with Q key (for testing)
+        // Spawn test balls with Q key
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // Block spawning test marbles in a crossover since its colliders depend on triggers placed on their entrances
@@ -439,15 +439,11 @@ public class BoardScript : MonoBehaviour
             
         }
 
-        //
+        // Deactivate the shadow of the block following the cursor
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             deactivateObjToSpawnShadow();
         }
-
-
-        //checkForNewBitConnections();
-
     }
 
     void placeBlock()

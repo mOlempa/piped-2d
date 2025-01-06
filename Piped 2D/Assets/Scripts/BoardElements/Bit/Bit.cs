@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bit : MonoBehaviour
 {
-    Block block = new Block();
+    Block block;
     SpriteRenderer[] spriteRenderers;
 
     [SerializeField]

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GearBlock : MonoBehaviour
 {
-    Block block = new Block();
+    Block block;
     SpriteRenderer spriteRenderer;
 
     bool isRotating = false;

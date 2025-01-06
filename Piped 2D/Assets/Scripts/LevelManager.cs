@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
 
     public List<Level> levelsWithPlot = new List<Level>()
     {
-        Level.Level1, Level.Level2
+        Level.Level1, Level.Level4, Level.Level5
     };
 
     public int[] irregularCells = {120, 119, 118, 117, 116, 114, 113, 112, 111, 110,

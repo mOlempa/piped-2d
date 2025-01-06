@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class Pass : MonoBehaviour
 {
-    Block block = new Block();
+    /*Block block = new Block();
     SpriteRenderer spriteRenderer;
     int cell = 0;
+*/
 
-
-    private void Start()
+    /*private void Start()
     {
         cell = LevelManager.Instance.posToCellDictionary[gameObject.transform.position];
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    }*/
 
-    // Detect the ball entering and leaving the block for ball's ignoreFall control
+    /*// Detect the ball entering and leaving the block for ball's ignoreFall control
     private void OnTriggerEnter2D(Collider2D other)
     {
         block.detectBallEnterBlock(other.gameObject, cell);
@@ -24,7 +24,7 @@ public class Pass : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         block.detectBallExitBlock(other.gameObject, cell);
-    }
+    }*/
 
     private void OnMouseOver()
     {
@@ -36,11 +36,11 @@ public class Pass : MonoBehaviour
             return;
         }
 
-        // Mouse right-click to remove the object
+        /*// Mouse right-click to remove the object
         if (Input.GetMouseButtonDown(1))
         {
             block.destroyBlock(gameObject);
-        }
+        }*/
 
         // Mouse left-click to mirror the object
         if (Input.GetMouseButtonDown(0))
@@ -50,7 +50,7 @@ public class Pass : MonoBehaviour
 
     }
 
-    private void OnMouseEnter()
+    /*private void OnMouseEnter()
     {
         changeSpriteColor(block.highlightColor);
     }
@@ -58,7 +58,7 @@ public class Pass : MonoBehaviour
     private void OnMouseExit()
     {
         changeSpriteColor(Color.white);
-    }
+    }*/
 
     private void mirrorBlock()
     {
@@ -72,8 +72,8 @@ public class Pass : MonoBehaviour
     
 
 
-    private void changeSpriteColor(Color color)
+    /*private void changeSpriteColor(Color color)
     {
         spriteRenderer.material.color = color;
-    }
+    }*/
 }

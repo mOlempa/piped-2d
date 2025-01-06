@@ -141,7 +141,6 @@ public class Ramp : MonoBehaviour
         {
             return;
         }
-        //print("Resetting ramp at " + LevelManager.Instance.posToCellDictionary[gameObject.transform.parent.parent.transform.position]);
         direction = 1;
         rotateRamp();
         rotateConnectedRamps(true);

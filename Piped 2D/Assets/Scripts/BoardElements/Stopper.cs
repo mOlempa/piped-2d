@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stopper : MonoBehaviour
 {
-    Block block = new Block();
+    Block block;
     SpriteRenderer spriteRenderer;
     int cell = 0;
 
@@ -55,12 +55,7 @@ public class Stopper : MonoBehaviour
 
     private void deleteBlock()
     {
-        GameManager.Instance.availableRegularCellCenters.Add(gameObject.transform.position);
-        Destroy(gameObject);
-        Debug.Log("<color=grey>Block deleted");
-        GameManager.Instance.increaseCounter(GameManager.Instance.getObjTypeByTag(gameObject.tag));
-
-        AudioManager.Instance.playRandomBlockPlaceSfx();
+        block.destroyBlock(gameObject);
     }
 
 

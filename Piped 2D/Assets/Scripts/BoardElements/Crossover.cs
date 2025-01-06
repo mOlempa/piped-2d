@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Crossover : MonoBehaviour
 {
-    Block block = new Block();
+    Block block;
     SpriteRenderer[] spriteRenderers;
 
     int cell = 0;

@@ -90,7 +90,7 @@ public class BallScript : MonoBehaviour
             return;
         }
 
-        Material otherMaterial = Material.Metal;
+        HitMaterial otherMaterial = HitMaterial.Metal;
         if (other.collider.CompareTag("BlueBall") || other.collider.CompareTag("RedBall"))
         {
             // Make only one of two collided marbles play the suffix
@@ -98,7 +98,7 @@ public class BallScript : MonoBehaviour
             {
                 return;
             }
-            otherMaterial = Material.Glass;
+            otherMaterial = HitMaterial.Glass;
             other.gameObject.GetComponent<BallScript>().canPlayGlassSfx = false;
         }
         else
