@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class DeleteBlock : MonoBehaviour
@@ -17,25 +14,19 @@ public class DeleteBlock : MonoBehaviour
         // Mouse right-click to remove the object
         if (Input.GetMouseButtonDown(1))
         {
-            destroyBlock(gameObject);
+            destroyBlock();
         }
     }
 
-    
-
-    public void destroyBlock(GameObject gameObject)
+    public void destroyBlock()
     {
+        // Delete the block
+        Destroy(gameObject);
+        // Add the cell of the deleted block to the available cells
         GameManager.Instance.availableRegularCellCenters.Add(gameObject.transform.position);
-        Object.Destroy(gameObject);
-        Debug.Log("<color=grey>Block deleted");
+        // Increase counter of the type of the block deleted
         GameManager.Instance.increaseCounter(GameManager.Instance.getObjTypeByTag(gameObject.tag));
+        // Play a random sound effect from place/delete sfx array
         AudioManager.Instance.playRandomBlockPlaceSfx();
     }
-
-    
-
-
-    
-
-
 }

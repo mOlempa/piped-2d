@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -248,6 +247,11 @@ public class GameManager : MonoBehaviour
             if (loadingLevelAfterPlot)
             {
                 loadingLevelAfterPlot = false;
+            }
+            if (reloadingLevel)
+            {
+                reloadingLevel = false;
+                print("Reloading the level");
             }
             LoadLevel();
         }

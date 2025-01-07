@@ -31,7 +31,7 @@ public class DeleteBit : MonoBehaviour
 
             // Bit has its own deletion mechanism
             GameManager.Instance.availableRegularCellCenters.Add(gameObject.transform.position);
-            Object.Destroy(gameObject);
+            Destroy(gameObject);
             Debug.Log("<color=grey>Block deleted");
             GameManager.Instance.increaseCounter(GameManager.Instance.getObjTypeByTag(gameObject.tag));
             AudioManager.Instance.playRandomBlockPlaceSfx();

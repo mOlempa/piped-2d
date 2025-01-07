@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1118,10 +1116,11 @@ public class LevelManager : MonoBehaviour
                 }
             case Level.Level28:
                 {
+                    var bitRequiredSetup = new Dictionary<int, bool>() { { 9, true } };
                     var ballOutput = new List<Ball>() {
                         Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue
                     };
-                    return new List<SolutionCase> { new SolutionCase(_ballOutput: ballOutput) };
+                    return new List<SolutionCase> { new SolutionCase(_ballOutput: ballOutput, _bitRequiredSetup: bitRequiredSetup) };
                 }
             case Level.Level29:
                 {
