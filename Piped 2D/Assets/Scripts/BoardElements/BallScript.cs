@@ -6,6 +6,8 @@ public class BallScript : MonoBehaviour
 {
     [SerializeField]
     UnityEngine.Material darkBlueMaterial;
+    [SerializeField]
+    ParticleSystem smoke;
 
     Rigidbody2D rb;
     Vector2 dir = Vector2.zero;
@@ -126,6 +128,7 @@ public class BallScript : MonoBehaviour
     IEnumerator destroyCoroutine()
     {
         destroyCoroutineStarted = true;
+        smoke.Play();
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
@@ -152,15 +155,6 @@ public class BallScript : MonoBehaviour
             if (rb.velocity.magnitude == 0)
             {
                 rb.AddForce(-dir.normalized * strength, ForceMode2D.Impulse);
-            }
-        }
-
-        // When right-clicked on the ball, if it's a test ball, delete it
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (GameManager.Instance.testBallObjects.Contains(gameObject))
-            {
-                Destroy(gameObject);
             }
         }
     }

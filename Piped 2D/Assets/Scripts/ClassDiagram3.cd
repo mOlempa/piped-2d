@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="1" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Bit" Collapsed="true">
+    <Position X="1" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAABgAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Bit\Bit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitEnterTriggers" Collapsed="true">
+    <Position X="5.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Bit\BitEnterTriggers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitTriggers" Collapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAABAACQEAAAAAAAAAAAAAEAAAAAAAAgAAAAAACA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Bit\BitTriggers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ramp" Collapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGCAIAIEAAABACAAAEARAgAAAAAgAAAQgAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Bit\Ramp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChangeColorOnHover" Collapsed="true">
+    <Position X="1" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAgCAAACAAAABAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Block Properties\ChangeColorOnHover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeleteBit" Collapsed="true">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAEAAAAABAEAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Block Properties\DeleteBit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeleteBlock" Collapsed="true">
+    <Position X="10" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Block Properties\DeleteBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DetectBall" Collapsed="true">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACBASAAAEAAAAAAAAQAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Block Properties\DetectBall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UpdateBitConnection" Collapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Block Properties\UpdateBitConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BallScript" Collapsed="true">
+    <Position X="1" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAACAkAABEAEAEABAAQgQAAABAZgAgQBAQAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\BallScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardInputDetector" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\BoardInputDetector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Crossover" Collapsed="true">
+    <Position X="3.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Crossover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CrossoverTriggers" Collapsed="true">
+    <Position X="10" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAIAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\CrossoverTriggers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DispenserLamp" Collapsed="true">
+    <Position X="3.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAhACAAAAAAAABAAAAAAABAAEAAACQAACAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\DispenserLamp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DispenserWheel" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAgAAAAAAAABAgAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\DispenserWheel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GearBlock" Collapsed="true">
+    <Position X="5.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACCCAQAMAAABQCABAAAAABAAAAQAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\GearBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OutputRamp" Collapsed="true">
+    <Position X="12.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAEAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\OutputRamp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OutputWheel" Collapsed="true">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAgAAAAAAAAAAgAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\OutputWheel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pass" Collapsed="true">
+    <Position X="1" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\Pass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PassTrigger" Collapsed="true">
+    <Position X="7.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\PassTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StopperTrigger" Collapsed="true">
+    <Position X="12.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BoardElements\StopperTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HintPanel" Collapsed="true">
+    <Position X="1" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIAAACAQACAEAAAAAQAAIABAAAAAAAAIAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\Panels\HintPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InstructionPanel" Collapsed="true">
+    <Position X="5.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAgAAAoAABAIAgEAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\Panels\InstructionPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingsPanel" Collapsed="true">
+    <Position X="3.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAgACCEgAABAAAAAAAABAAAAAAAAAAAAQAAACQA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\Panels\SettingsPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialPanel" Collapsed="true">
+    <Position X="7.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBIAAIAAQCAIEAAAEAAAIFAgQAEAAAADBAQAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\Panels\TutorialPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapterUI" Collapsed="true">
+    <Position X="1" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQBCAAAACEQRAARAAIKRAAAAACBAABEBBAAAAFwAAI=</HashCode>
+      <FileName>Assets\Scripts\GUIs\ChapterUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Credits" Collapsed="true">
+    <Position X="5.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\CreditsUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameUI" Collapsed="true">
+    <Position X="10" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkgEiYBCAOEAgcCBGEAIwsAAFBTACCAQABJoAEkIYAY=</HashCode>
+      <FileName>Assets\Scripts\GUIs\GameUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelCompleteText" Collapsed="true">
+    <Position X="3.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAEAAACAAAAAAAIABAAAAEAAAAAAIIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\LevelCompleteText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuUI" Collapsed="true">
+    <Position X="7.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAgAAAAAAAAACAAAAAABBAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\MainMenuUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AudioManager" Collapsed="true">
+    <Position X="5.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIqAAAAAICAgAEFCAwAAIBAACAAEAAAAQAAAQAUAIGA=</HashCode>
+      <FileName>Assets\Scripts\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardScript" Collapsed="true">
+    <Position X="12.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASJAEAwACiMBABEAQAAAIUAQEAAIAACSEQBAQCBAgg=</HashCode>
+      <FileName>Assets\Scripts\BoardScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="1" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Q4iNAASQgIhAFjQBGAQIGIAtABxwIUwdzpBACBBCysA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelManager" Collapsed="true">
+    <Position X="3.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEQCYgBCEgACAAAAgAAABAAIACQKAARAQAAAKAAUA=</HashCode>
+      <FileName>Assets\Scripts\LevelManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadingScreen" Collapsed="true">
+    <Position X="12" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAACAAAAAAAAAAAAAAAgAAAAEAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LoadingScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plot" Collapsed="true">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIUCAAQACCgAAAAAAAAAAAAACAAAAAAAAAQAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Plot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SolutionCase" Collapsed="true">
+    <Position X="9.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAEAAAAAQAAAAAAAAAAAQAAAAAAIQAABAA=</HashCode>
+      <FileName>Assets\Scripts\SolutionCase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sound" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIGearRotation" Collapsed="true">
+    <Position X="12" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAgAAAAAAAAAAAAAAAAAAACAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUIs\UIGearRotation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="HitMaterial" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Scripts\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameSpeed" Collapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Ball" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAgAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LevelManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BlockType" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\LevelManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Level" Collapsed="true">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADgnwEAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LevelManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

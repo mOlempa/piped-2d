@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Plot.unity
     guid: 8229b9c128484064e8d0e20b8a5b6324
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: be3343f7f89f6774e8fd994d00f4771a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

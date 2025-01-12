@@ -162,20 +162,20 @@ public class InstructionPanel : MonoBehaviour
             case Level.Level40:
                 return ("Task 40", $"<b>Multiply</b> the amount of {blue} marbles by 4 and save the result in register A.\n\n");
             case Level.Level41:
-                return ("Task 41", "For any starting number in the register A, set the register to 0 with releasing only one marble.");
+                return ("Task 47", "<b>Add</b> register A to register B and store the result in B.");
             case Level.Level42:
                 return ("Task 42", $"If register A is bigger than register B, stop the {blue} marble.\n\nOtherwise, stop the {white} marble.");
             case Level.Level43:
                 return ("Task 43", $"If Bits A <b>AND</b> B are in opposite states, stop the {blue} marble. Otherwise, stop the {white} marble.");
             case Level.Level44:
                 return ("Task 44", "<b>Subtract</b> the register A from register B and store the result in B.\n\nStarting value of A has" +
-                    "to be smaller or equal to B.");
+                    "to be smaller or equal to B (e.g. if B = 5, then A cannot be bigger than 5).");
             case Level.Level45:
                 return ("Task 45", $"If register A is <b>smaller or equal</b> to register B, stop the {blue} marble.\n\nOtherwise, stop the {white} marble.");
             case Level.Level46:
                 return ("Task 46", "Switch each of the 5 Bits to the opposite no matter what state they start in.");
             case Level.Level47:
-                return ("Task 47", "<b>Add</b> register A to register B and store the result in B.");
+                return ("Task 41 - Hard Reset", "For any starting number in the register A, set the register to 0 with releasing only one marble.");
             default:
                 Debug.LogWarning("This level does not have an instruction!");
                 return ("ERROR", "No instruction found!");

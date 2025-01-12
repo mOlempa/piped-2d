@@ -126,7 +126,19 @@ public class GameUI : MonoBehaviour
         settingsPanel.SetActive(false);
         hintPanel.SetActive(false);
 
-        levelText.text = "Level "+ ((int)GameManager.Instance.currentLevel + 1);
+        // Change number of the level in the UI, because it 41 and 47 have switched places in the plot
+        switch (GameManager.Instance.currentLevel)
+        {
+            case Level.Level41:
+                levelText.text = "Level 47";
+                break;
+            case Level.Level47:
+                levelText.text = "Level 41";
+                break;
+            default:
+                levelText.text = "Level " + ((int)GameManager.Instance.currentLevel + 1);
+                break;
+        }
         StartCoroutine(setTutorialButton());
         StartCoroutine(blockGameToggle());
     }

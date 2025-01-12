@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
         clearAllLevelLists();
         resetSimulation();
         SceneManager.LoadScene(1);
+        AudioManager.Instance.playMenuMusic();
     }
 
     public void LoadMainMenu()
@@ -161,6 +162,11 @@ public class GameManager : MonoBehaviour
         clearAllLevelLists();
         resetSimulation();
         SceneManager.LoadScene(0);
+        AudioManager.Instance.playMenuMusic();
+    }
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene(5);
     }
 
     public void LoadScene(int sceneId)
@@ -218,7 +224,8 @@ public class GameManager : MonoBehaviour
 
         if (finishedGame)
         {
-            LoadMainMenu();
+            finishedGame = false;
+            LoadCredits();
             yield break;
         }
 
@@ -233,8 +240,12 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                // If it was not the last level, load next level after loading the plot
-                if (wasLastLevel == false)
+                // If it was not the last level, load next level after loading the plot. If it was, set level to 0 (last level)
+                if (wasLastLevel)
+                {
+                    finishedGame = true;
+                }
+                else
                 {
                     loadingLevelAfterPlot = true;
                 }
@@ -385,6 +396,7 @@ public class GameManager : MonoBehaviour
 
             if (solutionCase.resetBallsAfterCase)
             {
+                print("balls run count: " + ballsToRespawn.Count);
                 resetBalls();
 
                 // If balls are reset, it means this case will have a different ball output that needs to be reset as well
@@ -607,6 +619,7 @@ public class GameManager : MonoBehaviour
                 Destroy(ball);
             }
             ballObjects.Clear();
+            ballsToRespawn.Clear();
 
             script.spawnBalls();
         }
@@ -712,7 +725,11 @@ public class GameManager : MonoBehaviour
                         // If this chain contains a cell that is used in setup case, delete this cell from ones to restore
                         if (currentSolutionCase.bitSetupCase.ContainsKey(tuple.cell))
                         {
-                            bitsToNotRestore.Add(state.Key, state.Value);
+                            // Do not add duplicates
+                            if (!bitsToNotRestore.ContainsKey(state.Key))
+                            {
+                                bitsToNotRestore.Add(state.Key, state.Value);
+                            }
                         }
                     }
                 }

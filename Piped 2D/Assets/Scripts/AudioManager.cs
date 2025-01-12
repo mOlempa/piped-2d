@@ -117,6 +117,10 @@ public class AudioManager : MonoBehaviour
     {
         playMusic("MenuTheme", true);
     }
+    public void playGameMusic()
+    {
+        playMusic("GameTheme", true);
+    }
     public void stopMusic()
     {
         musicSource.Stop();

@@ -299,4 +299,9 @@ public class ChapterUI : MonoBehaviour
     {
         GameManager.Instance.currentLevel = (Level)currentLevel - 1;
     }
+
+    public void playGameMusic()
+    {
+        AudioManager.Instance.playGameMusic();
+    }
 }

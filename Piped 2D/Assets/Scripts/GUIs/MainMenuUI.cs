@@ -29,7 +29,15 @@ public class MainMenuUI : MonoBehaviour
         settingsPanel.SetActive(false);
         creditsPanel.SetActive(false);
 
-        AudioManager.Instance.playMenuMusic();
+        if (!AudioManager.Instance.musicSource.isPlaying)
+        {
+            AudioManager.Instance.playMenuMusic();
+
+        }
+        else
+        {
+            print("Music is playing already");
+        }
     }
 
     void deselectButton()

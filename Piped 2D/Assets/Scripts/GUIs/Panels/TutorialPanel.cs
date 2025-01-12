@@ -151,6 +151,8 @@ public class TutorialPanel : MonoBehaviour
     {
         string blue = "<color=#4E8FF6><b>blue</b></color>";
         string white = "<color=#F8EBF6><b>white</b></color>";
+        string brighten = "<b><color=#BF9453>";
+        string end = "</b></color>";
 
         switch (GameManager.Instance.currentLevel)
         {
@@ -162,80 +164,104 @@ public class TutorialPanel : MonoBehaviour
 
                     ("empty", "Alright, let's get started!", positions.center),
 
-                    ("dispenser","This is a dispenser, it makes the marbles roll one by one.", positions.middleRight),
+                    ("dispenser",$"This is a {brighten}dispenser{end}.\n\nIt makes the marbles roll one by one.", positions.middleRight),
 
-                    ("both_dispensers", $"There are two dispensers, one with {blue} marbles and one with {white} marbles.", positions.bottomRight),
+                    ("both_dispensers", $"There are two dispensers,\none with {blue} marbles and one with {white} marbles.", positions.bottomRight),
 
-                    ("dispenser_lamps", "Each has a small lamp next to it. Lamp switched on means this dispenser will start first. <b>Pay " +
-                    "attention to them.</b>", 
+                    ("dispenser_lamps", $"Each has a small lamp next to it.\n\nLamp {brighten}switched on{end} means this dispenser will start " +
+                    $"{brighten}first{end}.\n\n<b>Pay attention to them.</b>", 
                     positions.bottomRight),
 
-                    ("generated_board", "The marbles will roll through a path you create. A part of it is already prepared " +
+                    ("generated_board", $"The marbles will roll through {brighten}a path you create{end}.\n\nA part of it is already prepared " +
                     "- work with it by adding your own elements.", positions.bottomRight),
 
-                    ("generated_board", "You need to create a full path <b>all the way</b> to where the marbles need to get to!\n\n" +
-                    "If you let them fall from too high, they will break and disappear.", positions.bottomRight),
+                    ("generated_board", $"You need to create {brighten}a full path all the way{end} to where the marbles " +
+                    "need to get to!", positions.bottomRight),
 
-                    ("block_button", "Here you choose what type of element you want to use. \n\nFor starters we will use only " +
-                    "one type: the <b>Pass</b>. It simply passes the marbles further.", positions.middleLeft),
+                    ("breaking_marble", $"If you let them fall from too high, they will {brighten}break and disappear{end}.", positions.bottomRight),
 
-                    ("block_button", "To place it, click this Pass button and left-click somewhere on the system board - it will latch into place." +
-                    "\n\nTo delete it from the board, right-click with your mouse on the Pass element.", positions.middleLeft),
+                    ("block_button", $"Here you {brighten}choose your building blocks{end}", positions.middleLeft),
 
-                    ("block_button", "You can also switch the side it is turned towards - simply left-click with your mouse " +
-                    "on it once it is placed.", positions.middleLeft),
+                    ("block_button", $"For starters you will use only one type: {brighten}the Pass{end}.\n\n" +
+                    $"It passes the marbles further, like a pipe.", positions.middleLeft),
 
-                    ("output", "This is were the marbles need to get right now.", positions.topRight),
+                    ("block_place", $"To {brighten}place it{end}, click this {brighten}Pass button{end} and click somewhere on the system " +
+                    $"board - it will latch into place.", positions.bottomRight),
 
-                    ("output_ramp", "They will create a pattern in this little nook. We call it the output of the system.", positions.topRight),
+                    ("block_mirror", $"You can also {brighten}switch the side{end} it is turned towards.\n\nSimply left-click with your mouse " +
+                    "on it once it is placed.", positions.bottomRight),
 
-                    ("left_wheels", "When a marble rolls into one of the output wheels, it makes the wheel at " +
-                    "the dispenser turn as well.", positions.middleRight),
+                    ("block_delete", $"To {brighten}delete{end} your Pass element from the board, right-click with your mouse on it.", 
+                    positions.bottomRight),
 
-                    ("generated_board", $"You can also place {blue} test marbles on the system board almost wherever you want! Just point to a place " +
-                    "with your mouse cursor and hit Q on you keyboard.", positions.bottomRight),
+                    ("output", "And this is were the marbles need to get to right now.", positions.topRight),
 
-                    ("trashcan_button", "If you want to get rid of your test marbles, hit this trashcan button" +
-                    " - it will delete them.\n\n", positions.middleLeft),
+                    ("output_ramp", $"They will create a pattern in this little nook. We call it the {brighten}output{end} of the system.", positions.topRight),
 
-                    ("upper_buttons", "At the top here you have a couple of buttons, their functions are pretty simple.",  positions.bottomRight),
+                    ("left_wheels", $"When a marble rolls into one of the {brighten}output wheels{end}, it makes the wheel at " +
+                    $"{brighten}the dispenser turn as well{end}.", positions.middleRight),
 
-                    ("pause_button", "A <b>Pause Button</b> - makes the time pause, so all the marbles will freeze.\n\n" +
+                    ("test_marble", $"You can also place {blue} {brighten}test marbles{end} on the system board almost wherever you want!\n\n" +
+                    $"Just point to a place with your mouse cursor and {brighten}hit Q{end} on you keyboard.", positions.bottomRight),
+
+                    ("test_marble_empty", $"Try it out now!", positions.bottomRight),
+
+                    ("trashcan_button", $"If you want to {brighten}get rid{end} of your test marbles, click this {brighten}trashcan button{end}" +
+                    " - it will delete them.", positions.middleRight),
+
+                    ("restart_button", $"You can also {brighten}reload the level{end} to restart the board completely with this circle arrow here.", 
+                    positions.middleRight),
+
+                    ("upper_buttons", "At the top here you have a couple more buttons, their functions are pretty simple:",  positions.bottomRight),
+
+                    ("pause_button", $"A {brighten}Pause Button{end} - makes the time pause, so everything will {brighten}freeze{end}.\n\n" +
                     "To unpause the time, hit this button again.", positions.bottomRight),
 
-                    ("play_button", "Next, a <b>Start Button</b> - click it when you are done setting up the path, it will roll the first marble from " +
-                    "the dispenser and make the system check your solution.", positions.bottomRight),
+                    ("play_button", $"Next, a {brighten}Start Button{end} - click it when you {brighten}are done setting up the path{end}.\n\n", 
+                    positions.bottomRight),
 
-                    ("play_button", "You <b>are unable to</b> make any changes to the path during that time, " +
-                    "but you can stop and reset the system checking by clicking this button again. ", positions.bottomRight),
+                    ("play_button", $"It will start the dispenser and make the system {brighten}check your solution{end}.", positions.bottomRight),
+
+                    ("play_button", $"You {brighten}are unable to make any changes{end} to the path during that time.\n\n" +
+                    "If you want to make changes, click this button again to stop the checking system. ", positions.bottomRight),
 
                     ("play_button", "This button also deletes your test marbles, similarly to the trashcan.", positions.bottomRight),
 
-                    ("speed_button", "And lastly, a <b>Speed Button</b> - by clicking on it, you can make the marbles roll faster or slower. " +
-                    "\n\nThe speed will change with each click and the button will change an icon to show how fast the system " +
-                    "currently runs.",  positions.bottomRight),
+                    ("speed_button", $"And lastly, a {brighten}Speed Button{end} - by clicking on it, you can make the marbles " +
+                    $"roll {brighten}faster {end}or {brighten}slower{end}.",  positions.bottomRight),
 
-                    ("side_menu", "Other than these buttons, you also have a side menu.", positions.middleLeft),
+                    ("speed_button", $"The speed will {brighten}change with each click{end}.\n\nThe button will show " +
+                    $"you how fast the system currently runs.",  positions.bottomRight),
 
-                    ("instruction_button", "First here is an <b>Instruction button</b>. " +
-                    "Click it to view your task, it will tell you what your current goal is.", positions.middleLeft),
+                    ("side_menu", $"Other than these buttons, you also have {brighten}a side menu{end}.", positions.middleLeft),
 
-                    ("settings_button", "Next is a <b>Settings button</b>. You can open it to change your volume settings " +
+                    ("instruction_button", $"First here is an {brighten}Instruction{end} button.\n\n" +
+                    $"Click it to {brighten}view your task{end}, it will tell you what your current goal is.", positions.middleLeft),
+
+                    ("settings_button", $"Next is a {brighten}Settings{end} button.\n\nYou can open it to change your {brighten}volume settings{end} " +
                     "anytime.", positions.middleLeft),
 
-                    ("level_selection_button", "Under that there is a <b>Level Selection button</b>. This is for when you want to go back to " +
-                    "the menu with selection of the levels.", positions.middleLeft),
+                    ("level_selection_button", $"Under that there is a {brighten}Level Selection{end} button.\n\nThis is for when you want to " +
+                    $"go back to the menu with selection of the levels.", positions.middleLeft),
 
-                    ("main_menu_button", "There is also a Main Menu button. Click it if you want to leave this level and go to " +
-                    "the Main Menu.", positions.middleLeft),
+                    ("main_menu_button", $"You can also go to the main menu with this {brighten}Main Menu{end} button here.", positions.middleLeft),
 
-                    ("empty", "Now the time has come for you to try all the buttons by yourself. When you feel ready, try to " +
-                    "solve the task given in the instruction.", positions.center),
+                    ("tutorial_button", $"If you would like to {brighten}display a tutorial{end} again, you can open it here.", positions.middleLeft),
 
-                    ("play_button", "There is no need to rush. Once you believe you solved the task, hit the Start button.", positions.center),
+                    ("hint_button", $"In case you have any struggles with the level, there is a {brighten}Hint{end} button as well.", positions.middleLeft),
 
-                    ("level_complete_text", "The checking system will run and if your solution will give a correct result, you will " +
-                    "get a message right here. Good luck!",  positions.bottomRight),
+                    ("empty", $"Now the time has come for you to {brighten}try out all the buttons by yourself{end}.", positions.center),
+
+                    ("empty", $"When you feel ready, try to {brighten}solve the task{end} given in the instruction.", positions.center),
+
+                    ("play_button", $"There is no need to rush. Once you believe you solved the task, hit the {brighten}Start{end} button.", 
+                    positions.center),
+
+                    ("level_complete_text", $"The {brighten}checking system{end} will run and if your solution will give " +
+                    $"{brighten}a correct result{end}, you will get {brighten}a message{end} right here.",  positions.bottomRight),
+
+                    ("next_level_button", $"Here will also appear a {brighten}Next Level{end} button. Good luck!",  positions.bottomRight),
+
                     };
             case Level.Level2:
                 return new List<(string, string, Vector2)>() {
@@ -331,6 +357,24 @@ public class TutorialPanel : MonoBehaviour
                     "  <b>on</b> off off off                 off <b>on</b> off <b>on</b>\n" +
                     "  1    2    4    8  ==>  1         1    2    4    8  ==>  2 + 8 = 10", positions.bottomRight)
                 };
+            case Level.Level23:
+                return new List<(string, string, Vector2)>() {
+
+                    ("empty", "Pay attention...", positions.center),
+
+                    ("block_button", "No blocks here is not a bug!", positions.topLeft),
+
+                    ("block_button", "This level does not require placing any.", positions.topLeft),
+                };
+            case Level.Level25:
+                return new List<(string, string, Vector2)>() {
+
+                    ("empty", "Pay attention...", positions.center),
+
+                    ("generated_board", "No blocks being set up here is not a bug!", positions.topLeft),
+
+                    ("empty", "It is completely up to you how the path will look like.", positions.topLeft)
+                };
             case Level.Level27:
                 return new List<(string, string, Vector2)>() {
 
@@ -342,6 +386,8 @@ public class TutorialPanel : MonoBehaviour
 
                     ("switch_sides_button", "If you want to pick a different side than the one which is chosen at the moment, just " +
                     "hit this button anytime before starting the system.", positions.bottomRight),
+
+                    ("dispenser_lamps", $"{brighten}Pay attention to them!{end} You will often need to change the side!", positions.bottomRight),
                 };
             case Level.Level28:
                 return new List<(string, string, Vector2)>() {

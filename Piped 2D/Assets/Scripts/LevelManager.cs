@@ -40,7 +40,10 @@ public class LevelManager : MonoBehaviour
 
     public List<Level> levelsWithPlot = new List<Level>()
     {
-        Level.Level1, Level.Level4, Level.Level5
+        Level.Level1, Level.Level4, Level.Level5, Level.Level8, Level.Level9,
+        Level.Level13, Level.Level19, Level.Level21, Level.Level23, Level.Level24,
+        Level.Level33, Level.Level41, Level.Level42, Level.Level44, Level.Level46,
+        Level.Level47,
     };
 
     public int[] irregularCells = {120, 119, 118, 117, 116, 114, 113, 112, 111, 110,
@@ -267,7 +270,8 @@ public class LevelManager : MonoBehaviour
                 };
             case Level.Level41:
                 return new Dictionary<Ball, int>() {
-                    { Ball.Blue, 1 }
+                    { Ball.Blue, 0 },
+                    { Ball.Red, 2 }
                 };
             case Level.Level42:
                 return new Dictionary<Ball, int>() {
@@ -286,8 +290,7 @@ public class LevelManager : MonoBehaviour
                 };
             case Level.Level47:
                 return new Dictionary<Ball, int>() {
-                    { Ball.Blue, 0 },
-                    { Ball.Red, 2 }
+                    { Ball.Blue, 1 }
                 };
             default:
                 Debug.Log("<color=grey>INFO: This level does not have a requied setup for ball dispenser, returning standard (8, 8) set");
@@ -508,7 +511,7 @@ public class LevelManager : MonoBehaviour
                 };
             case Level.Level41:
                 return new Dictionary<BlockType, int[]>() {
-                    { BlockType.Bit, new int[] { 9, 20, 31, 42 } }
+                    { BlockType.Bit, new int[] { 10, 20, 21, 31, 42 } }
                 };
             case Level.Level42:
                 return new Dictionary<BlockType, int[]>() {
@@ -523,7 +526,7 @@ public class LevelManager : MonoBehaviour
             case Level.Level44:
                 return new Dictionary<BlockType, int[]>() {
                     { BlockType.Bit, new int[] { 1, 2, 8, 10, 19, 21, 32 } },
-                    { BlockType.Stopper, new int[] { 47 }}
+                    { BlockType.Stopper, new int[] { 36 }}
                 };
             case Level.Level45:
                 return new Dictionary<BlockType, int[]>() {
@@ -536,7 +539,7 @@ public class LevelManager : MonoBehaviour
                 };
             case Level.Level47:
                 return new Dictionary<BlockType, int[]>() {
-                    { BlockType.Bit, new int[] { 10, 20, 21, 31, 42 } }
+                    { BlockType.Bit, new int[] { 9, 20, 31, 42 } }
                 };
             default:
                 Debug.LogError("This level does not have a starting board!");
@@ -738,15 +741,15 @@ public class LevelManager : MonoBehaviour
                 };
             case Level.Level41:
                 return new Dictionary<BlockType, int>() {
-                    { BlockType.Pass, 11 },
-                    { BlockType.Bit, 4 },
-                    { BlockType.Gear, 4 },
-                };
-            case Level.Level47:
-                return new Dictionary<BlockType, int>() {
                     { BlockType.Pass, 16 },
                     { BlockType.Crossover, 2 },
                     { BlockType.Bit, 1 },
+                };
+            case Level.Level47:
+                return new Dictionary<BlockType, int>() {
+                    { BlockType.Pass, 11 },
+                    { BlockType.Bit, 4 },
+                    { BlockType.Gear, 4 },
                 };
             default:
                 Debug.Log("<color=grey>INFO: This level does not have a set of blocks, returning default - all possible.");
@@ -1537,8 +1540,8 @@ public class LevelManager : MonoBehaviour
             case Level.Level39:
                 {
                     var ballOutput = new List<Ball>() {
-                        Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red,
-                        Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red
+                        Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Blue, Ball.Red,
+                        Ball.Blue, Ball.Blue, Ball.Blue,  Ball.Blue, Ball.Red
                     };
                     return new List<SolutionCase> { new SolutionCase(_ballOutput: ballOutput) };
                 }
@@ -1570,23 +1573,53 @@ public class LevelManager : MonoBehaviour
                 }
             case Level.Level41:
                 {
-                    // All final states in the register are 0
-                    var bitFinalStates = new Dictionary<int, bool>() {
-                        { 9, false },
+                    var bitRegister_A = new Dictionary<int, bool>() {
+                        { 10, false },
+                        { 21, false },
+                    };
+                    var bitRegister_B = new Dictionary<int, bool>() {
                         { 20, false },
                         { 31, false },
                         { 42, false }
                     };
 
                     List<SolutionCase> solutionCases = new List<SolutionCase>();
-                    var ballOutput = new List<Ball>() { Ball.Blue };
-                    var numbers = new List<int>() { 1, 3, 4, 8, 13 };
+
+                    var numbers_A = new List<int>() { 1, 2, 3, 3 };
+                    var numbers_B = new List<int>() { 1, 4, 0, 4 };
+
+                    var ballOutput = new List<Ball>() { Ball.Red, Ball.Red };
 
                     // Create new solution cases in a loop and add them to the list
-                    for (int i = 0; i < numbers.Count; i++)
+                    for (int i = 0; i < 3; i++)
                     {
-                        solutionCases.Add(new SolutionCase(_ballOutput: ballOutput.ToList(), _bitFinalStates: bitFinalStates,
-                            _bitSetupCase: getBitStatesFromNumber(bitFinalStates.Keys.ToList(), numbers[i]), _resetBallsAfterCase: true));
+                        int num_A = numbers_A[i];
+                        int num_B = numbers_B[i];
+
+                        var bitSetupCase_A = getBitStatesFromNumber(bitRegister_A.Keys.ToList(), num_A);
+                        var bitSetupCase_B = getBitStatesFromNumber(bitRegister_B.Keys.ToList(), num_B);
+
+                        var bitSetupCase = new Dictionary<int, bool>();
+                        foreach (var state in bitSetupCase_A)
+                        {
+                            if (!bitSetupCase.ContainsKey(state.Key))
+                            {
+                                bitSetupCase[state.Key] = state.Value;
+                            }
+                        }
+                        foreach (var state in bitSetupCase_B)
+                        {
+                            if (!bitSetupCase.ContainsKey(state.Key))
+                            {
+                                bitSetupCase[state.Key] = state.Value;
+                            }
+                        }
+
+                        var bitRegBFinalState = getBitStatesFromNumber(bitRegister_B.Keys.ToList(), num_A + num_B);
+
+                        // Add a copy of the ball output to the solution along with bit final states that change with every loop iteration
+                        solutionCases.Add(new SolutionCase(_bitSetupCase: bitSetupCase, _bitFinalStates: bitRegBFinalState,
+                            _ballOutput: ballOutput, _resetBallsAfterCase: true));
                     }
 
                     return solutionCases;
@@ -1738,7 +1771,7 @@ public class LevelManager : MonoBehaviour
                             }
                         }
 
-                        var bitRegBFinalState = getBitStatesFromNumber(bitRegister_B.Keys.ToList(), num_A - num_B);
+                        var bitRegBFinalState = getBitStatesFromNumber(bitRegister_B.Keys.ToList(), num_B - num_A);
 
                         // Add a copy of the ball output to the solution along with bit final states that change with every loop iteration
                         solutionCases.Add(new SolutionCase(_bitSetupCase: bitSetupCase, _bitFinalStates: bitRegBFinalState,
@@ -1839,51 +1872,23 @@ public class LevelManager : MonoBehaviour
                 }
             case Level.Level47:
                 {
-                    var bitRegister_A = new Dictionary<int, bool>() {
-                        { 10, false },
-                        { 21, false },
-                    };
-                    var bitRegister_B = new Dictionary<int, bool>() {
+                    // All final states in the register are 0
+                    var bitFinalStates = new Dictionary<int, bool>() {
+                        { 9, false },
                         { 20, false },
                         { 31, false },
                         { 42, false }
                     };
 
                     List<SolutionCase> solutionCases = new List<SolutionCase>();
-
-                    var numbers_A = new List<int>() { 1, 2, 3, 3 };
-                    var numbers_B = new List<int>() { 1, 4, 0, 4 };
+                    var ballOutput = new List<Ball>() { Ball.Blue };
+                    var numbers = new List<int>() { 1, 3, 4, 8, 13 };
 
                     // Create new solution cases in a loop and add them to the list
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < numbers.Count; i++)
                     {
-                        int num_A = numbers_A[i];
-                        int num_B = numbers_B[i];
-
-                        var bitSetupCase_A = getBitStatesFromNumber(bitRegister_A.Keys.ToList(), num_A);
-                        var bitSetupCase_B = getBitStatesFromNumber(bitRegister_B.Keys.ToList(), num_B);
-
-                        var bitSetupCase = new Dictionary<int, bool>();
-                        foreach (var state in bitSetupCase_A)
-                        {
-                            if (!bitSetupCase.ContainsKey(state.Key))
-                            {
-                                bitSetupCase[state.Key] = state.Value;
-                            }
-                        }
-                        foreach (var state in bitSetupCase_B)
-                        {
-                            if (!bitSetupCase.ContainsKey(state.Key))
-                            {
-                                bitSetupCase[state.Key] = state.Value;
-                            }
-                        }
-
-                        var bitRegBFinalState = getBitStatesFromNumber(bitRegister_B.Keys.ToList(), num_A + num_B);
-
-                        // Add a copy of the ball output to the solution along with bit final states that change with every loop iteration
-                        solutionCases.Add(new SolutionCase(_bitSetupCase: bitSetupCase, _bitFinalStates: bitRegBFinalState,
-                            _resetBallsAfterCase: true));
+                        solutionCases.Add(new SolutionCase(_ballOutput: ballOutput.ToList(), _bitFinalStates: bitFinalStates,
+                            _bitSetupCase: getBitStatesFromNumber(bitFinalStates.Keys.ToList(), numbers[i]), _resetBallsAfterCase: true));
                     }
 
                     return solutionCases;
