@@ -1,14 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * A class controlling the settings panel in the UI within the Level scene, MainMenu scene and LevelSelection scene
+ */
 public class SettingsPanel : MonoBehaviour
 {
+    /**
+      * A private Slider field for referencing the sliders for sound effects and music volume adjustment.
+      * Serialized in order to access it from the Unity editor.
+      */
     [SerializeField]
     Slider musicSlider, sfxSlider;
 
+    /**
+      * A private Button field for referencing the buttons for muting and unmuting music and sound effects.
+      * Serialized in order to access it from the Unity editor.
+      */
     [SerializeField]
     Button musicButton, sfxButton;
 
+    /**
+      * A private string field to store the path to the icons for the buttons in the assets folder.
+      */
     string iconsPath = "Images/Icons/";
 
     public void closeSettings()
@@ -16,18 +30,29 @@ public class SettingsPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    /**
+     * A private void member function called at the start of the scene with the settings panel.
+     * It sets the slider values.
+     */
     private void Start()
     {
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
     }
 
+    /**
+    * A private void member function called on enabling the settings panel.
+    * It sets the slider values.
+    */
     private void OnEnable()
     {
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
     }
 
+    /**
+    * A public void member function toggling the music, assigned to the music button in the settings panel.
+    */
     public void toggleMusic()
     {
         AudioManager.Instance.toggleMusic();
@@ -41,6 +66,9 @@ public class SettingsPanel : MonoBehaviour
         }
     }
 
+    /**
+    * A public void member function toggling the sound effects, assigned to the sfx button in the settings panel.
+    */
     public void toggleSfx()
     {
         AudioManager.Instance.toggleSfx();
@@ -54,11 +82,17 @@ public class SettingsPanel : MonoBehaviour
         }
     }
 
+    /**
+    * A public void member function adjusting the music volume, called on every change of the music volume slider.
+    */
     public void changeMusicVolume()
     {
         AudioManager.Instance.changeMusicVolume(musicSlider.value);
     }
 
+    /**
+   * A public void member function adjusting the sound effects volume, called on every change of the sfx volume slider.
+   */
     public void changeSfxVolume()
     {
         AudioManager.Instance.changeSfxVolume(sfxSlider.value);

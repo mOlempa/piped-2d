@@ -7,63 +7,145 @@ using UnityEngine;
 
 public class BoardScript : MonoBehaviour
 {
+    /**
+    * A private GameObject field for referencing the shadow of the object to be spawned by the player.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject objToSpawnShadow;
 
+    /**
+    * A private GameObject field for referencing the object to be spawned by the player.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject objToSpawn;
 
+    /**
+    * A private GameObject field for referencing the Pass type block.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject pass;
-    
+
+    /**
+    * A private GameObject field for referencing the Crossover type block.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField] 
     GameObject crossover;
 
+    /**
+    * A private GameObject field for referencing the Bit type block.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject bit;
 
+    /**
+    * A private Sprite field for referencing the whole sprite of the Bit.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Sprite bitSprite;
 
+    /**
+    * A private GameObject field for referencing the Stopper type block.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject stopper;
 
+    /**
+    * A private GameObject field for referencing the Gear type block.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField] 
     GameObject gear;
 
+    /**
+    * A private GameObject field for referencing the blue marble.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject blueBall;
 
+    /**
+    * A private GameObject field for referencing the red marble.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject redBall;
 
+    /**
+    * A private GameObject field for referencing the spawner of the marbles.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject ballSpawn;
 
-
+    /**
+    * A public Dictionary field that stored information which and whether the marble spawning coroutine has already started
+    */
     public Dictionary<Ball, bool> spawningCoroutineStarted = new Dictionary<Ball, bool>() { { Ball.Red, false },{ Ball.Blue, false } };
+
+    /**
+     * A private bool field holding information about the stop marble spawning coroutine request.
+     */
     bool stopBallSpawnCoroutine = false;
+
+    /**
+     * A public void method that requests the stop of marble spawning coroutine
+     */
     public void stopBallSpawning()
     {
         stopBallSpawnCoroutine = true;
     }
 
-    // Copies of defined cell numbers
+    /**
+     * A private int array field that stores a copy of irregular cell numbers.
+     */
     int[] irregularCells = LevelManager.Instance.irregularCells;
+    /**
+     * A private int array field that stores a copy of gear cell numbers.
+     */
     int[] gearCells = LevelManager.Instance.gearsCells;
 
+    /**
+     * A private Vector2 variable that stores the size of half of the cell for finding center position.
+     */
     Vector2 halfCellSize;
+
+    /**
+     * A private int variable that defines the amount of cells in a row.
+     */
     const int xCellAmount = 11;
+
+    /**
+     * A private int variable that defines the amount of cells in a column.
+     */
     const int yCellAmount = 11;
-    
+
+    /**
+     * A private Vector2 array variable that stores the center positions of each regular cell.
+     */
     Vector2[] regularCellCenters = new Vector2[xCellAmount * yCellAmount - LevelManager.Instance.irregularCells.Length];
+
+    /**
+    * A private Vector2 array variable that stores the center positions of each gear cell.
+    */
     Vector2[] gearCellCenters = new Vector2[LevelManager.Instance.gearsCells.Length];
 
+    /**
+    * A private GameObject field for referencing the renderer of the shadow of the object to be spawned.
+    */
     SpriteRenderer shadowRenderer;
 
 
 
-
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     void Start()
     {
         shadowRenderer = objToSpawnShadow.gameObject.GetComponent<SpriteRenderer>();
@@ -153,7 +235,9 @@ public class BoardScript : MonoBehaviour
     }
 
 
-
+    /**
+     * A private void method that generates the board of the level.
+     */
     void generateStartingBoard()
     {
         GameManager.Instance.clearAllLevelLists();
@@ -245,7 +329,9 @@ public class BoardScript : MonoBehaviour
         spawnBalls();
     }
 
-    // Bit Setup method for generating the board
+    /**
+     * A private void method that sets the Bits after the generation of the board.
+     */
     void setupGeneratedBit(GameObject bit, int direction)
     {
         // Get script of the Bit's ramp
@@ -265,7 +351,9 @@ public class BoardScript : MonoBehaviour
     }
 
 
-    // Spawning balls
+    /**
+     * A public void method that calls a coroutine which spawns the marbles in the dispensers.
+     */
     public void spawnBalls()
     {
         // Spawn balls specified for the level in coroutines to create "animation"
@@ -290,6 +378,11 @@ public class BoardScript : MonoBehaviour
         }
     }
 
+    /**
+     * A private coroutine that spawns the marbles in the dispensers.
+     * @param spawnPos position of the marbles to be spawned at.
+     * @param type the type of the marble.
+     */
     IEnumerator spawnBallsCoroutine(Vector3 spawnPos, Ball type)
     {
         spawningCoroutineStarted[type] = true;
@@ -328,6 +421,9 @@ public class BoardScript : MonoBehaviour
         //print("<color=white>Unblocking spawning the marbles!!!!!!");
     }
 
+    /**
+     * A public void method that calls a coroutine which respawns the marbles in the dispensers.
+     */
     public void respawnBalls()
     {
         // Spawn balls specified for the level in coroutines to create "animation"
@@ -344,6 +440,11 @@ public class BoardScript : MonoBehaviour
         }
     }
 
+    /**
+     * A private coroutine that respawns the marbles in the dispensers.
+     * @param spawnPos position of the marbles to be respawned at.
+     * @param type the type of the marble.
+     */
     IEnumerator respawnReleasedBallsCoroutine(Vector3 spawnPos, Ball type)
     {
         //print("<color=green>Starting coroutine");
@@ -382,7 +483,9 @@ public class BoardScript : MonoBehaviour
 
     }
 
-
+    /**
+    * A private void method called every frame.
+    */
     void Update()
     {
         // Stop any input on the board from the player once the simulation is running
@@ -446,6 +549,9 @@ public class BoardScript : MonoBehaviour
         }
     }
 
+    /**
+    * A private void method that handles placing the blocks on the board by the player.
+    */
     void placeBlock()
     {
         // If counter of the chosen block is bigger than 0
@@ -487,6 +593,10 @@ public class BoardScript : MonoBehaviour
         
     }
 
+    /**
+    * A public void method that sets the object to be spawned.
+    * @param objID the number assigned to the block.
+    */
     public void setSpawnObject(int objID)
     {
         switch (objID)
@@ -522,6 +632,10 @@ public class BoardScript : MonoBehaviour
         activateObjToSpawnShadow();
     }
 
+    /**
+    * A public void method that returns the object by the enum block type.
+    * @param type of the block as BlockType enum
+    */
     private GameObject getObjectByBlockType(BlockType type)
     {
         if (type == BlockType.Crossover)
@@ -551,6 +665,9 @@ public class BoardScript : MonoBehaviour
         }
     }
 
+    /**
+     * A public void method that activated the shadow of the object to be spawned.
+     */
     public void activateObjToSpawnShadow()
     {
         if (objToSpawnShadow != null)
@@ -560,6 +677,9 @@ public class BoardScript : MonoBehaviour
         }
     }
 
+    /**
+    * A public void method that deactivated the shadow of the object to be spawned.
+    */
     public void deactivateObjToSpawnShadow()
     {
         objToSpawnShadow.gameObject.SetActive(false);
@@ -567,9 +687,9 @@ public class BoardScript : MonoBehaviour
         GameManager.Instance.objToSpawnIsActive = false;
     }
 
-
-    
-
+    /**
+     * A private void method called when another object enters the trigger.
+     */
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("RedBall") || other.gameObject.CompareTag("BlueBall"))

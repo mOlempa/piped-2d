@@ -3,16 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/**
+ * A class responsible for Gear block behaviour.
+ */
 public class GearBlock : MonoBehaviour
 {
+    /**
+     * A private bool field informing whether the Gear is currently rotating or not.
+     */
     bool isRotating = false;
+
+    /**
+     * A private RigidBody field for referencing the rigidbody of the Gear.
+     */
     Rigidbody2D rb;
 
+    /**
+     * A public List of ints field that stores the numbers of closest cells
+     */
     public List<int> neighbourBitCells = new List<int>();
-    List<(int pos, GameObject bit, GameObject ramp)> thisConnection = new List<(int pos, GameObject bit, GameObject ramp)>();
-    Ramp referenceRampScript;
-    
 
+    /**
+     * A private List of tuple field that stores the cell numbers, Bit objects and ramp objects of the closest connection.
+     */
+    List<(int pos, GameObject bit, GameObject ramp)> thisConnection = new List<(int pos, GameObject bit, GameObject ramp)>();
+
+    /**
+     * A private Ramp field for referencing the ramp script.
+     */
+    Ramp referenceRampScript;
+
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,9 +44,12 @@ public class GearBlock : MonoBehaviour
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 1);
     }
 
-    // Rotate the gear together with the ramps from the connection
+    /**
+    * A private void method called every frame.
+    */
     private void Update()
     {
+        // Rotate the gear together with the ramps from the connection
         if (thisConnection.Count > 0)
         {
             if (referenceRampScript.isRotating)
@@ -33,6 +59,9 @@ public class GearBlock : MonoBehaviour
         }
     }
 
+    /**
+     * A private coroutine that rotates the Gear.
+     */
     IEnumerator rotateCoroutine()
     {
         if (isRotating)
@@ -56,6 +85,12 @@ public class GearBlock : MonoBehaviour
         isRotating = false;
     }
 
+    /**
+     * A public void method that detects and connects the neighbouring Bit blocks
+     * 
+     * @param bool calledByNewBit used to find whether the method was called by the added Bit object or the Gear.
+     * @param optional bool ignoredBitCell to be set if a Bit was deleted and the method is called by it.
+     */
     public void detectAndConnectNeighbourBits(bool calledByNewBit, int ignoredBitCell = 0)
     {
         print("Detecting neighbour bits");
@@ -139,12 +174,22 @@ public class GearBlock : MonoBehaviour
     }
 
 
-
+    /**
+     * A private void method that resets the ramp of the Bit.
+     * 
+     * @param GameObject ramp object.
+     */
     private void resetRamp(GameObject ramp)
     {
         ramp.GetComponent<Ramp>().resetRamp();
     }
 
+    /**
+     * A private void method that gets the ramp of the Bit.
+     * 
+     * @param GameObject the parent Bit.
+     * @return GameObject ramp object.
+     */
     private GameObject getRamp(GameObject bitParent)
     {
         foreach (Transform child in bitParent.transform)
@@ -163,7 +208,9 @@ public class GearBlock : MonoBehaviour
         return null;
     }
 
-    // Detect clicking on the Gear
+    /**
+    * A private void method that is called when the mouse cursor is over the object.
+    */
     private void OnMouseOver()
     {
         // Stop from modifying the gears already placed
@@ -185,7 +232,9 @@ public class GearBlock : MonoBehaviour
 
     }
 
-
+    /**
+     * A private void method that removes the connection resulting from the Gear.
+     */
     void removeConnection()
     {
         if(neighbourBitCells.Count == 0)
@@ -221,7 +270,9 @@ public class GearBlock : MonoBehaviour
         }
     }
 
-
+    /**
+     * A public method that returns the list of cell numbers that are neighbouring with the Gear.
+     */
     public List<int> getNeighbourBitCells()
     {
         return neighbourBitCells;

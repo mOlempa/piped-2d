@@ -5,9 +5,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * A class storing all information about the contents of the plot and handling the plot display.
+ */
 public class Plot : MonoBehaviour
 {
-
+    /**
+     * A private enum of dialog persons.
+     */
     enum Dialog
     {
         You,
@@ -16,18 +21,38 @@ public class Plot : MonoBehaviour
         Empty
     }
 
+    /**
+     * A private string defining the color of the text of the main character.
+     */
     string you_color = "<color=#9299EA>";
+
+    /**
+     * A private string defining the color of the text of the second character.
+     */
     string cyn_color = "<color=#AECD68>";
 
+    /**
+    * A private TextMeshProUGUI field for referencing the plot text on the screen.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     TextMeshProUGUI content;
 
+    /**
+    * A private TextMeshProUGUI field for referencing the header of the plot.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     TextMeshProUGUI header;
 
+    /**
+     * A private bool field for defining whether the next plot content should be displayed.
+     */
     bool doShowNext = false;
 
-
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         GameObject[] buttons = GameObject.FindGameObjectsWithTag("Button");
@@ -47,7 +72,9 @@ public class Plot : MonoBehaviour
         }
     }
 
-    // Detect any key pressed
+    /**
+     * A private void method called every frame.
+     */
     void Update()
     {
         if (Input.anyKeyDown)
@@ -56,17 +83,25 @@ public class Plot : MonoBehaviour
         }
     }
 
-
+    /**
+     * A public void method for closing the plot scene
+     */
     public void closePlot()
     {
         GameManager.Instance.LoadLoadingScreen();
     }
 
+    /**
+     * A public void method for showing the next plot content.
+     */
     public void showNextContent()
     {
         doShowNext = true;
     }
 
+    /**
+     * A coroutine responsible for the display of the plot contents.
+     */
     IEnumerator setNextContent()
     {
         foreach ((Dialog person, string content) tuple in getPlotContent())
@@ -96,7 +131,9 @@ public class Plot : MonoBehaviour
         closePlot();
     }
 
-
+    /**
+     * A private List storing the plot contents for the levels.
+     */
     List<(Dialog, string)> getPlotContent()
     {
         string yellow = "<b><color=#BF9453>";

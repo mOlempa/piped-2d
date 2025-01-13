@@ -3,20 +3,43 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * A class controlling the hint panel in the UI within the Level scene.
+ */
 public class HintPanel : MonoBehaviour
 {
+    /**
+     * A private TextMeshProUGUI field for referencing the hint text.
+     * Serialized in order to access it from the Unity editor.
+     */
     [SerializeField]
     TextMeshProUGUI hint;
 
+    /**
+     * A private TextMeshProUGUI field for referencing the text on the button in the hint panel.
+     * Serialized in order to access it from the Unity editor.
+     */
     [SerializeField]
     TextMeshProUGUI solutionButtonText;
 
+    /**
+     * A private GameObject field for referencing the object with an image component containing solution to the level.
+     * Serialized in order to access it from the Unity editor.
+     */
     [SerializeField]
     GameObject solution;
 
+    /**
+     * A private Image field for referencing the image of the solution to the level in the hint panel.
+     * Serialized in order to access it from the Unity editor.
+     */
     [SerializeField]
     Image solutionImage;
 
+    /**
+     * A private void member function called at the start of the scene with the hint panel.
+     * It sets all variables to a state they should have at the beginning.
+     */
     private void Start()
     {
         solution.SetActive(false);
@@ -24,16 +47,25 @@ public class HintPanel : MonoBehaviour
         solutionButtonText.text = "Show Solution";
     }
 
+    /**
+     * A private void member function that gets called on enabling the hint panel.
+     */
     private void OnEnable()
     {
         hint.text = getHint();
     }
 
+    /**A public void member function that closes the hint panel
+     * 
+     */
     public void closeHint()
     {
         gameObject.SetActive(false);
     }
 
+    /**
+     * A public void member function that shows the solution within the hint panel.
+     */
     public void showSolution()
     {
         hint.gameObject.SetActive(false);
@@ -49,6 +81,10 @@ public class HintPanel : MonoBehaviour
         }
         solutionButtonText.text = "Hide Solution";
     }
+
+    /**
+     * A public void member function that hides the solution within the hint panel.
+     */
     public void hideSolution()
     {
         solution.SetActive(false);
@@ -56,6 +92,10 @@ public class HintPanel : MonoBehaviour
         solutionButtonText.text = "Show Solution";
     }
 
+    /**
+     * A public void member function that toggles the solution within the hint panel. 
+     * It is assigned to the button at the bottom of the panel.
+     */
     public void toggleSolution()
     {
         if(solution.activeSelf)
@@ -68,7 +108,10 @@ public class HintPanel : MonoBehaviour
         }
     }
 
-
+    /**
+     * A private member function that returns hint text based on the current level set.
+     * @return hint text as string.
+     */
     private string getHint()
     {
         string blue = "<color=#4E8FF6><b>blue</b></color>";

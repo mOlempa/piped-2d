@@ -1,8 +1,13 @@
 using UnityEngine;
 
+/**
+ * A class responsible for block behaviour of type Pass.
+ */
 public class Pass : MonoBehaviour
 {
-
+    /**
+     * A private void method called when the mouse cursor is over the object.
+     */
     private void OnMouseOver()
     {
         // Block player interaction with the blocks once simulation has started
@@ -21,7 +26,9 @@ public class Pass : MonoBehaviour
 
     }
 
-
+    /**
+     * A private void for mirroring the Pass object.
+     */
     private void mirrorBlock()
     {
         gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * -1,

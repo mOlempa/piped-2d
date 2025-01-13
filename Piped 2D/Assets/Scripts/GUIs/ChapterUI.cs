@@ -5,56 +5,106 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/**
+ * A class responsible for handling the Level Selection Menu UI.
+ */
 public class ChapterUI : MonoBehaviour
 {
+    /**
+    * A private TextMeshProUGUI field for referencing the text of the chapter.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     TextMeshProUGUI chapterText;
 
+    /**
+    * A private Button field for referencing the Next button of the chapters.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button nextChapterButton;
 
+    /**
+    * A private Button field for referencing the Previous button of the chapters.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button previousChapterButton;
 
+    /**
+    * A private TextMeshProUGUI field for referencing the text of the level.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     TextMeshProUGUI levelText;
 
+    /**
+    * A private Button field for referencing the Level button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button levelButton;
 
+    /**
+    * A private Button field for referencing the Next button of the levels.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button nextLevelButton;
 
+    /**
+    * A private Button field for referencing the Previous button of the levels.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button previousLevelButton;
 
+    /**
+    * A private GameObject field for referencing the settings panel.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject settingsPanel;
 
-
+    /**
+    * A private Image field for referencing the image of the board thumbnail.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField] 
     Image boardThumbnailImage = null;
 
+    /**
+    * A private List of Buttons to reference all the buttons in the UI.
+    */
     List<Button> allButtons = new List<Button>();
 
-    /*private void Awake()
-    {
-        if (image != null)
-        {
-            image.sprite = Resources.Load<Sprite>("Images/test");
-        }
-    }*/
-
+    /**
+     * A private Chapter field to set the current chapter.
+     */
     Chapter currentChapter = Chapter.Chapter1;
+
+    /**
+     * A private int field to set the current level number.
+     */
     public int currentLevel = 1;
 
+    /**
+     * A private List of integers field to get a set of current levels for the chapter.
+     */
     List<int> currentChapterLevels = new List<int>();
 
+    /**
+     * A private enum for chapters.
+     */
     enum Chapter { 
         Chapter1, Chapter2, Chapter3, Chapter4, Chapter5
     }
 
-
+    /**
+     * A private method that returns the list of level numbers for the chapter.
+     * 
+     * @return List of numbers of the levels.
+     */
     List<int> getLevelsForChapter(Chapter chapter)
     {
         var levels = new List<int>();
@@ -94,7 +144,9 @@ public class ChapterUI : MonoBehaviour
         return levels;
     }
 
-
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         // Activate the panel for adding listeners to the buttons
@@ -144,11 +196,17 @@ public class ChapterUI : MonoBehaviour
         settingsPanel.SetActive(false);
     }
 
+    /**
+     * A private void method that deselects the buttons.
+     */
     void deselectButton(Button buttonPressed)
     {
         EventSystem.current.SetSelectedGameObject(null);
     }
 
+    /**
+     * A private void method called on destroying the object.
+     */
     void OnDestroy()
     {
         foreach(Button button in allButtons)
@@ -157,20 +215,20 @@ public class ChapterUI : MonoBehaviour
         }
     }
 
-
+    /**
+     * A private void method that calls a coroutine that updates the view of the levels
+     */
     void updateLevelView()
     {
         setLevelInManager();
         levelText.text = "LEVEL " + currentLevel;
         boardThumbnailImage.sprite = Resources.Load<Sprite>("Images/Board Thumbnails/thumbnail " + currentLevel);
-
-        /*if (LevelManager.Instance.currentLevelStates[currentLevel])
-        {
-            levelText.text = "Level " + (int)currentLevel;
-        }*/
         StartCoroutine(updateLevelViewCoroutine());
     }
 
+    /**
+     * A private coroutine that updates the view of the levels.
+     */
     IEnumerator updateLevelViewCoroutine()
     {
         while (LevelManager.Instance.currentLevelStates.Count == 0)
@@ -178,25 +236,22 @@ public class ChapterUI : MonoBehaviour
             print("Waiting for LevelManager...");
             yield return null;
         }
-        //print("<color=green>LevelManager done");
         if (LevelManager.Instance.currentLevelStates[(Level)(currentLevel - 1)])
         {
-            //levelText.color = Color.green;
-            /*ColorBlock cb = levelButton.colors;
-            cb.normalColor = Color.green;
-            levelButton.colors = cb;*/
             changeButtonColor(levelButton, new Color(0.53f, 0.83f, 0.15f));
         }
         else
         {
-            //levelText.color = Color.white;
-            /*ColorBlock cb = levelButton.colors;
-            cb.normalColor = Color.white;
-            levelButton.colors = cb;*/
             changeButtonColor(levelButton, Color.white);
         }
     }
 
+    /**
+     * A public void method that changes the color of the button.
+     * 
+     * @param button that will get its color changed.
+     * @param color that will the button have.
+     */
     public void changeButtonColor(Button button, Color color)
     {
         ColorBlock cb = button.colors;
@@ -215,18 +270,28 @@ public class ChapterUI : MonoBehaviour
 
         button.colors = cb;
     }
+
+    /**
+     * A public void method that sets the next chapter.
+     */
     public void nextChapter()
     {
         currentChapter++;
         updateAll();
     }
 
+    /**
+     * A public void method that sets the previous chapter.
+     */
     public void previousChapter()
     {
         currentChapter--;
         updateAll();
     }
 
+    /**
+     * A private void method that calls all update methods.
+     */
     public void updateAll()
     {
         chapterText.text = "CHAPTER " + ((int)currentChapter + 1);
@@ -239,6 +304,9 @@ public class ChapterUI : MonoBehaviour
         updateLevelView();
     }
 
+    /**
+     * A public void method that sets the next level.
+     */
     public void nextLevel()
     {
         currentLevel++;
@@ -246,6 +314,9 @@ public class ChapterUI : MonoBehaviour
         updateLevelNavigationButtons();
     }
 
+    /**
+     * A public void method that sets the previous level.
+     */
     public void previousLevel()
     {
         currentLevel--;
@@ -253,6 +324,9 @@ public class ChapterUI : MonoBehaviour
         updateLevelNavigationButtons();
     }
 
+    /**
+     * A private void method that updates the navigation buttons of the levels.
+     */
     void updateLevelNavigationButtons()
     {
         if (currentLevel == currentChapterLevels[1])
@@ -275,6 +349,9 @@ public class ChapterUI : MonoBehaviour
         }
     }
 
+    /**
+     * A private void method that updates the navigation buttons of the chapters.
+     */
     void updateChapterNavigationButtons()
     {
         if (currentChapter == Chapter.Chapter2)
@@ -295,11 +372,17 @@ public class ChapterUI : MonoBehaviour
         }
     }
 
+    /**
+     * A private void method that sets the current level in the Game Manager
+     */
     void setLevelInManager()
     {
         GameManager.Instance.currentLevel = (Level)currentLevel - 1;
     }
 
+    /**
+     * A public void method that plays the game music once the level was selected.
+     */
     public void playGameMusic()
     {
         AudioManager.Instance.playGameMusic();

@@ -3,16 +3,44 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/**
+ * A class that handles the Level Complete text feedback.
+ */
 public class LevelCompleteText : MonoBehaviour
 {
+    /**
+     * A private TextMeshProUGUI field for referencing the text.
+     */
     private TextMeshProUGUI text;
+
+    /**
+     * A private Color field for referencing the base color of the text.
+     */
     private Color baseColor;
+
+    /**
+     * A private Color field used in animating the text.
+     */
     private Color color_0 = new Color();
+
+    /**
+     * A private Color field used in animating the text.
+     */
     private Color color_1 = new Color();
+
+    /**
+     * A public int field defining the rate of the text animation pulsation.
+     */
     public int rate = 1;
+
+    /**
+     * A private float field for animation counter.
+     */
     float i = 0;
 
-
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     void Start()
     {
         text = gameObject.GetComponent<TextMeshProUGUI>();
@@ -24,6 +52,9 @@ public class LevelCompleteText : MonoBehaviour
         text.enabled = false;
     }
 
+    /**
+    * A private void method called every frame.
+    */
     void Update()
     {
         if (GameManager.Instance.levelCompleted)
@@ -57,8 +88,5 @@ public class LevelCompleteText : MonoBehaviour
         }
 
     }
-
-    public float fadeTime = 10f; 
-
 
 }

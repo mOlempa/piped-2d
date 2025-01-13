@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine;
 using Random = System.Random;
 
+/**
+ * A public enum for the two types of marbles or neither.
+ */
 public enum Ball
 {
     Blue,
@@ -12,6 +15,9 @@ public enum Ball
     Neither
 }
 
+/**
+ * A public enum for the types of blocks.
+ */
 public enum BlockType
 {
     Pass,
@@ -21,6 +27,9 @@ public enum BlockType
     Gear
 }
 
+/**
+ * A public enum for the levels
+ */
 public enum Level
 {
     Level1, Level2, Level3, Level4, Level5,
@@ -35,9 +44,14 @@ public enum Level
     Level46, Level47
 }
 
+/**
+ * A public class storing all the information about each of the levels
+ */
 public class LevelManager : MonoBehaviour
 {
-
+    /**
+     * A public List of levels containing the plot.
+     */
     public List<Level> levelsWithPlot = new List<Level>()
     {
         Level.Level1, Level.Level4, Level.Level5, Level.Level8, Level.Level9,
@@ -46,6 +60,9 @@ public class LevelManager : MonoBehaviour
         Level.Level47,
     };
 
+    /**
+     * A public int array defining irregular cells.
+     */
     public int[] irregularCells = {120, 119, 118, 117, 116, 114, 113, 112, 111, 110,
                                             108, 106, 104, 102, 100, 98, 96, 94, 92, 90, 88,
                                             86, 84, 82, 80, 78, 76, 74, 72, 70, 68, 66, 64,
@@ -53,28 +70,58 @@ public class LevelManager : MonoBehaviour
                                             38, 36, 34, 32, 30, 28, 26, 24, 22, 21, 20, 18,
                                             16, 14, 12, 11, 10, 9, 8, 6, 5, 4, 2, 1, 0};
 
+    /**
+     * A public int array defining gear cells.
+     */
     public int[] gearsCells = { 108, 106, 104, 102, 100, 98, 96, 94, 92, 90, 88,
                                 86, 84, 82, 80, 78, 76, 74, 72, 70, 68, 66, 64,
                                 62, 60, 58, 56, 54, 52, 50, 48, 46, 44, 42, 40,
                                 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18,
                                 16, 14, 12, 8, 6, 4, 2};
 
+    /**
+     * A public List of Vector2 for storing locked cell positions.
+     */
     public List<Vector2> lockedCellCenters;
 
+    /**
+     * A public Dictionary for storing position-to-cell relationships.
+     */
     public Dictionary<Vector3, int> posToCellDictionary = new Dictionary<Vector3, int>();
+
+    /**
+     * A public Dictionary for storing cell-to-position relationships.
+     */
     public Dictionary<int, Vector3> cellToPosDictionary = new Dictionary<int, Vector3>();
 
+    /**
+     * A public Dictionary for storing gear position-to-cell relationships.
+     */
     public Dictionary<Vector3, int> gearPosToCellDictionary = new Dictionary<Vector3, int>();
+
+    /**
+     * A public Dictionary for storing gear cell-to-position relationships.
+     */
     public Dictionary<int, Vector3> gearCellToPosDictionary = new Dictionary<int, Vector3>();
 
-    public TextMeshProUGUI counterText1;
-    public TextMeshProUGUI counterText2;
-
+    /**
+     * A private string for saving the completed level states in player preferences.
+     */
     string completedLevelsString = "";
-    public Dictionary<Level, bool> currentLevelStates;
-    //public List<bool> currentLevelStates;
 
+    /**
+    * A public Dictionary for storing the completed level states to be saved later in player preferences.
+    */
+    public Dictionary<Level, bool> currentLevelStates;
+
+    /**
+    * A private instance of the Level Manager singleton.
+    */
     private static LevelManager _instance;
+
+    /**
+     * A public reference to the instance of the Level Manager singleton.
+     */
     public static LevelManager Instance
     {
         get
@@ -86,6 +133,10 @@ public class LevelManager : MonoBehaviour
             return _instance;
         }
     }
+
+    /**
+     * A public void method called on awake of the script.
+     */
     public void Awake()
     {
         _instance = this;
@@ -100,11 +151,17 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         setupLevelStateList();
     }
 
+    /**
+     * A private void method that sets the level state list by either creating a new one or converting it from saved player preferences.
+     */
     void setupLevelStateList()
     {
         //List<bool> levelStates = new List<bool>();
@@ -144,6 +201,10 @@ public class LevelManager : MonoBehaviour
         currentLevelStates = levelStates;
     }
 
+    /**
+     * A public void method that sets the level as complete in the level states and saves it to the player preferences.
+     * @param level given.
+     */
     public void setLevelComplete(Level level)
     {
         currentLevelStates[level] = true;
@@ -151,6 +212,9 @@ public class LevelManager : MonoBehaviour
         saveLevelStates();
     }
 
+    /**
+     * A private void method that saves the level states in the player preferences.
+     */
     void saveLevelStates()
     {
         string newStates = "";
@@ -169,7 +233,9 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetString("LevelStates", completedLevelsString);
     }
 
-    // Resetting the saved states (completeness) of the levels
+    /**
+     * A public void method that allows on reset of the level states in player preferences.
+     */
     public void resetLevelStates()
     {
         completedLevelsString = "";
@@ -181,7 +247,10 @@ public class LevelManager : MonoBehaviour
 
 
 
-
+    /**
+     * A public method that returns the information about the starting dispenser in each of the levels.
+     * @return Ball as the type of starting dispenser.
+     */
     public Ball getLevelStartingSide()
     {
         switch (GameManager.Instance.currentLevel)
@@ -208,7 +277,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-
+    /**
+     * A public method that returns the information about the amount of marbles to be spawned in each dispenser.
+     * @return Dictionary with the marble type as Ball enum and amount of the marbles as integer.
+     */
     public Dictionary<Ball, int> getLevelBallAmounts()
     {
         switch (GameManager.Instance.currentLevel)
@@ -301,11 +373,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    
 
 
 
-    // GET: STARTING BOARD for the level
+
+    /**
+     * A public method that returns the information about the board to be generated for each of the levels.
+     * @return Dictionary with the type of the block as BlockType enum and its positions as an array of integers.
+     */
     public Dictionary<BlockType, int[]> getLevelStartingBoard(int levelNum = 0)
     {
         Level currentLevel;
@@ -547,6 +622,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /**
+     * A public method that returns the information about the available blocks for each of the levels.
+     * @return Dictionary with the type of the block as BlockType enum and its position as an integer.
+     */
     public Dictionary<BlockType, int> getLevelBlocks()
     {
         switch (GameManager.Instance.currentLevel)
@@ -764,8 +843,10 @@ public class LevelManager : MonoBehaviour
     }
 
 
-
-    // Get full list of solution cases that need to be solved correctly for the level to be complete
+    /**
+     * A public method that returns the full list of solution cases that need to be solved correctly for each of the level to be complete.
+     * @return List of solution cases for the current level.
+     */
     public List<SolutionCase> getLevelSolutionCases()
     {
         switch (GameManager.Instance.currentLevel)
@@ -1900,6 +1981,13 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /**
+     * A private method that converts a list of Bit cell numbers to a Dictionary with cell numbers and assigned bool values
+     * in order to create a binary number.
+     * @param regBitPositions a list of cell numbers where the Bits are
+     * @param regValue a value of the binary number as integer.
+     * @return Dictionary of cell positions and Bit states as bool values.
+     */
     private Dictionary<int, bool> getBitStatesFromNumber(List<int> regBitPositions, int regValue)
     {
         var bitFinalStates = new Dictionary<int, bool>();
@@ -1929,7 +2017,11 @@ public class LevelManager : MonoBehaviour
         return bitFinalStates;
     }
 
-
+    /**
+     * A private method to get the opposite of the bool values from the dictionary.
+     * @param inputStates the input Dictionary with cell numbers as keys and bool as values.
+     * @return Dictionary with cell numbers as keys and the opposite values as the input.
+     */
     private Dictionary<int, bool> getOppositeBitStates(Dictionary<int, bool> inputStates)
     {
         var outputStates = new Dictionary<int, bool>();

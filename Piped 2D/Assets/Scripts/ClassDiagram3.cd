@@ -70,7 +70,7 @@
   <Class Name="BallScript" Collapsed="true">
     <Position X="1" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAQAAAAAACAkAABEAEAEABAAQgQAAABAZgAgQBAQAAA=</HashCode>
+      <HashCode>IAQAAAAAACAkAABEAEAEAAAAQgQAAABAZgAgQBAQAAA=</HashCode>
       <FileName>Assets\Scripts\BoardElements\BallScript.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -175,7 +175,7 @@
   <Class Name="TutorialPanel" Collapsed="true">
     <Position X="7.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CBIAAIAAQCAIEAAAEAAAIFAgQAEAAAADBAQAAACAAAA=</HashCode>
+      <HashCode>CBIACIAAQCAIEAAAEAAAIFAgQAEAAAADBAAAAACAAAA=</HashCode>
       <FileName>Assets\Scripts\GUIs\Panels\TutorialPanel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -196,14 +196,14 @@
   <Class Name="GameUI" Collapsed="true">
     <Position X="10" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AkgEiYBCAOEAgcCBGEAIwsAAFBTACCAQABJoAEkIYAY=</HashCode>
+      <HashCode>AkgEiIBCAOEAAcCBGEAIwsAAFBTACCAQABJoAEkIYAY=</HashCode>
       <FileName>Assets\Scripts\GUIs\GameUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LevelCompleteText" Collapsed="true">
     <Position X="3.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AARAAEAAACAAAAAAAIABAAAAEAAAAAAIIAAAAAAAAAA=</HashCode>
+      <HashCode>AARAAEAAACAAAAAAAIABAAAAAAAAAAAIIAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\GUIs\LevelCompleteText.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -231,14 +231,14 @@
   <Class Name="GameManager" Collapsed="true">
     <Position X="1" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>Q4iNAASQgIhAFjQBGAQIGIAtABxwIUwdzpBACBBCysA=</HashCode>
+      <HashCode>Q4iNAASQgIhAFjQBCAQIGIAtABxwIUwdzpBACBBCysA=</HashCode>
       <FileName>Assets\Scripts\GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LevelManager" Collapsed="true">
     <Position X="3.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEQCYgBCEgACAAAAgAAABAAIACQKAARAQAAAKAAUA=</HashCode>
+      <HashCode>AAAEQCYgBCAgACAAAAgAAABAAIACQKAARAQAAAKAAUA=</HashCode>
       <FileName>Assets\Scripts\LevelManager.cs</FileName>
     </TypeIdentifier>
   </Class>

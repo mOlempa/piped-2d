@@ -5,6 +5,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * An enum that describes the possible speeds of the game speed.
+ */
 public enum GameSpeed
 {
     Regular,
@@ -12,79 +15,214 @@ public enum GameSpeed
     Slow
 }
 
-
+/**
+ * A class handling communication between other scripts and multiple events behind the game.
+ */
 public class GameManager : MonoBehaviour
 {
+    /**
+     * A public bool field informing whether the Level Complete text should be displayed.
+     */
     public bool showLevelCompleteText = false;
 
+    /**
+     * A public Dictionary field for storing the copy of available blocks for the level.
+     */
     public Dictionary<BlockType, int> availableBlocksCopy;
+
+    /**
+     * A public bool field informing whether to update the counter text displayed next to block buttons.
+     */
     public bool updateCounterText { get; set; } = false;
+
+    /**
+     * A public bool field informing whether the level has started or not.
+     */
     public bool levelStarted = true;
 
+    /**
+     * A public Ball field informing which dispenser is set to start.
+     */
     public Ball startingBallType = Ball.Blue;
+
+    /**
+     * A public bool field informing whether to rotate the left dispenser wheel.
+     */
     public bool turnLeftWheels { get; set; } = false;
+
+    /**
+     * A public bool field informing whether to rotate the right dispenser wheel.
+     */
     public bool turnRightWheels { get; set; } = false;
 
+    /**
+     * A public Level field informing which level is currently opened.
+     */
     public Level currentLevel = Level.Level1;
 
+    /**
+     * A public GameSpeed field informing what is the current speed of the game.
+     */
     public GameSpeed currentGameSpeed = GameSpeed.Regular;
 
+    /**
+     * A private GameUI field for referencing the Game UI script.
+     */
     private GameUI gameUI;
 
+    /**
+    * A public bool field informing whether the object to be spawned is active or not.
+    */
     public bool objToSpawnIsActive = false;
+
+    /**
+    * A public bool field informing whether the game should block spawning test marbles.
+    */
     public bool blockSpawningTestBalls = false;
 
+
+    /**
+    * A public List of Vector2 for storing the cell center positions of the available regular cells
+    */
     public List<Vector2> availableRegularCellCenters = new List<Vector2>();
+
+    /**
+    * A public List of Vector2 for storing the cell center positions of the available gear cells
+    */
     public List<Vector2> availableGearCellCenters = new List<Vector2>();
 
-
+    /**
+    * A public Dictionary for storing the current states of the Bits on the board.
+    */
     public Dictionary<int, bool> currentBitStates = new Dictionary<int, bool>();
+
+    /**
+    * A public Dictionary for storing the Bit objects from the board along with their cell number.
+    */
     public Dictionary<int, GameObject> bitObjects = new Dictionary<int, GameObject>();
 
+    /**
+    * A public List for storing the marble objects from the board.
+    */
     public List<GameObject> ballObjects = new List<GameObject>();
+
+    /**
+   * A public List for storing the test marble objects from the board.
+   */
     public List<GameObject> testBallObjects = new List<GameObject>();
 
+    /**
+   * A public List for storing the current output of the board.
+   */
     public List<Ball> currentBallOutput = new List<Ball>();
+
+    /**
+   * A public Dictionary for storing the current content of the Stoppers from the board.
+   */
     public Dictionary<int, Ball> currentStopperContents = new Dictionary<int, Ball>();
 
+    /**
+    * A public List of tuples for storing the Bit connection nets from the board.
+    */
     public List<List<(int cell, GameObject bit, GameObject ramp)>> bitConnectionChains = new List<List<(int, GameObject, GameObject)>>();
+
+    /**
+    * A public List for storing the Gear objects from the board.
+    */
     public List<GameObject> allGears = new List<GameObject>();
 
-    //public List<(BitObject bit_1, BitObject bit_2)> bitConnectionPairs = new List<(BitObject bit_1, BitObject bit_2)>();
-    public float rampAngularVelocity = 5;
-
-
+    /**
+     * A public bool field informing whether the simulation is running or not.
+     */
     public bool marblesAreRunning { get; set; } = false;
 
+    /**
+    * A public List for storing the current solution cases of the level,
+    */
     public List<SolutionCase> currentSolutionCases = new List<SolutionCase>();
+
+    /**
+    * A public SolutionCase field for storing the currently being checked solution case.
+    */
     public SolutionCase currentSolutionCase = null;
 
+    /**
+    * A public Dictionary for storing the setup of the Bits that was dependent on the player, for possible restoring later.
+    */
     public Dictionary<int, bool> playerBitCustomSetup = new Dictionary<int, bool>();
 
+
+    /**
+    * A public bool field informing whether the level was completed or not.
+    */
     public bool levelCompleted = false;
 
-
+    /**
+    * A public bool field informing whether the current solution case was finished or not.
+    */
     public bool caseFinished = false;
+
+    /**
+    * A public bool field for requesting stopping the simulation.
+    */
     public bool stopSimulation = false;
 
+    /**
+    * A public bool field informing whether the next level is being loaded.
+    */
     public bool loadingNextLevel = false;
+
+    /**
+    * A public bool field informing whether the level is being loaded after the plot.
+    */
     public bool loadingLevelAfterPlot = false;
+
+    /**
+    * A public bool field informing whether the level is being reloaded.
+    */
     public bool reloadingLevel = false;
+
+    /**
+    * A public bool field informing whether the current level was a final level of the game.
+    */
     public bool wasLastLevel = false;
+
+    /**
+    * A public bool field informing whether the game was finished.
+    */
     public bool finishedGame = false;
 
+    /**
+    * A public bool field informing whether the marbles are respawning
+    */
+    public bool marblesAreSpawning;
+
+    /**
+    * A public Dictionary for storing the amount of marbles to be respawned along with their type.
+    */
     public Dictionary<Ball, int> ballAmountToRespawn = new Dictionary<Ball, int>() { { Ball.Blue, 0 }, { Ball.Red, 0 } };
+
+    /**
+    * A public List storing the marble objects to be respawned
+    */
     public List<GameObject> ballsToRespawn = new List<GameObject>();
 
-    public bool marblesAreSpawning;
+    /**
+    * A public void method requesting spawning the marbles.
+    */
     public void setMarblesAreSpawning(bool value)
     {
-        print("Setting marblesAreSpawning to " +  value);
         marblesAreSpawning = value;
     }
 
-
+    /**
+     * A private instance of the Game Manager singleton.
+     */
     private static GameManager _instance;
+
+    /**
+     * A public reference to the instance of the Game Manager singleton.
+     */
     public static GameManager Instance
     {
         get
@@ -96,6 +234,10 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+
+    /**
+     * A public void method called on awake of the script.
+     */
     public void Awake()
     {
         _instance = this;
@@ -110,21 +252,26 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
+    /**
+     * A public void method that loads loading screen.
+     */
     public void LoadLoadingScreen()
     {
         LoadScene(3);
     }
 
-    // Load a loading screen and then load the current level
+    /**
+     * A public void method that loads the level
+     */
     public void LoadLevel()
     {
         marblesAreSpawning = true;
         SceneManager.LoadScene(2);
-        //AudioManager.Instance.stopMusic();
     }
 
-
+    /**
+     * A public void method that reloads the level
+     */
     public void ReloadLevel()
     {
         reloadingLevel = true;
@@ -133,7 +280,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    // Load loading screen and then load the next level
+    /**
+     * A public void method that loads the next level
+     */
     public void LoadNextLevel()
     {
         // If the current level was the last level, load the plot scene
@@ -150,6 +299,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    /**
+     * A public void method that loads the Level Selection Menu
+     */
     public void LoadLevelSelection() {
         clearAllLevelLists();
         resetSimulation();
@@ -157,6 +309,9 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.playMenuMusic();
     }
 
+    /**
+     * A public void method that loads the Main Menu
+     */
     public void LoadMainMenu()
     {
         clearAllLevelLists();
@@ -164,25 +319,45 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
         AudioManager.Instance.playMenuMusic();
     }
+
+    /**
+     * A public void method that loads the Credits scene
+     */
     public void LoadCredits()
     {
         SceneManager.LoadScene(5);
     }
 
+    /**
+     * A public void method that loads a scene by its number.
+     * @param sceneId number of the scene.
+     */
     public void LoadScene(int sceneId)
     {
         SceneManager.LoadScene(sceneId);
     }
 
+    /**
+     * A private void method called on object enable.
+     */
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoad;
     }
+
+    /**
+     * A private void method called on object disable.
+     */
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoad;
     }
 
+    /**
+     * A private void method called on loading a scene.
+     * @param scene scene to be loaded.
+     * @param mode of loading the scene.
+     */
     void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         print("<color=white>Loading scene...");
@@ -218,6 +393,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * A coroutine handling the loading screen.
+     */
     IEnumerator loadingScreen()
     {
         yield return new WaitForSeconds(1);
@@ -268,7 +446,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    /**
+     * A public void method clearing all lists of objects and other information stored for the current level.
+     */
     public void clearAllLevelLists()
     {
         availableRegularCellCenters.Clear();
@@ -290,7 +470,10 @@ public class GameManager : MonoBehaviour
         playerBitCustomSetup.Clear();
     }
 
-
+    /**
+     * A public void method decreasing the counter of the given type of block.
+     * @param blockType the type of the block in form of the BlockType enum.
+     */
     public void decreaseCounter(BlockType blockType)
     {
         if (availableBlocksCopy[blockType] > 0)
@@ -308,6 +491,10 @@ public class GameManager : MonoBehaviour
 
     }
 
+    /**
+     * A public void method increasing the counter of the given type of block.
+     * @param blockType the type of the block in form of the BlockType enum.
+     */
     public void increaseCounter(BlockType blockType)
     {
         availableBlocksCopy[blockType] = availableBlocksCopy[blockType] + 1;
@@ -317,6 +504,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * A public BlockType method returning the type of the block by its tag.
+     * @param tag the tag of the block.
+     */
     public BlockType getObjTypeByTag(string tag)
     {
         switch (tag)
@@ -337,12 +528,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * A public void method returning the counter of the block of a given type.
+     * @param blockType the type of the block in form of the BlockType enum.
+     * @return int the counter of the given type of block.
+     */
     public int getBlocktypeCounter(BlockType blockType)
     {
         return availableBlocksCopy[blockType];
     }
 
-
+    /**
+     * A public void method handling adding marbles to the current output
+     * @param Ball the type of the marble in the form of Ball enum.
+     */
     public void addBallToCurrentBallOutput(Ball ball)
     {
         currentBallOutput.Add(ball);
@@ -361,7 +560,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    /**
+     * A public void method changing the state of the Bit in the list of current Bit states.
+     * @param cellNum the number of the cell of the Bit.
+     * @param state the true/false state of the Bit.
+     */
     public void changeBitStateVar(int cellNum, bool state)
     {
         if(currentBitStates.ContainsKey(cellNum))
@@ -375,7 +578,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    /**
+     * A private coroutine simulating different cases given for the current level.
+     */
     IEnumerator simulateCasesCheck()
     {
         List<bool> solutionStates = new List<bool>();
@@ -511,7 +716,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    /**
+     * A public bool method checking the simulation results.
+     * @param solutionCase the solution case object with correct results assigned for the current level.
+     * @return bool value of the check result.
+     */
     public bool checkCaseSolution(SolutionCase solutionCase)
     {
         bool solved = true;
@@ -591,7 +800,10 @@ public class GameManager : MonoBehaviour
 
         return solved;
     }
-    
+
+    /**
+     * A public void method setting the level as complete.
+     */
     public void setLevelComplete()
     {
         showLevelCompleteText = true;
@@ -601,7 +813,9 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.playSfx("LevelComplete");
     }
 
-
+    /**
+     * A private void method resetting the marbles.
+     */
     void resetBalls()
     {
         GameObject board = GameObject.FindGameObjectWithTag("Board");
@@ -636,7 +850,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    /**
+     * A public void method deleting the test marbles
+     */
     public void deleteTestBalls()
     {
         foreach(GameObject ball in testBallObjects)
@@ -646,7 +862,9 @@ public class GameManager : MonoBehaviour
         testBallObjects.Clear();
     }
 
-
+    /**
+     * A public void method starting the simulation coroutine.
+     */
     public void runSimulation()
     {
         if (!AudioManager.Instance.sfxSource.mute)
@@ -672,6 +890,9 @@ public class GameManager : MonoBehaviour
 
     }
 
+    /**
+     * A public void method requesting reset of the simulation.
+     */
     public void resetSimulation()
     {
         stopSimulation = true;
@@ -689,9 +910,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * A private void method respawning the marbles that were run during the simulation.
+     */
     void respawnRunBalls()
     {
-        print("respawn balls called!!!!!!!!!!!!!!!!!!!!!!s");
         GameObject board = GameObject.FindGameObjectWithTag("Board");
         if (board != null)
         {
@@ -707,7 +930,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Player Bit setup (if it is allowed in the level) gets saved at each start of the simulation
+    /**
+     * A public void method restoring the player Bit setup.
+     */
     public void restorePlayerBitSetup()
     {
         var bitsToNotRestore = new Dictionary<int, bool>();
@@ -743,6 +968,11 @@ public class GameManager : MonoBehaviour
         setResetBits(bitObjects, playerBitCustomSetup);
     }
 
+    /**
+     * A public void method setting and resetting Bits accordingly to the provided setup.
+     * @param Dictionary<int, GameObject> containing all Bits
+     * @param Dictionary<int, bool> containing all the states the Bits should be set to.
+     */
     public void setResetBits(Dictionary<int, GameObject> bitObjects, Dictionary<int, bool> bitSetup)
     {
         print("<color=#2E8B57>Bit setup:");
@@ -761,6 +991,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * A public void method deleting a Bit from the list by cell number.
+     * @param cell number of the Bit to be deleted.
+     */
     public void deleteBitFromLists(int cell)
     {
         playerBitCustomSetup.Remove(cell);
@@ -768,7 +1002,9 @@ public class GameManager : MonoBehaviour
         currentBitStates.Remove(cell);
     }
 
-
+    /**
+     * A public void method speeding up the game.
+     */
     public void speedUpGame()
     {
         currentGameSpeed = GameSpeed.Fast;
@@ -776,6 +1012,10 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.changeSfxPitch(3);
         gameUI.updateSpeedButon();
     }
+
+    /**
+     * A public void method resetting the game speed.
+     */
     public void resetGameSpeed()
     {
         currentGameSpeed = GameSpeed.Regular;
@@ -783,6 +1023,10 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.changeSfxPitch(1);
         gameUI.updateSpeedButon();
     }
+
+    /**
+     * A public void method slowing down the game.
+     */
     public void slowDownGame()
     {
         currentGameSpeed = GameSpeed.Slow;
@@ -790,15 +1034,18 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.changeSfxPitch(2);
         gameUI.updateSpeedButon();
     }
+
+    /**
+     * A public void method pausing the game.
+     */
     public void pauseGameSpeed()
     {
         Time.timeScale = 0;
     }
-    public void superSpeedUpGame()
-    {
-        Time.timeScale = 20;
-    }
 
+    /**
+     * A public void method changing starting dispenser.
+     */
     public void changeStartingSide(Ball ball)
     {
         startingBallType = ball;

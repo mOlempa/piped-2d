@@ -2,18 +2,33 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/**
+* A class that handles deleting the Bit block from the board.
+*/
 public class DeleteBit : MonoBehaviour
 {
+    /**
+     * A private UpdateBitConnection field for referencing the script that updates the connections in all Bit connection nets.
+     */
     UpdateBitConnection connection;
+
+    /**
+     * A private int field that stores the board cell number the Bit block is in.
+     */
     int cell = 0;
 
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         connection = gameObject.GetComponent<UpdateBitConnection>();
         cell = LevelManager.Instance.posToCellDictionary[gameObject.transform.position];
     }
 
-
+    /**
+     * A private void method that is called when the mouse cursor is over the object. It handles deletion of the Bit.
+     */
     private void OnMouseOver()
     {
         // Block player interaction with the blocks once simulation has started
@@ -38,6 +53,9 @@ public class DeleteBit : MonoBehaviour
 
     }
 
+    /**
+     * A private void method that handles deleting the Bit object from the connection net stores in the Game Manager.
+     */
     private void deleteBitFromConnectionChain()
     {
         foreach (List<(int cell, GameObject bit, GameObject ramp)> chain in GameManager.Instance.bitConnectionChains)

@@ -1,7 +1,14 @@
 using UnityEngine;
 
+/**
+ * A class controlling block specific behaviour of a Crossover type.
+ */
 public class Crossover : MonoBehaviour
 {
+    /**
+     * A private void method that is called when the mouse cursor is over the object. It blocks spawning test marbles inside due to
+     * its colliders being dependent on the side a marble enters the Crossover.
+     */
     private void OnMouseOver()
     {
         // Block player interaction with the blocks once simulation has started
@@ -26,7 +33,9 @@ public class Crossover : MonoBehaviour
 
     }
 
-
+    /**
+     * A private void method that is called when the mouse cursor exits the object.
+     */
     private void OnMouseExit()
     {
         if (GameManager.Instance.marblesAreRunning)

@@ -3,22 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/**
+ * A class controlling the behavior of the ramp of a Bit.
+ */
 public class Ramp : MonoBehaviour
 {
+    /**
+     * A private RigidBody field for referencing the rigid body of the ramp.
+     */
     Rigidbody2D rb;
 
+    /**
+     * A public GameObject field for referencing the top part of the Bit.
+     */
     public GameObject bitTop;
+
+    /**
+     * A public bool field for checking if the ramp is currently rotating.
+     */
     public bool isRotating = false;
+
+    /**
+     * A public bool field to request stop of the rotation.
+     */
     public bool stopRotation = false;
+
+    /**
+     * A public bool field for setting direction of the rotation.
+     */
     public int direction = 1;
+
+    /**
+     * A public bool field for storing the state of the Bit parent of the ramp.
+     */
     public bool isOn = true;
 
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    
+    /**
+     * A private void method that is called when the mouse cursor is detected over the ramp. 
+     * It handles user interaction (clicking on the ramp).
+     */
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
@@ -33,7 +64,9 @@ public class Ramp : MonoBehaviour
 
     }
 
-
+    /**
+     * A public void method that rotates the ramp on click.
+     */
     public void onClick()
     {
         // Block player interaction with the ramps once simulation has started
@@ -46,11 +79,17 @@ public class Ramp : MonoBehaviour
 
     }
 
+    /**
+     * A public void method that starts the ramp rotation coroutine.
+     */
     public void rotateRamp()
     {
         StartCoroutine(rotateCoroutine());
     }
 
+    /**
+     * A private coroutine that rotates the ramp.
+     */
     IEnumerator rotateCoroutine()
     {
         if (isRotating)
@@ -74,13 +113,17 @@ public class Ramp : MonoBehaviour
         direction *= -1;
     }
 
+    /**
+     * A public void method that requests stopping the rotation of the ramp.
+     */
     public void stopRotating()
     {
         stopRotation = true;
     }
 
-
-    // Pass through other blocks
+    /**
+     * A private void method that is called when the ramp collides with another object.
+     */
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject otherObject = other.GetContact(0).collider.gameObject;
@@ -101,13 +144,16 @@ public class Ramp : MonoBehaviour
             }
             else
             {
+                // Pass through other blocks
                 Physics2D.IgnoreCollision(other.GetContact(0).collider, GetComponent<Collider2D>());
             }
 
         }
     }
 
-    // When ball enters the ramp
+    /**
+     * A private void method that is called when an object enters the ramp trigger. It handles detection of marbles rolling onto the ramp.
+     */
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("BlueBall") || other.gameObject.CompareTag("RedBall"))
@@ -117,6 +163,9 @@ public class Ramp : MonoBehaviour
         }
     }
 
+    /**
+     * A public void method that resets the ramp (rotates to off state)
+     */
     public void resetRamp()
     {
         if (!isOn)
@@ -128,6 +177,9 @@ public class Ramp : MonoBehaviour
         rotateConnectedRamps(true);
     }
 
+    /**
+     * A public void method that sets the ramp (rotates to on state)
+     */
     public void setRamp()
     {
         if (isOn)
@@ -139,13 +191,21 @@ public class Ramp : MonoBehaviour
         rotateConnectedRamps();
     }
 
+    /**
+     * A private GameObject method that returns the Bit parent of the ramp.
+     * 
+     * @return GameObject Bit parent
+     */
     private GameObject findBitParentObject()
     {
         return transform.parent.parent.gameObject;
     }
 
-
-
+    /**
+     * A private void method that rotates the ramps in the same Bit connection net.
+     * 
+     * @param optional bool isReset that if true, instead of rotating the ramps connected it will reset them.
+     */
     void rotateConnectedRamps(bool isReset = false)
     {
         var thisCell = LevelManager.Instance.posToCellDictionary[findBitParentObject().transform.position];

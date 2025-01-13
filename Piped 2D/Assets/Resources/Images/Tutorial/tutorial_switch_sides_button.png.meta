@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tutorial_switch_sides_button_0: -3414088822471428994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

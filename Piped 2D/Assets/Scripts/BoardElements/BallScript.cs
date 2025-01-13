@@ -2,37 +2,98 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ *  class handling the behaviour of the marbles.
+ */
 public class BallScript : MonoBehaviour
 {
+    /**
+     * A private Material field for referencing the material the marble needs to change to when it gets destroyed.
+     * Serialized in order to access it from the Unity editor.
+     */
     [SerializeField]
     UnityEngine.Material darkBlueMaterial;
+
+    /**
+     * A private ParticleSystem field for referencing the particle system that releases coloured smoke particles after the marble gets destroyed.
+     * Serialized in order to access it from the Unity editor.
+     */
     [SerializeField]
     ParticleSystem smoke;
 
+    /**
+     * A private RigidBody field for referencing the rigidbody of the marble
+     */
     Rigidbody2D rb;
+
+    /**
+     * A private Vector2 field for storing the direction the marble is currently moving in.
+     */
     Vector2 dir = Vector2.zero;
+
+    /**
+     * A public int field that defines the strength the marble jumps with when the player clicks it.
+     */
     public int strength = 10;
+
+    /**
+     * A public Dictionary that keeps track of whether the marble is inside any blocks or not.
+     */
     public Dictionary<int, bool> isInBlocks = new Dictionary<int, bool>();
+
+    /**
+     * A public List that keeps track of which blocks the marble is currently inside.
+     */
     public List<int> blocksThatBallIsIn = new List<int>();
+
+    /**
+     * A public bool field that decides whether the marble needs to get destroyed on collision or not.
+     */
     public bool ignoreFall = false;
+
+    /**
+     * A public bool field that helps with decision whether the marble needs to get 
+     * destroyed on collision or not - it does not when the marble is at the very bottom of the 
+     * board right after leaving a path from blocks.
+     */
     public bool isAtOutput = false;
 
+    /**
+     * A public bool deciding whether the marble can play a glass hit sound effect.
+     */
     public bool canPlayGlassSfx = true;
+
+    /**
+     * A public bool deciding whether the marble can play a metal hit sound effect.
+     */
     public bool canPlayMetalSfx = true;
 
+    /**
+     * A private bool deciding whether the marble gets destroyed on collision or not.
+     */
     bool destroyOnHitGround = false;
+
+    /**
+     * A private bool stating whether the coroutine destroying the marble has started.
+     */
     bool destroyCoroutineStarted = false;
 
+    /**
+     * A private bool deciding whether the marble will get respawned after getting destroyed.
+     */
     bool willRespawn = false;
 
-    Ball ballType;
-
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        ballType = gameObject.CompareTag("BlueBall") ? Ball.Blue : Ball.Red;
     }
 
+    /**
+     * A private void method called every frame.
+     */
     private void Update()
     {
         // Stop the ball from going too fast
@@ -53,7 +114,9 @@ public class BallScript : MonoBehaviour
 
     }
 
-
+    /**
+     * A private void method called on collision with another object.
+     */
     private void OnCollisionEnter2D(Collision2D other)
     {
         // Destroy the ball if it was falling
@@ -125,6 +188,9 @@ public class BallScript : MonoBehaviour
         AudioManager.Instance.playRandomMarbleHitSfx(volume, otherMaterial);
     }
 
+    /**
+     * A private coroutine that handles special effects before destroying the marble and then destroying it.
+     */
     IEnumerator destroyCoroutine()
     {
         destroyCoroutineStarted = true;
@@ -133,6 +199,9 @@ public class BallScript : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /**
+     * A private coroutine that does not allow multiple marble hit sounds to play at almost the same time.
+     */
     IEnumerator soundWaitAfterCollision(float sec)
     {
         canPlayMetalSfx = false;
@@ -140,8 +209,10 @@ public class BallScript : MonoBehaviour
         canPlayMetalSfx = true;
     }
 
-
-    // Allow the player to nudge the ball in case it gets unexpectedly stuck
+    /**
+     * A private void method called when the mouse cursor is over the object.
+     * Is allows the player to nudge the ball in case it gets unexpectedly stuck.
+     */
     private void OnMouseOver()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -159,6 +230,11 @@ public class BallScript : MonoBehaviour
         }
     }
 
+    /**
+     * A public void method that handles the events after marble enters a block.
+     * 
+     * @param cell number of the block the marble is entering.
+     */
     public void handleBlockEnter(int cell)
     {
         // Add the ball to the list for respawning after restarting the simulation
@@ -178,6 +254,11 @@ public class BallScript : MonoBehaviour
         ignoreFall = true;
     }
 
+    /**
+     * A public void method that handles the events after marble exits a block.
+     * 
+     * @param cell number of the block the marble is entering.
+     */
     public void handleBlockExit(int cell)
     {
         if (blocksThatBallIsIn.Contains(cell))

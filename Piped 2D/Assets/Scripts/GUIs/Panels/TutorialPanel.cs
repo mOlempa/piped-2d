@@ -4,34 +4,82 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/**
+ * A class controlling the tutorial panel in the UI within the Level scene
+ */
 public class TutorialPanel : MonoBehaviour
 {
+    /**
+    * A private Image field for referencing the image of the overlay for the clarity of the tutorial.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Image spotlightOverlay;
 
+    /**
+    * A private GameObject field for referencing the tutorial card.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject card;
 
+    /**
+    * A private Button field for referencing the Next button within the tutorial panel.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button nextCardButton;
 
+    /**
+    * A private Button field for referencing the Back button within the tutorial panel.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button previousCardButton;
 
+    /**
+    * A private TextMeshProUGUI field for referencing the text of the tutorial card.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     TextMeshProUGUI cardContentText;
 
+    /**
+    * A private GameUI field for referencing the script of the game UI
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameUI gameUIScript;
 
-    bool isNextCard = false;
-    bool isPreviousCard = false;
-    bool isClosed = false;
-
-    public bool? thisLevelHasTutorial;
-
+    /**
+    * A private RectTransform field for referencing the transform of the panel, used for the control of the tutorial card position.
+    */
     RectTransform cardTransform;
 
+    /**
+    * A private bool field for controlling forward navigation within the tutorial.
+    */
+    bool isNextCard = false;
+
+    /**
+    * A private bool field for controlling backward navigation within the tutorial.
+    */
+    bool isPreviousCard = false;
+
+    /**
+    * A private bool field for controlling closing and opening the tutorial.
+    */
+    bool isClosed = false;
+
+    /**
+    * A public bool field for checking whether the current level has a tutorial.
+    */
+    public bool? thisLevelHasTutorial;
+
+    /**
+    * A private tuple of Vector2 variables named and assigned for quick access to defined and named positions.
+    */
     (Vector2 center, Vector2 topLeft, Vector2 topRight, 
         Vector2 middleLeft, Vector2 middleRight, 
         Vector2 bottomLeft, Vector2 bottomRight) positions =
@@ -40,9 +88,12 @@ public class TutorialPanel : MonoBehaviour
         new Vector2(-250, -85), new Vector2(250, -85));
 
 
+    /**
+     * A private void member function called at the start of the scene with the tutorial panel.
+     * It sets all the necessary variables and starts a coroutine handling the tutorial.
+     */
     private void Start()
     {
-        //GameManager.Instance.pauseGameSpeed();
         GameObject[] buttons = GameObject.FindGameObjectsWithTag("Button");
         foreach (GameObject buttonObject in buttons)
         {
@@ -54,7 +105,7 @@ public class TutorialPanel : MonoBehaviour
         if(getTutorialContent().Count > 0 )
         {
             thisLevelHasTutorial = true;
-            StartCoroutine(setNextContent());
+            StartCoroutine(setCardContent());
         }
         else
         {
@@ -63,32 +114,46 @@ public class TutorialPanel : MonoBehaviour
         }
     }
 
+    /**
+     * A public void member function that enables the tutorial panel.
+     */
     public void openTutorial()
     {
         isClosed = false;
         gameObject.SetActive(true);
-        StartCoroutine(setNextContent());
+        StartCoroutine(setCardContent());
     }
 
+    /**
+     * A public void member function that closes the tutorial panel.
+     */
     public void closeTutorial()
     {
         gameObject.SetActive(false);
         isClosed = true;
         gameUIScript.toggleInstruction();
-        //GameManager.Instance.resetGameSpeed();
     }
 
+    /**
+     * A public void member function that requests the next content of the tutorial.
+     */
     public void showNextCard()
     {
         isNextCard = true;
     }
 
+    /**
+     * A public void member function that requests the previous content of the tutorial.
+     */
     public void showPreviousCard()
     {
         isPreviousCard = true;
     }
 
-    IEnumerator setNextContent()
+    /**
+     * A coroutine handling the tutorial display and navigation.
+     */
+    IEnumerator setCardContent()
     {
         int counter = 0;
         disablePreviousButton();
@@ -138,15 +203,27 @@ public class TutorialPanel : MonoBehaviour
 
     }
 
+    /**
+     * A private member function that disables the Back button within the tutorial panel.
+     */
     void disablePreviousButton()
     {
         previousCardButton.interactable = false;
     }
+
+    /**
+     * A private member function that enables the Back button within the tutorial panel.
+     */
     void enablePreviousButton()
     {
         previousCardButton.interactable = true;
     }
 
+    /**
+     * A public member function that returns a tuple with the name of the tutorial overlay, tutorial card content and position of the tutorial on
+     * the screen depending on the current level set.
+     * @return a (string, string, Vector2) tuple of the tutorial overlay, tutorial card content and position of the tutorial on the screen
+     */
     public List<(string, string, Vector2)> getTutorialContent()
     {
         string blue = "<color=#4E8FF6><b>blue</b></color>";

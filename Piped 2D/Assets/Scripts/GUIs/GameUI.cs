@@ -9,81 +9,207 @@ using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Color = UnityEngine.Color;
 
+/**
+ * A class responsible for handling the Game UI.
+ */
 public class GameUI : MonoBehaviour
 {
+    /**
+    * A private InstructionPanel field for referencing the script of the instruction panel.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     InstructionPanel instructionPanelScript;
 
+    /**
+    * A private GameObject field for referencing the settings panel.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject settingsPanel;
 
+    /**
+    * A private GameObject field for referencing the tutorial panel.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject tutorialPanel;
 
+    /**
+    * A private GameObject field for referencing the hint panel.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     GameObject hintPanel;
 
     [Header("Menu UI")]
+    /**
+    * A private Button field for referencing the Instruction button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button instructionButton;
 
+    /**
+    * A private Button field for referencing the Main Menu button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button menuButton;
 
+    /**
+    * A private Button field for referencing the Tutorial button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button tutorialButton;
 
+    /**
+    * A private TextMeshProUGUI field for referencing the text of the level.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     TextMeshProUGUI levelText;
 
     [Header("UI")]
+    /**
+    * A private Button field for referencing the Switch Sides button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button switchStartingSideButton;
 
+    /**
+    * A private Button field for referencing the Speed button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button toggleGameSpeedUpButton;
 
+    /**
+    * A private Button field for referencing the simulation button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button toggleSystemButton;
 
+    /**
+    * A private Button field for referencing the Pause button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button togglePauseButton;
 
+    /**
+    * A private Button field for referencing the Delete Test Marbles button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button deleteTestBallsButton;
 
+    /**
+    * A private Button field for referencing the Next Level button.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     Button nextLevelButton;
 
    
-
-    //bool gameSpeedUp = false;
+    /**
+     * A public bool field that informs whether the game is paused or not.
+     */
     public bool gamePause = false;
 
+    /**
+     * A private bool field that informs whether the simulation toggle is blocked or not.
+     */
     bool gameToggleBlocked = false;
 
     [Header("Block Buttons")]
+    /**
+    * A public GameObject field for referencing the Pass button object.
+    */
     public GameObject passButtonObject;
+
+    /**
+    * A public GameObject field for referencing the Crossover button object.
+    */
     public GameObject crossoverButtonObject;
+
+    /**
+    * A public GameObject field for referencing the Bit button object.
+    */
     public GameObject bitButtonObject;
+
+    /**
+    * A public GameObject field for referencing the Stopper button object.
+    */
     public GameObject stopperButtonObject;
+
+    /**
+    * A public GameObject field for referencing the Gear button object.
+    */
     public GameObject gearButtonObject;
 
+    /**
+    * A public Button field for referencing the Pass button.
+    */
     private Button passButton;
+
+    /**
+    * A public TextMeshProUGUI field for referencing the Pass text.
+    */
     private TextMeshProUGUI passCounterText;
+
+    /**
+    * A public Button field for referencing the Crossover button.
+    */
     private Button crossoverButton;
+
+    /**
+    * A public TextMeshProUGUI field for referencing the Crossover text.
+    */
     private TextMeshProUGUI crossoverCounterText;
+
+    /**
+    * A public Button field for referencing the Bit button.
+    */
     private Button bitButton;
+
+    /**
+    * A public TextMeshProUGUI field for referencing the Bit text.
+    */
     private TextMeshProUGUI bitCounterText;
+
+    /**
+    * A public Button field for referencing the Stopper button.
+    */
     private Button stopperButton;
+
+    /**
+    * A public TextMeshProUGUI field for referencing the Stopper text.
+    */
     private TextMeshProUGUI stopperCounterText;
+
+    /**
+    * A public Button field for referencing the Gear button.
+    */
     private Button gearButton;
+
+    /**
+    * A public TextMeshProUGUI field for referencing the Gear text.
+    */
     private TextMeshProUGUI gearCounterText;
 
 
+    /**
+    * A public string field for storing the path to the icons.
+    */
     private string iconsPath = "Images/Icons/";
-    //Color yellowishTint = new Color(0.2f, 0.2f, 0.1f);
 
+    /**
+    * A private void method called when the script instance is being loaded. It sets necessary variables.
+    */
     private void Start()
     {
         settingsPanel.SetActive(true);
@@ -103,12 +229,6 @@ public class GameUI : MonoBehaviour
         GameManager.Instance.resetGameSpeed();
         toggleGameSpeedUpButton.image.sprite = Resources.Load<Sprite>(iconsPath + "clock_icon");
 
-        /*updateButtonColorBlock(switchStartingSideButton);
-        updateButtonColorBlock(toggleGameSpeedUpButton);
-        updateButtonColorBlock(toggleSystemButton);
-        updateButtonColorBlock(togglePauseButton);
-        updateButtonColorBlock(deleteTestBallsButton);*/
-
         tutorialPanel.SetActive(true);
         instructionPanelScript.gameObject.SetActive(true);
 
@@ -119,7 +239,6 @@ public class GameUI : MonoBehaviour
             Button button = buttonObject.GetComponent<Button>();
             button.onClick.AddListener(() => deselectButton());
             button.onClick.AddListener(() => AudioManager.Instance.playSfx("RegularButton"));
-            //updateButtonColorBlock(button);
         }
 
         instructionPanelScript.hideInstruction();
@@ -143,6 +262,9 @@ public class GameUI : MonoBehaviour
         StartCoroutine(blockGameToggle());
     }
 
+    /**
+    * A private coroutine that enables the Tutorial button if the level has a tutorial.
+    */
     IEnumerator setTutorialButton()
     {
         while (tutorialPanel.GetComponent<TutorialPanel>().thisLevelHasTutorial == null)
@@ -159,16 +281,24 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    /**
+     * A private void method that deselects the buttons.
+     */
     void deselectButton()
     {
         EventSystem.current.SetSelectedGameObject(null);
     }
+    /**
+     * A private void method that deselects the buttons.
+     */
     void deselectButtons()
     {
         EventSystem.current.SetSelectedGameObject(null);
     }
 
-
+    /**
+     * A private void method that hides all the buttons.
+     */
     private void hideAllButtons()
     {
         passButton.gameObject.SetActive(false);
@@ -180,10 +310,11 @@ public class GameUI : MonoBehaviour
         switchStartingSideButton.gameObject.SetActive(false);
 
         showNextLevelButton(false);
-
-        //nextLevelButton.gameObject.SetActive(false);
     }
 
+    /**
+     * A public void method that sets the buttons available for the level.
+     */
     public void setAvailableButtons()
     {
         passButton = passButtonObject.GetComponent<Button>();
@@ -232,6 +363,9 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    /**
+     * A public void method that updates the buttons available for the level.
+     */
     public void updateAvailableBlockButtons()
     {
         foreach(KeyValuePair<BlockType, int> entry in GameManager.Instance.availableBlocksCopy)
@@ -257,27 +391,9 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    private TextMeshProUGUI getCounterTextByBlockType(BlockType blockType)
-    {
-        switch (blockType)
-        {
-            case BlockType.Pass:
-                return passCounterText;
-            case BlockType.Crossover:
-                return crossoverCounterText;
-            case BlockType.Stopper:
-                return stopperCounterText;
-            case BlockType.Bit:
-                return bitCounterText;
-            case BlockType.Gear:
-                return gearCounterText;
-            default:
-                Debug.LogError("ERROR: getCounterTextByBlockType - Wrong block type! Returning null");
-                return null;
-        }
-    }
-
-
+    /**
+     * A public void method that toggles the instruction.
+     */
     public void toggleInstruction()
     {
         if (instructionPanelScript.instructionVisible)
@@ -292,6 +408,9 @@ public class GameUI : MonoBehaviour
 
     }
 
+    /**
+     * A public void method that shows the Next Level button
+     */
     public void showNextLevelButton(bool show)
     {
         nextLevelButton.gameObject.SetActive(show);
@@ -301,7 +420,9 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    // Cycle the speed of the game with UI button
+    /**
+     * A public void method that cycles through the speed of the game.
+     */
     public void cycleSpeed()
     {
         // If game was at regular speed, speed it up
@@ -332,6 +453,9 @@ public class GameUI : MonoBehaviour
         deselectButtons();
     }
 
+    /**
+     * A public void method that updates the Speed button.
+     */
     public void updateSpeedButon()
     {
         if (GameManager.Instance.currentGameSpeed == GameSpeed.Regular)
@@ -351,7 +475,9 @@ public class GameUI : MonoBehaviour
         }
     }
 
-
+    /**
+     * A public void method that toggles pause of the game.
+     */
     public void toggleGamePause()
     {
         if (gamePause)
@@ -383,7 +509,9 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    // Accessed by a button, redirects to GameManager function since button didn't work well with GameManager singleton --> kept returning 0
+    /**
+     * A public void method that toggles the simulation
+     */
     public void toggleGame()
     {
         if (gameToggleBlocked)
@@ -403,6 +531,9 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    /**
+     * A private coroutine that blocks the player from toggling the simulation for a short while.
+     */
     IEnumerator blockGameToggle()
     {
         //print("<color=green>Coroutine started");
@@ -418,11 +549,17 @@ public class GameUI : MonoBehaviour
         //print("<color=red>Coroutine finished");
     }
 
+    /**
+     * A public void method that calls a method from Game Manager to delete the test marbles.
+     */
     public void deleteTestBalls()
     {
         GameManager.Instance.deleteTestBalls();
     }
 
+    /**
+     * A public void method that updates the colors for the buttons.
+     */
     public void updateButtonColorBlock(Button button)
     {
         Color color = Color.white;
@@ -443,32 +580,44 @@ public class GameUI : MonoBehaviour
         button.colors = cb;
     }
 
-    public void toggleSuperSpeed()
-    {
-        GameManager.Instance.superSpeedUpGame();
-    }
-
+    /**
+     * A public void method that calls a method from Game Manager that changes the levels.
+     */
     public void loadNextLevel()
     {
         GameManager.Instance.LoadNextLevel();
     }
+
+    /**
+     * A public void method that calls a method from Game Manager that reloads the level.
+     */
     public void reloadLevel()
     {
         GameManager.Instance.ReloadLevel();
     }
+
+    /**
+     * A public void method that calls a method from Game Manager that moves the player to Level Selection Menu.
+     */
     public void loadLevelSelection()
     {
         GameManager.Instance.LoadLevelSelection();
     }
+
+    /**
+     * A public void method that calls a method from Game Manager that moves the player to Main Menu.
+     */
     public void loadMainMenu()
     {
         GameManager.Instance.LoadMainMenu();
     }
 
+    /**
+     * A public void method that opens a tutorial.
+     */
     public void openTutorial()
     {
         tutorialPanel.GetComponent<TutorialPanel>().openTutorial();
-        //tutorialPanel.SetActive(true);
     }
 
 }

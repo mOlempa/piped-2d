@@ -1,24 +1,46 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/**
+ * A class controlling the instruction panel in the UI within the Level scene.
+ */
 public class InstructionPanel : MonoBehaviour
 {
+    /**
+    * A private TextMeshProUGUI field for referencing the task instruction text.
+    * Serialized in order to access it from the Unity editor.
+    */
     [SerializeField]
     private TextMeshProUGUI contentText;
+
+    /**
+     * A private TextMeshProUGUI field for referencing the text at the top of the panel.
+     * Serialized in order to access it from the Unity editor.
+     */
     [SerializeField]
     private TextMeshProUGUI titleText;
 
+    /**
+     * A private Image field for referencing the image overlay for guiding the player in more complicated tasks.
+     */
     private Image overlay;
 
+    /**
+     * A private string field that stores the path to the overlay images within the assets.
+     */
     private string overlaysPath = "Images/Instruction Overlays/overlay_";
 
+    /**
+     * A public bool field that is used to signal to other scripts for toggling the instruction.
+     */
     public bool instructionVisible = false;
 
-
+    /**
+     * A public void member function that shows the instruction within the instruction panel.
+     */
     public void showInstruction()
     {
         (string title, string instruction) = getLevelInstruction();
@@ -30,13 +52,19 @@ public class InstructionPanel : MonoBehaviour
         overlay.sprite = getOverlaySprite(GameManager.Instance.currentLevel);
     }
 
+    /**
+     * A public void member function that hides the instruction within the instruction panel.
+     */
     public void hideInstruction()
     {
         gameObject.SetActive(false);
         instructionVisible = false;
     }
 
-
+    /**
+     * A public member function that returns the sprite of for the overlay image depending on the current level set.
+     * @return a Sprite for the overlay image
+     */
     public Sprite getOverlaySprite(Level level)
     {
         string overlayFile = overlaysPath + "level" + ((int)level + 1);
@@ -50,7 +78,10 @@ public class InstructionPanel : MonoBehaviour
         }
     }
 
-
+    /**
+     * A public member function that returns a tuple with title and instruction text depending on the current level set.
+     * @return a (string, string) tuple of the task number in form of a title and task instruction.
+     */
     public (string title, string instruction) getLevelInstruction()
     {
         string blue = "<color=#4E8FF6><b>blue</b></color>";

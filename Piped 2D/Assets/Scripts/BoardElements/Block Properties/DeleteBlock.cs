@@ -1,7 +1,13 @@
 using UnityEngine;
 
+/**
+ * A class handling deletion of a block from the board
+ */
 public class DeleteBlock : MonoBehaviour
 {
+    /**
+     * A private void method that is called when the mouse cursor is over the object.
+     */
     private void OnMouseOver()
     {
         // Block player interaction with the blocks once simulation has started
@@ -18,6 +24,9 @@ public class DeleteBlock : MonoBehaviour
         }
     }
 
+    /**
+     * A private void method that handles the deletion of the block.
+     */
     public void destroyBlock()
     {
         // Delete the block
