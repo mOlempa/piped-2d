@@ -1,0 +1,44 @@
+#Cynem
+"You look kind of mad.
+
+#You
+Me? Why?
+
+#Cynem
+You have not spoken to me since\n
+we talked about those non-magical Bits of yours.
+
+#You
+Well, because... I'm frustrated you don't want to believe me.
+
+#Cynem
+It just seems too unrealistic to me.
+
+#You
+Would you believe if you saw it by yourself?
+
+#Cynem
+Maybe... But it would have to be with my own very eyes.\n
+No theory, just actual Bits flipping and\n
+counting right in front of me.
+
+#You
+Okay, wait, I think it's somewhere...\n
+Oh, here! Look at the maps!
+
+#You
+Do you see the setups after level 20? I believe that is it!
+
+#You
+You can take these instructions\n
+and go down these corridors to check it out by yourself.
+
+#Cynem
+Are you sure?
+
+#You
+Of course! I will fix the ones on the way there,\n
+and you can go check if I was lying.
+
+#Cynem
+Alright, see you there then.

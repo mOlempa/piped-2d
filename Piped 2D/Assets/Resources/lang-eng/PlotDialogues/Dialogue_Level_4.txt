@@ -1,0 +1,53 @@
+#Empty
+<color=#AECD68>Hey, may I accompany you?
+
+#You
+GAH! Cynem! You scared me! How did you find me down here?
+
+#Cynem
+After all the sirens went on, I kind of figured it must have been the system…
+
+#Cynem
+The council doesn’t even want to disclose the situation to the public,\n
+I guess to avoid the panic...\n
+They probably want to reach the old man first.
+
+#Cynem
+Is he out of town?\n
+I thought I would encounter him right here and, you know,\n
+check on the situation and stuff…
+
+#You
+Yeah, the professor's gone for a couple of weeks since the end of the finals.
+
+#Cynem
+Huh...
+
+#You
+Now, can I go back to the repairs?\n
+Someone needs to get the system back up on its feet.
+
+#Cynem
+Sure sure… But how do you know what to do exactly?\n
+Did he leave you some notes in case of such emergencies?
+
+#You
+Yeah, something like that…
+
+#Cynem
+Well, can I help?
+
+#You
+Sure, see the map?\n
+\n
+You can go down these stairs to the level 5 and turn right,\n
+there should be the next system board.
+
+#You
+See if anything is broken, it should work like it says right here.
+
+#You
+I'll work on this board in the meantime.
+
+#Cynem
+Got it!

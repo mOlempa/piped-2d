@@ -1,0 +1,59 @@
+#You
+Why did it not stop?
+
+#Narrator
+--Now the rumbling is joined with multiple hissings inside the walls.--
+
+#You
+It should have worked!\n
+The system sounds like it's going to explode any minute!
+
+#Narrator
+--Cynem hides his head in shaky hands--
+
+#Cynem
+I'm sorry... I'm so sorry... I-I didn't mean to...
+
+#You
+What is it?
+
+#Cynem
+I messed with the notes.
+
+#Cynem
+They told me to.
+
+#Cynem
+I didn't know it would... Oh God...
+
+#You
+Calm down, there MUST be\n
+something we can do.
+
+#Cynem
+Its all over...
+
+#You
+God, THINK! We don't have time!
+
+#Narrator
+--Suddenly, Cynem lifts his head.--
+
+#Cynem
+...we skipped it.
+
+#You
+Huh?
+
+#Cynem
+41
+
+#You
+41!
+
+#You
+WE SKIPPED ONE LEVEL!
+
+#Narrator
+--You both rush up the stairs,--\n
+--stumbling over the steps as the ground shakes stronger.--

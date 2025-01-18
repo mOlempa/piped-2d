@@ -1,0 +1,47 @@
+#You
+Okay, now you can't tell me you don't hear it.\n
+The whole underground is shaking.
+
+#Cynem
+Maybe you're right...
+
+#Narrator
+--You both hear the rumbling getting closer--\n
+\n
+--Suddenly, the top of the board you just fixed explodes with--\n
+--a multitude of blue and white marbles. Cynem looks at you with fear in his eyes.--
+
+#Cynem
+That is the system overload?
+
+#You
+What overload?
+
+#Cynem
+The system... there were too many marbles delivered\n
+to system's vulnerable modules.
+
+#You
+How do you know that?
+
+#Cynem
+Uh...
+
+#Cynem
+...
+
+#You
+Okay, that's not important right now.\n
+Do you know how to fix it?
+
+#Cynem
+A hard reset I think. But I do not know\n
+where we could possibly do that from.
+
+#You
+There is not much left to check, I believe\n
+we went through all the boards and we didn't\n
+see anything like that.
+
+#You
+Let's check the last one left.

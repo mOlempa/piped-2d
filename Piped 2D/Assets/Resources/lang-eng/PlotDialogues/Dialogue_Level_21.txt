@@ -1,0 +1,30 @@
+#Narrator
+--You walk down the corridor--\n
+--From far away, you see Cynem hunched over the papers--\n
+--underneath the board. He seems to be very occupied by something.--
+
+#You
+Cynem! Hey! So how was it?
+
+#Cynem
+Ah, hey.
+
+#You
+Did you see the counting?
+
+#Cynem
+Counting? Aah, yeah, I did, it was pretty cool.
+
+#You
+And that's all? Just pretty cool?
+
+#Cynem
+I mean, very cool, truly awesome!\n
+How were your boards? Didn't have much to take care of?
+
+#You
+What do you mean? I've fixed\n
+quite a couple since I last saw you.
+
+#Cynem
+Huh, time flies quickly I guess.

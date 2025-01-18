@@ -1,0 +1,5 @@
+#Narrator
+--While you are fixing the system boards, Cynem seems to--\n
+--stick around, but is not making any conversation.--\n
+--Or rather that sticking around you specifically,--\n
+--he is studying boards, both the ones you fixed and the ones further down.--

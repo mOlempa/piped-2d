@@ -1,0 +1,25 @@
+#Cynem
+Hey.
+
+#You
+Oh hi, haven't spoken to you in a while.\n
+What have you been working on so hard?
+
+#Cynem
+Ah, just, you know...\n
+trying to help you solve these.
+
+#You
+And how did it go?\n
+Did you come up with something?
+
+#Cynem
+No, not really. So, here,\n
+have the rest of your papers back.
+
+#You
+Oh, okay. Thank you for trying though,\n
+didn't think you would be this involved.
+
+#Cynem
+Sure.

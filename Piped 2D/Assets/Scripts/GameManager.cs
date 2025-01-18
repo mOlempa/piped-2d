@@ -15,11 +15,19 @@ public enum GameSpeed
     Slow
 }
 
+public enum Language
+{
+    English,
+    Polski
+}
+
 /**
  * A class handling communication between other scripts and multiple events behind the game.
  */
 public class GameManager : MonoBehaviour
 {
+    public Language currentLanguage = Language.English;
+
     /**
      * A public bool field informing whether the Level Complete text should be displayed.
      */

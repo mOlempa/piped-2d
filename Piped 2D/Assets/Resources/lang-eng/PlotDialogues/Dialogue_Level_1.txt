@@ -1,0 +1,18 @@
+#Narrator
+A catastrophe happened:
+the city’s supply underground system of {yellow}thought forms{yellow_end}\n
+- magical marbles powering the town and providing essential energy for protection -\n
+has gone down.
+
+#Narrator
+There is only one still alive engineer in the city\n
+who specializes in these systems.\n
+Unfortunately, he is not there at the moment of this disaster.
+
+#Narrator
+He is your professor at the town's academy,\n
+and you are {yellow}the only one{yellow_end} who he entrusted with access\n
+to the maps and instructions for this system.\n
+\n
+You decide to take the matters into your own hands\n
+and head to the underground system yourself.
