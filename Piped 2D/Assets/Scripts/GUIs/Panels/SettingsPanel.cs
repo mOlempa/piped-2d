@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +22,9 @@ public class SettingsPanel : MonoBehaviour
     [SerializeField]
     Button musicButton, sfxButton;
 
+    [SerializeField]
+    TMP_Dropdown languageDropDown;
+
     /**
       * A private string field to store the path to the icons for the buttons in the assets folder.
       */
@@ -29,6 +34,22 @@ public class SettingsPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    /*public void changeLanguage()
+    {
+        Language lan;
+        switch (languageDropDown.value)
+        {
+            case 0:
+                lan = Language.English; break;
+            case 1:
+                lan = Language.Polski; break;
+            default:
+                lan = Language.English; break;
+        }
+        
+        GameManager.Instance.currentLanguage = lan;
+    }*/
 
     /**
      * A private void member function called at the start of the scene with the settings panel.
